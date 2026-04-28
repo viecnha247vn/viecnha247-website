@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tuyển Cộng tác viên — ViệcNhà247 | Thu nhập 8-25tr/tháng</title>
+<meta name="description" content="Trở thành cộng tác viên ViệcNhà247 — đào tạo miễn phí, đồng phục tặng, thu nhập 8-25 triệu/tháng.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<style>
+.benefits-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+@media (max-width: 880px) { .benefits-grid { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 480px) { .benefits-grid { grid-template-columns: 1fr; } }
+.benefit-card { background: white; border-radius: 20px; padding: 2rem 1.5rem; text-align: center; border: 1px solid var(--cream-dark); transition: all var(--t-base); }
+.benefit-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); border-color: var(--gold); }
+.benefit-icon { width: 64px; height: 64px; margin: 0 auto 1rem; background: linear-gradient(135deg, var(--gold), var(--gold-dark)); border-radius: 18px; display: flex; align-items: center; justify-content: center; font-size: 1.75rem; color: white; box-shadow: var(--shadow-gold); }
+.benefit-card h3 { font-size: 1.0625rem; font-weight: 800; margin-bottom: 0.5rem; color: var(--ink); }
+.benefit-card p { font-size: 0.875rem; color: var(--stone); line-height: 1.55; }
+.income-table { background: white; border-radius: 20px; padding: 2rem; border: 1px solid var(--cream-dark); }
+.income-row { display: grid; grid-template-columns: 1fr 1fr 1fr; padding: 1rem 0; border-bottom: 1px dashed var(--cream-dark); align-items: center; }
+.income-row:last-child { border-bottom: none; }
+.income-row.header { font-weight: 800; color: var(--gold-dark); text-transform: uppercase; font-size: 0.75rem; letter-spacing: 0.08em; }
+.income-row .ng { font-weight: 700; color: var(--ink); }
+.income-row .inc { color: var(--gold-dark); font-weight: 800; font-size: 1.125rem; }
+.steps-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; }
+@media (max-width: 880px) { .steps-grid { grid-template-columns: repeat(2, 1fr); } }
+.step-card { text-align: center; }
+.step-num { font-family: 'Playfair Display', serif; font-size: 4rem; font-weight: 900; font-style: italic; line-height: 1; background: linear-gradient(135deg, var(--gold), var(--gold-dark)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom: 0.5rem; }
+.step-card h4 { font-size: 1.125rem; font-weight: 800; margin-bottom: 0.5rem; }
+.step-card p { font-size: 0.875rem; color: var(--stone); }
+.signup-form { background: white; border-radius: 24px; padding: 2.5rem; box-shadow: var(--shadow-lg); max-width: 600px; margin: 0 auto; }
+@media (max-width: 600px) { .signup-form { padding: 1.75rem 1.25rem; } }
+.btn-submit { width: 100%; background: linear-gradient(135deg, var(--gold), var(--gold-dark)); color: white; border: none; padding: 1.125rem; border-radius: 100px; font-family: inherit; font-size: 1rem; font-weight: 800; cursor: pointer; box-shadow: var(--shadow-gold); display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; transition: all 0.25s ease; margin-top: 0.5rem; }
+.btn-submit:hover { transform: translateY(-2px); box-shadow: 0 12px 32px rgba(232,166,39,0.4); }
+</style>
+</head>
+<body>
+
+<nav class="navbar">
+  <a href="index.html" class="nav-logo"><span class="mark">V</span>Việc<strong>Nhà247</strong></a>
+  <div class="nav-menu">
+    <a href="dich-vu.html">Dịch vụ</a>
+    <a href="ve-chung-toi.html">Về chúng tôi</a>
+    <a href="blog.html">Blog</a>
+    <a href="tuyen-ctv.html" class="active">Tuyển CTV</a>
+    <a href="lien-he.html">Liên hệ</a>
+  </div>
+  <a href="#dang-ky" class="nav-cta">Đăng ký ngay <span>→</span></a>
+  <button class="nav-toggle" onclick="toggleSidebar()">☰</button>
+</nav>
+
+<div class="sidebar-overlay" onclick="toggleSidebar()"></div>
+<aside class="sidebar">
+  <button class="sidebar-close" onclick="toggleSidebar()">×</button>
+  <div class="sidebar-logo">ViệcNhà247</div>
+  <ul class="sidebar-menu">
+    <li><a href="index.html">Trang chủ</a></li>
+    <li><a href="dich-vu.html">Dịch vụ</a></li>
+    <li><a href="ve-chung-toi.html">Về chúng tôi</a></li>
+    <li><a href="blog.html">Blog</a></li>
+    <li><a href="tuyen-ctv.html" class="active">Tuyển CTV</a></li>
+    <li><a href="ve-app.html">Tải app</a></li>
+    <li><a href="lien-he.html">Liên hệ</a></li>
+  </ul>
+  <a href="#dang-ky" class="sidebar-cta">Đăng ký ngay →</a>
+</aside>
+
+<section class="page-hero">
+  <div class="container">
+    <div class="page-hero-content">
+      <span class="page-hero-eyebrow">🌟 Tuyển 200 CTV trong tháng</span>
+      <h1>Trở thành <span class="accent">cộng tác viên</span> ViệcNhà247</h1>
+      <p>Đào tạo miễn phí · Tặng đồng phục + bảng tên · Thu nhập 8-25 triệu/tháng. Chỉ cần CMND/CCCD và tinh thần phục vụ.</p>
+      <nav class="breadcrumb mt-4"><a href="index.html">Trang chủ</a><span class="separator">›</span><span class="current">Tuyển CTV</span></nav>
+    </div>
+  </div>
+</section>
+
+<section class="section section-light">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-eyebrow">Quyền lợi CTV</span>
+      <h2 class="section-title">6 lý do để chọn <span class="accent">ViệcNhà247</span></h2>
+    </div>
+    <div class="benefits-grid">
+      <div class="benefit-card"><div class="benefit-icon">💰</div><h3>Thu nhập cao</h3><p>8-25 triệu/tháng tùy ngành. Hoa hồng chỉ 15-22% — CTV nhận 78-85% giá trị đơn.</p></div>
+      <div class="benefit-card"><div class="benefit-icon">🎓</div><h3>Đào tạo MIỄN PHÍ</h3><p>120 video chuyên sâu cho 8 ngành. Học online, kiểm tra cuối khóa.</p></div>
+      <div class="benefit-card"><div class="benefit-icon">🎁</div><h3>Tặng bộ khởi đầu</h3><p>Áo đồng phục + bảng tên + voucher 100k miễn phí sau khi pass đào tạo.</p></div>
+      <div class="benefit-card"><div class="benefit-icon">⏰</div><h3>Linh hoạt thời gian</h3><p>Tự chọn giờ làm. Phù hợp mẹ bỉm, sinh viên, người làm thêm sau giờ.</p></div>
+      <div class="benefit-card"><div class="benefit-icon">🛡️</div><h3>Bảo hiểm tai nạn</h3><p>Tai nạn lao động trong giờ làm — công ty hỗ trợ y tế và bồi thường.</p></div>
+      <div class="benefit-card"><div class="benefit-icon">📈</div><h3>Lên hạng — tăng đơn</h3><p>Đồng → Bạc → Vàng → Kim Cương. Hạng cao = ưu tiên đơn cao cấp.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-cream">
+  <div class="container container-narrow">
+    <div class="section-header">
+      <span class="section-eyebrow">Thu nhập tham khảo</span>
+      <h2 class="section-title">Bạn có thể kiếm được <span class="accent">bao nhiêu</span>?</h2>
+      <p class="section-desc">Dữ liệu thực từ CTV làm full-time (6-8 giờ/ngày)</p>
+    </div>
+    <div class="income-table">
+      <div class="income-row header"><div>Ngành</div><div>Đơn/tháng</div><div>Thu nhập</div></div>
+      <div class="income-row"><div class="ng">🧹 Dọn dẹp</div><div>40-60</div><div class="inc">8-15tr</div></div>
+      <div class="income-row"><div class="ng">⚡ Sửa điện</div><div>30-50</div><div class="inc">12-20tr</div></div>
+      <div class="income-row"><div class="ng">💧 Sửa nước</div><div>30-50</div><div class="inc">12-22tr</div></div>
+      <div class="income-row"><div class="ng">🚛 Chuyển nhà</div><div>15-25</div><div class="inc">15-25tr</div></div>
+      <div class="income-row"><div class="ng">🍳 Nấu ăn</div><div>20-40</div><div class="inc">10-18tr</div></div>
+      <div class="income-row"><div class="ng">👴 Chăm sóc NCT</div><div>Hợp đồng tháng</div><div class="inc">12-20tr</div></div>
+      <div class="income-row"><div class="ng">🛒 Đi chợ hộ</div><div>60-100</div><div class="inc">8-12tr</div></div>
+      <div class="income-row"><div class="ng">🔨 Sửa đa năng</div><div>40-70</div><div class="inc">10-18tr</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-light">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-eyebrow">Quy trình đăng ký</span>
+      <h2 class="section-title">Trở thành CTV trong <span class="accent">4 bước</span></h2>
+    </div>
+    <div class="steps-grid">
+      <div class="step-card"><div class="step-num">01</div><h4>Đăng ký</h4><p>Điền form bên dưới. Mất 2 phút.</p></div>
+      <div class="step-card"><div class="step-num">02</div><h4>Phỏng vấn</h4><p>Video call 15 phút với chúng tôi.</p></div>
+      <div class="step-card"><div class="step-num">03</div><h4>Đào tạo</h4><p>15 video × 2 phút. Học mọi lúc.</p></div>
+      <div class="step-card"><div class="step-num">04</div><h4>Nhận đơn</h4><p>Pass kiểm tra → bắt đầu kiếm tiền.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-cream" id="dang-ky">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-eyebrow">Đăng ký ngay</span>
+      <h2 class="section-title">Bước đầu tiên trên <span class="accent">hành trình</span> mới</h2>
+      <p class="section-desc">Điền form — chúng tôi gọi lại trong 24 giờ để hẹn phỏng vấn.</p>
+    </div>
+    <form class="signup-form" onsubmit="event.preventDefault(); alert('Cảm ơn! Chúng tôi sẽ gọi lại trong 24 giờ.');">
+      <div class="form-row">
+        <div class="form-group"><label class="form-label">Họ tên <span class="req">*</span></label><input type="text" class="form-input" placeholder="Nguyễn Văn A" required></div>
+        <div class="form-group"><label class="form-label">Tuổi <span class="req">*</span></label><input type="number" class="form-input" placeholder="25" min="18" max="60" required></div>
+      </div>
+      <div class="form-row">
+        <div class="form-group"><label class="form-label">Số điện thoại <span class="req">*</span></label><input type="tel" class="form-input" placeholder="0901 234 567" required></div>
+        <div class="form-group"><label class="form-label">Khu vực ở <span class="req">*</span></label>
+          <select class="form-input" required><option value="">Chọn quận</option><option>Quận 1</option><option>Quận 4</option><option>Quận 7</option><option>Bình Thạnh</option><option>Thủ Đức</option><option>Khác</option></select></div>
+      </div>
+      <div class="form-group"><label class="form-label">Ngành muốn làm <span class="req">*</span></label>
+        <select class="form-input" required><option value="">Chọn ngành</option><option>🧹 Dọn dẹp</option><option>⚡ Sửa điện</option><option>💧 Sửa nước</option><option>🚛 Chuyển nhà</option><option>🍳 Nấu ăn</option><option>👴 Chăm sóc NCT</option><option>🛒 Đi chợ hộ</option><option>🔨 Sửa đa năng</option></select></div>
+      <div class="form-group"><label class="form-label">Kinh nghiệm</label><textarea class="form-input" placeholder="Mô tả ngắn kinh nghiệm của bạn (nếu có)"></textarea></div>
+      <button type="submit" class="btn-submit">Đăng ký ngay <span>→</span></button>
+      <p style="text-align: center; margin-top: 1rem; font-size: 0.75rem; color: var(--stone);">🔒 Thông tin được bảo mật. Chỉ dùng để liên hệ tuyển dụng.</p>
+    </form>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand"><h3>ViệcNhà247</h3><p>Nền tảng dịch vụ gia đình — kết nối CTV với khách hàng trên 8 ngành.</p><p style="font-size: 0.8125rem;">📍 TPHCM<br>📞 1900 6247</p></div>
+      <div class="footer-col"><h4>Dịch vụ</h4><ul><li><a href="dich-vu.html">Tất cả dịch vụ</a></li><li><a href="index.html#dat-lich">Đặt lịch</a></li><li><a href="ve-app.html">Tải app</a></li></ul></div>
+      <div class="footer-col"><h4>Công ty</h4><ul><li><a href="ve-chung-toi.html">Về chúng tôi</a></li><li><a href="tuyen-ctv.html">Tuyển CTV</a></li><li><a href="blog.html">Blog</a></li><li><a href="lien-he.html">Liên hệ</a></li></ul></div>
+      <div class="footer-col"><h4>Pháp lý</h4><ul><li><a href="phap-ly.html">Điều khoản</a></li><li><a href="phap-ly.html">Bảo mật</a></li><li><a href="phap-ly.html">Khiếu nại</a></li></ul></div>
+    </div>
+    <div class="footer-bottom"><div>© 2026 ViệcNhà247. Bảo lưu mọi quyền.</div><div class="social"><a href="#">f</a><a href="#">t</a><a href="#">Z</a><a href="#">▶</a></div></div>
+  </div>
+</footer>
+
+<a href="tel:19006247" class="floating-call"><span class="ring"></span><span class="label">Gọi ngay</span></a>
+
+<script>
+function toggleSidebar() {
+  document.querySelector('.sidebar').classList.toggle('active');
+  document.querySelector('.sidebar-overlay').classList.toggle('active');
+  document.body.style.overflow = document.querySelector('.sidebar').classList.contains('active') ? 'hidden' : '';
+}
+document.querySelectorAll('a[href^="#"]').forEach(a => a.addEventListener('click', e => {
+  const href = a.getAttribute('href'); if (href === '#') return;
+  const t = document.querySelector(href);
+  if (t) { e.preventDefault(); window.scrollTo({ top: t.getBoundingClientRect().top + window.pageYOffset - 100, behavior: 'smooth' }); }
+}));
+</script>
+</body>
+</html>

@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dịch vụ — ViệcNhà247 | 8 dịch vụ gia đình tận tâm</title>
+<meta name="description" content="Khám phá 8 dịch vụ gia đình của ViệcNhà247: Dọn dẹp, Sửa điện, Sửa nước, Chuyển nhà, Nấu ăn, Chăm sóc NCT, Đi chợ hộ, Sửa đa năng. Giá minh bạch, CTV đào tạo bài bản.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<style>
+/* Trang dịch vụ — chi tiết riêng */
+.service-detail {
+  background: white;
+  border-radius: 24px;
+  padding: 2.5rem;
+  border: 1px solid var(--cream-dark);
+  margin-bottom: 2rem;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 2rem;
+  align-items: start;
+  transition: all var(--t-base);
+}
+.service-detail:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--gold);
+}
+@media (max-width: 768px) {
+  .service-detail { grid-template-columns: 1fr; padding: 1.75rem 1.5rem; }
+}
+.service-icon-big {
+  width: 100px; height: 100px;
+  background: linear-gradient(135deg, var(--cream) 0%, var(--cream-dark) 100%);
+  border-radius: 24px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 3rem;
+  flex-shrink: 0;
+  transition: all var(--t-base);
+}
+.service-detail:hover .service-icon-big {
+  background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dark) 100%);
+  transform: scale(1.05) rotate(-3deg);
+  box-shadow: var(--shadow-gold);
+}
+.service-content h3 {
+  font-size: 1.5rem;
+  font-weight: 800;
+  margin-bottom: 0.5rem;
+  color: var(--ink);
+}
+.service-tagline {
+  color: var(--gold-dark);
+  font-weight: 600;
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 1rem;
+}
+.service-content > p {
+  color: var(--stone);
+  margin-bottom: 1.25rem;
+  line-height: 1.7;
+}
+.service-features {
+  list-style: none;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5rem 1rem;
+  margin-bottom: 1.25rem;
+}
+@media (max-width: 600px) { .service-features { grid-template-columns: 1fr; } }
+.service-features li {
+  font-size: 0.875rem;
+  color: var(--charcoal);
+  padding-left: 1.25rem;
+  position: relative;
+}
+.service-features li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: var(--success);
+  font-weight: 800;
+}
+.service-pricing {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 1.25rem;
+  border-top: 1px dashed var(--cream-dark);
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+.service-price-tag {
+  font-size: 0.75rem;
+  color: var(--stone);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 0.25rem;
+}
+.service-price-amount {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--gold-dark);
+}
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+  <a href="index.html" class="nav-logo">
+    <span class="mark">V</span>
+    Việc<strong>Nhà247</strong>
+  </a>
+  <div class="nav-menu">
+    <a href="dich-vu.html" class="active">Dịch vụ</a>
+    <a href="ve-chung-toi.html">Về chúng tôi</a>
+    <a href="blog.html">Blog</a>
+    <a href="tuyen-ctv.html">Tuyển CTV</a>
+    <a href="lien-he.html">Liên hệ</a>
+  </div>
+  <a href="index.html#dat-lich" class="nav-cta">Đặt ngay <span>→</span></a>
+  <button class="nav-toggle" onclick="toggleSidebar()">☰</button>
+</nav>
+
+<div class="sidebar-overlay" onclick="toggleSidebar()"></div>
+<aside class="sidebar">
+  <button class="sidebar-close" onclick="toggleSidebar()">×</button>
+  <div class="sidebar-logo">ViệcNhà247</div>
+  <ul class="sidebar-menu">
+    <li><a href="index.html">Trang chủ</a></li>
+    <li><a href="dich-vu.html" class="active">Dịch vụ</a></li>
+    <li><a href="ve-chung-toi.html">Về chúng tôi</a></li>
+    <li><a href="blog.html">Blog</a></li>
+    <li><a href="tuyen-ctv.html">Tuyển CTV</a></li>
+    <li><a href="ve-app.html">Tải app</a></li>
+    <li><a href="lien-he.html">Liên hệ</a></li>
+    <li><a href="phap-ly.html">Pháp lý</a></li>
+  </ul>
+  <a href="index.html#dat-lich" class="sidebar-cta">Đặt dịch vụ ngay →</a>
+</aside>
+
+<!-- HERO -->
+<section class="page-hero">
+  <div class="container">
+    <div class="page-hero-content">
+      <span class="page-hero-eyebrow">8 dịch vụ chính</span>
+      <h1>Tất cả những gì gia đình bạn <span class="accent">cần</span></h1>
+      <p>Từ dọn dẹp hằng ngày đến chăm sóc người thân — chúng tôi cung cấp 8 dịch vụ thiết yếu, được thực hiện bởi cộng tác viên đào tạo bài bản trong từng ngành.</p>
+      <nav class="breadcrumb mt-4">
+        <a href="index.html">Trang chủ</a>
+        <span class="separator">›</span>
+        <span class="current">Dịch vụ</span>
+      </nav>
+    </div>
+  </div>
+</section>
+
+<!-- DANH SÁCH 8 DỊCH VỤ -->
+<section class="section section-light">
+  <div class="container">
+
+    <!-- Dịch vụ 1: Dọn dẹp -->
+    <div class="service-detail">
+      <div class="service-icon-big">🧹</div>
+      <div class="service-content">
+        <div class="service-tagline">Dịch vụ phổ biến nhất</div>
+        <h3>Dọn dẹp nhà cửa</h3>
+        <p>Từ tổng vệ sinh sâu đến dọn dẹp định kỳ hàng tuần. CTV được đào tạo chuẩn 5 phòng (khách, ngủ, bếp, vệ sinh, ban công), đảm bảo không bỏ sót góc nào.</p>
+        <ul class="service-features">
+          <li>Tổng vệ sinh nhà mới</li>
+          <li>Dọn theo giờ (2-8h)</li>
+          <li>Deep clean định kỳ</li>
+          <li>Vệ sinh sau xây dựng</li>
+          <li>Giặt màn, rèm, nệm</li>
+          <li>Lau kính ban công</li>
+        </ul>
+        <div class="service-pricing">
+          <div>
+            <div class="service-price-tag">Giá khởi điểm</div>
+            <div class="service-price-amount">Từ 200.000đ</div>
+          </div>
+          <a href="index.html#dat-lich" class="btn-gold">Đặt ngay <span>→</span></a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Dịch vụ 2: Sửa điện -->
+    <div class="service-detail">
+      <div class="service-icon-big">⚡</div>
+      <div class="service-content">
+        <div class="service-tagline">Có chứng chỉ hành nghề</div>
+        <h3>Sửa chữa điện</h3>
+        <p>Mọi sự cố điện trong nhà đều được xử lý nhanh chóng — từ chập điện, mất điện đến lắp ổ cắm, công tắc, đèn. Tất cả thợ đều có chứng chỉ điện công nghiệp và bảo hành 6 tháng.</p>
+        <ul class="service-features">
+          <li>Chập, đoản mạch điện</li>
+          <li>Lắp ổ cắm, công tắc</li>
+          <li>Lắp đèn LED, quạt</li>
+          <li>Đi dây điện âm tường</li>
+          <li>Lắp aptomat, tủ điện</li>
+          <li>Sửa máy nước nóng</li>
+        </ul>
+        <div class="service-pricing">
+          <div>
+            <div class="service-price-tag">Giá khởi điểm</div>
+            <div class="service-price-amount">Từ 150.000đ</div>
+          </div>
+          <a href="index.html#dat-lich" class="btn-gold">Đặt ngay <span>→</span></a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Dịch vụ 3: Sửa nước -->
+    <div class="service-detail">
+      <div class="service-icon-big">💧</div>
+      <div class="service-content">
+        <div class="service-tagline">Phục vụ 24/7</div>
+        <h3>Sửa chữa nước</h3>
+        <p>Sự cố nước có thể xảy ra bất cứ lúc nào — chúng tôi có thợ trực 24/7 cho các trường hợp khẩn cấp. Đến trong 2 giờ với đơn cấp tốc.</p>
+        <ul class="service-features">
+          <li>Thông tắc bồn cầu</li>
+          <li>Sửa rò rỉ ống nước</li>
+          <li>Lắp vòi sen, vòi rửa</li>
+          <li>Lắp bình nóng lạnh</li>
+          <li>Vệ sinh bồn nước</li>
+          <li>Sửa máy bơm</li>
+        </ul>
+        <div class="service-pricing">
+          <div>
+            <div class="service-price-tag">Giá khởi điểm</div>
+            <div class="service-price-amount">Từ 180.000đ</div>
+          </div>
+          <a href="index.html#dat-lich" class="btn-gold">Đặt ngay <span>→</span></a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Dịch vụ 4: Chuyển nhà -->
+    <div class="service-detail">
+      <div class="service-icon-big">🚛</div>
+      <div class="service-content">
+        <div class="service-tagline">Trọn gói A-Z</div>
+        <h3>Chuyển nhà trọn gói</h3>
+        <p>3 gói linh hoạt: chỉ vận chuyển, vận chuyển + đóng gói cơ bản, hoặc trọn gói (đóng gói toàn bộ + tháo lắp + sắp xếp tại nhà mới). Bảo hiểm hàng hóa đến 50 triệu/đơn.</p>
+        <ul class="service-features">
+          <li>Đóng gói chuyên nghiệp</li>
+          <li>Vận chuyển an toàn</li>
+          <li>Tháo lắp nội thất</li>
+          <li>Sắp xếp nhà mới</li>
+          <li>Xử lý cầu thang xoắn</li>
+          <li>Vận chuyển liên tỉnh</li>
+        </ul>
+        <div class="service-pricing">
+          <div>
+            <div class="service-price-tag">Giá khởi điểm</div>
+            <div class="service-price-amount">Từ 500.000đ</div>
+          </div>
+          <a href="index.html#dat-lich" class="btn-gold">Đặt ngay <span>→</span></a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Dịch vụ 5: Nấu ăn -->
+    <div class="service-detail">
+      <div class="service-icon-big">🍳</div>
+      <div class="service-content">
+        <div class="service-tagline">Đầu bếp có chứng chỉ</div>
+        <h3>Nấu ăn tại gia</h3>
+        <p>Từ bữa cơm gia đình hằng ngày đến tiệc nhỏ tại nhà. Đầu bếp có chứng chỉ vệ sinh an toàn thực phẩm, biết nấu cho người ốm, người ăn chay, bà mẹ sau sinh.</p>
+        <ul class="service-features">
+          <li>Bữa cơm gia đình</li>
+          <li>Cơm tháng định kỳ</li>
+          <li>Nấu tiệc nhỏ tại gia</li>
+          <li>Món chay đa dạng</li>
+          <li>Cho người ốm, NCT</li>
+          <li>Cho bà mẹ sau sinh</li>
+        </ul>
+        <div class="service-pricing">
+          <div>
+            <div class="service-price-tag">Giá khởi điểm</div>
+            <div class="service-price-amount">Từ 250.000đ</div>
+          </div>
+          <a href="index.html#dat-lich" class="btn-gold">Đặt ngay <span>→</span></a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Dịch vụ 6: Chăm sóc NCT -->
+    <div class="service-detail">
+      <div class="service-icon-big">👴</div>
+      <div class="service-content">
+        <div class="service-tagline">Điều dưỡng chuyên môn</div>
+        <h3>Chăm sóc người cao tuổi</h3>
+        <p>Tất cả CTV đều có bằng trung cấp điều dưỡng hoặc chứng chỉ chuyên môn. Theo dõi sinh hiệu hằng ngày, hỗ trợ uống thuốc đúng giờ, vận động và đồng hành tinh thần.</p>
+        <ul class="service-features">
+          <li>Theo dõi sinh hiệu</li>
+          <li>Cho uống thuốc đúng giờ</li>
+          <li>Vệ sinh cá nhân</li>
+          <li>Hỗ trợ vận động</li>
+          <li>Chăm người nằm liệt</li>
+          <li>Quản lý lịch khám</li>
+        </ul>
+        <div class="service-pricing">
+          <div>
+            <div class="service-price-tag">Giá khởi điểm</div>
+            <div class="service-price-amount">Từ 300.000đ</div>
+          </div>
+          <a href="index.html#dat-lich" class="btn-gold">Đặt ngay <span>→</span></a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Dịch vụ 7: Đi chợ hộ -->
+    <div class="service-detail">
+      <div class="service-icon-big">🛒</div>
+      <div class="service-content">
+        <div class="service-tagline">Minh bạch hóa đơn</div>
+        <h3>Đi chợ hộ</h3>
+        <p>Phù hợp cho người bận, mẹ bỉm, người cao tuổi không tiện ra ngoài. CTV chọn đồ tươi như chọn cho gia đình mình, có hóa đơn rõ ràng từng món.</p>
+        <ul class="service-features">
+          <li>Chợ truyền thống</li>
+          <li>Siêu thị (Big C, Coopmart)</li>
+          <li>Cửa hàng tiện lợi</li>
+          <li>Combo nhiều nơi</li>
+          <li>Tư vấn chọn đồ</li>
+          <li>Giao trong 1-2 giờ</li>
+        </ul>
+        <div class="service-pricing">
+          <div>
+            <div class="service-price-tag">Phí dịch vụ</div>
+            <div class="service-price-amount">Từ 100.000đ</div>
+          </div>
+          <a href="index.html#dat-lich" class="btn-gold">Đặt ngay <span>→</span></a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Dịch vụ 8: Sửa đa năng -->
+    <div class="service-detail">
+      <div class="service-icon-big">🔨</div>
+      <div class="service-content">
+        <div class="service-tagline">Đa kỹ năng</div>
+        <h3>Sửa chữa đa năng</h3>
+        <p>Cho những việc nhỏ trong nhà — không đáng gọi thợ chuyên môn nhưng cần người đến giải quyết. Thợ đa năng giải quyết nhiều việc trong 1 buổi.</p>
+        <ul class="service-features">
+          <li>Lắp ráp đồ IKEA</li>
+          <li>Treo tranh, gắn kệ</li>
+          <li>Sửa cửa, bản lề</li>
+          <li>Lắp rèm, mành</li>
+          <li>Vệ sinh máy lạnh</li>
+          <li>Sửa thiết bị nhỏ</li>
+        </ul>
+        <div class="service-pricing">
+          <div>
+            <div class="service-price-tag">Giá khởi điểm</div>
+            <div class="service-price-amount">Từ 150.000đ</div>
+          </div>
+          <a href="index.html#dat-lich" class="btn-gold">Đặt ngay <span>→</span></a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- CAM KẾT -->
+<section class="section section-cream">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-eyebrow">Cam kết của chúng tôi</span>
+      <h2 class="section-title">Tận tâm trong <span class="accent">từng việc nhỏ</span></h2>
+    </div>
+    <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.25rem;">
+      <div class="card">
+        <div style="font-size: 2rem; margin-bottom: 0.75rem;">🎓</div>
+        <h3 style="font-size: 1.0625rem; font-weight: 800; margin-bottom: 0.5rem;">Đào tạo bài bản</h3>
+        <p style="font-size: 0.875rem; color: var(--stone); line-height: 1.55;">120 video đào tạo cho 8 ngành. CTV pass kiểm tra 25 câu mới được nhận đơn.</p>
+      </div>
+      <div class="card">
+        <div style="font-size: 2rem; margin-bottom: 0.75rem;">💰</div>
+        <h3 style="font-size: 1.0625rem; font-weight: 800; margin-bottom: 0.5rem;">Giá minh bạch</h3>
+        <p style="font-size: 0.875rem; color: var(--stone); line-height: 1.55;">Báo giá rõ ràng trước khi làm. Không phát sinh ngoài thỏa thuận.</p>
+      </div>
+      <div class="card">
+        <div style="font-size: 2rem; margin-bottom: 0.75rem;">🛡️</div>
+        <h3 style="font-size: 1.0625rem; font-weight: 800; margin-bottom: 0.5rem;">Bảo hành 30 ngày</h3>
+        <p style="font-size: 0.875rem; color: var(--stone); line-height: 1.55;">Mọi đơn được bảo hành. Bảo hiểm hàng hóa đến 50 triệu/đơn.</p>
+      </div>
+      <div class="card">
+        <div style="font-size: 2rem; margin-bottom: 0.75rem;">⚡</div>
+        <h3 style="font-size: 1.0625rem; font-weight: 800; margin-bottom: 0.5rem;">24/7 sẵn sàng</h3>
+        <p style="font-size: 0.875rem; color: var(--stone); line-height: 1.55;">Đơn khẩn cấp có CTV đến trong 2 giờ. Hotline cả đêm.</p>
+      </div>
+    </div>
+    <style>
+      @media (max-width: 880px) {
+        .section-cream .card { grid-column: span 1; }
+        .section-cream > .container > div[style*="grid-template-columns"] { grid-template-columns: 1fr 1fr !important; }
+      }
+      @media (max-width: 480px) {
+        .section-cream > .container > div[style*="grid-template-columns"] { grid-template-columns: 1fr !important; }
+      }
+    </style>
+  </div>
+</section>
+
+<!-- STATS BAR -->
+<section class="stats-bar">
+  <div class="container">
+    <div class="stats-grid">
+      <div class="stat-block"><div class="big">500+</div><div class="small">CTV được đào tạo</div></div>
+      <div class="stat-block"><div class="big">10K+</div><div class="small">Đơn đã hoàn thành</div></div>
+      <div class="stat-block"><div class="big">4.8/5</div><div class="small">Đánh giá trung bình</div></div>
+      <div class="stat-block"><div class="big">30 ngày</div><div class="small">Bảo hành mọi đơn</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA FINAL -->
+<section class="cta-final">
+  <div class="container">
+    <div class="cta-card">
+      <h2>Sẵn sàng để nhà bạn <span class="accent">được chăm sóc</span>?</h2>
+      <p>Đặt dịch vụ ngay hôm nay — nhận voucher 100.000đ cho đơn đầu tiên.</p>
+      <div class="cta-buttons">
+        <a href="index.html#dat-lich" class="btn-cta-primary">Đặt dịch vụ ngay <span>→</span></a>
+        <a href="tel:19006247" class="btn-cta-secondary">📞 1900 6247</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <h3>ViệcNhà247</h3>
+        <p>Nền tảng dịch vụ gia đình — kết nối bạn với cộng tác viên đào tạo bài bản trên 8 ngành thiết yếu.</p>
+        <p style="font-size: 0.8125rem;">📍 TPHCM<br>📞 1900 6247</p>
+      </div>
+      <div class="footer-col">
+        <h4>Dịch vụ</h4>
+        <ul>
+          <li><a href="dich-vu.html">Tất cả dịch vụ</a></li>
+          <li><a href="index.html#dat-lich">Đặt lịch</a></li>
+          <li><a href="ve-app.html">Tải app</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Công ty</h4>
+        <ul>
+          <li><a href="ve-chung-toi.html">Về chúng tôi</a></li>
+          <li><a href="tuyen-ctv.html">Tuyển CTV</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="lien-he.html">Liên hệ</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Pháp lý</h4>
+        <ul>
+          <li><a href="phap-ly.html">Điều khoản</a></li>
+          <li><a href="phap-ly.html">Bảo mật</a></li>
+          <li><a href="phap-ly.html">Khiếu nại</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div>© 2026 ViệcNhà247. Bảo lưu mọi quyền.</div>
+      <div class="social">
+        <a href="#" aria-label="Facebook">f</a>
+        <a href="#" aria-label="TikTok">t</a>
+        <a href="#" aria-label="Zalo">Z</a>
+        <a href="#" aria-label="YouTube">▶</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<a href="tel:19006247" class="floating-call">
+  <span class="ring"></span>
+  <span class="label">Gọi ngay</span>
+</a>
+
+<script>
+function toggleSidebar() {
+  document.querySelector('.sidebar').classList.toggle('active');
+  document.querySelector('.sidebar-overlay').classList.toggle('active');
+  document.body.style.overflow = document.querySelector('.sidebar').classList.contains('active') ? 'hidden' : '';
+}
+
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function(e) {
+    const href = this.getAttribute('href');
+    if (href === '#') return;
+    const target = document.querySelector(href);
+    if (target) {
+      e.preventDefault();
+      const offset = 100;
+      window.scrollTo({ top: target.getBoundingClientRect().top + window.pageYOffset - offset, behavior: 'smooth' });
+    }
+  });
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,165 @@
+<!DOCTYPE html><html lang="vi"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blog — ViệcNhà247 | Mẹo gia đình hữu ích</title>
+<meta name="description" content="Bài viết hữu ích về dọn dẹp, sửa chữa, nấu ăn, chăm sóc nhà cửa từ ViệcNhà247.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<style>
+.blog-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+@media (max-width: 880px) { .blog-grid { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 600px) { .blog-grid { grid-template-columns: 1fr; } }
+.blog-card { background: white; border-radius: 20px; overflow: hidden; border: 1px solid var(--cream-dark); transition: all var(--t-base); cursor: pointer; }
+.blog-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); }
+.blog-thumb { aspect-ratio: 16/10; background: linear-gradient(135deg, var(--cream-light), var(--cream-dark)); display: flex; align-items: center; justify-content: center; font-size: 4rem; }
+.blog-content { padding: 1.5rem; }
+.blog-tag { display: inline-block; background: var(--cream); color: var(--gold-dark); padding: 0.25rem 0.625rem; border-radius: 100px; font-size: 0.6875rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 0.75rem; }
+.blog-card h3 { font-size: 1.0625rem; font-weight: 800; margin-bottom: 0.5rem; line-height: 1.3; color: var(--ink); }
+.blog-card p { font-size: 0.875rem; color: var(--stone); line-height: 1.55; margin-bottom: 1rem; }
+.blog-meta { display: flex; justify-content: space-between; font-size: 0.75rem; color: var(--stone); padding-top: 0.75rem; border-top: 1px dashed var(--cream-dark); }
+.blog-meta strong { color: var(--gold-dark); }
+.featured-post { background: white; border-radius: 24px; padding: 2.5rem; border: 1.5px solid var(--gold); margin-bottom: 2.5rem; display: grid; grid-template-columns: 1.5fr 1fr; gap: 2rem; align-items: center; }
+@media (max-width: 768px) { .featured-post { grid-template-columns: 1fr; padding: 1.75rem; } }
+.featured-post .blog-thumb { aspect-ratio: 4/3; border-radius: 16px; }
+.featured-post h2 { font-size: 1.5rem; font-weight: 800; margin-bottom: 0.75rem; line-height: 1.2; }
+</style></head>
+<body>
+
+<nav class="navbar">
+  <a href="index.html" class="nav-logo"><span class="mark">V</span>Việc<strong>Nhà247</strong></a>
+  <div class="nav-menu">
+    <a href="dich-vu.html">Dịch vụ</a><a href="ve-chung-toi.html">Về chúng tôi</a><a href="blog.html" class="active">Blog</a><a href="tuyen-ctv.html">Tuyển CTV</a><a href="lien-he.html">Liên hệ</a>
+  </div>
+  <a href="index.html#dat-lich" class="nav-cta">Đặt ngay <span>→</span></a>
+  <button class="nav-toggle" onclick="toggleSidebar()">☰</button>
+</nav>
+<div class="sidebar-overlay" onclick="toggleSidebar()"></div>
+<aside class="sidebar">
+  <button class="sidebar-close" onclick="toggleSidebar()">×</button>
+  <div class="sidebar-logo">ViệcNhà247</div>
+  <ul class="sidebar-menu">
+    <li><a href="index.html">Trang chủ</a></li><li><a href="dich-vu.html">Dịch vụ</a></li>
+    <li><a href="ve-chung-toi.html">Về chúng tôi</a></li><li><a href="blog.html" class="active">Blog</a></li>
+    <li><a href="tuyen-ctv.html">Tuyển CTV</a></li><li><a href="ve-app.html">Tải app</a></li><li><a href="lien-he.html">Liên hệ</a></li>
+  </ul>
+  <a href="index.html#dat-lich" class="sidebar-cta">Đặt dịch vụ ngay →</a>
+</aside>
+
+<section class="page-hero">
+  <div class="container">
+    <div class="page-hero-content">
+      <span class="page-hero-eyebrow">Blog ViệcNhà247</span>
+      <h1>Mẹo hay cho <span class="accent">tổ ấm</span> của bạn</h1>
+      <p>Cẩm nang dọn dẹp, sửa chữa, nấu ăn, chăm sóc gia đình — chia sẻ từ chuyên gia và cộng tác viên giàu kinh nghiệm.</p>
+      <nav class="breadcrumb mt-4"><a href="index.html">Trang chủ</a><span class="separator">›</span><span class="current">Blog</span></nav>
+    </div>
+  </div>
+</section>
+
+<section class="section section-light">
+  <div class="container">
+    <div class="featured-post">
+      <div>
+        <span class="blog-tag">⭐ Bài nổi bật</span>
+        <h2>10 mẹo dọn nhà nhanh gọn cho người bận rộn</h2>
+        <p style="color: var(--stone); margin-bottom: 1rem;">Không cần dành cả ngày cuối tuần — bạn vẫn có thể giữ nhà sạch sẽ với 10 mẹo nhỏ này. Áp dụng 15 phút mỗi ngày.</p>
+        <a href="#" class="btn-primary">Đọc bài <span class="arrow">→</span></a>
+      </div>
+      <div class="blog-thumb">🧹</div>
+    </div>
+
+    <div class="blog-grid">
+      <article class="blog-card">
+        <div class="blog-thumb">⚡</div>
+        <div class="blog-content">
+          <span class="blog-tag">Sửa điện</span>
+          <h3>5 sự cố điện thường gặp và cách xử lý an toàn</h3>
+          <p>Mất điện đột ngột, ổ cắm phát sáng, công tắc bị nóng... Khi nào tự xử lý, khi nào cần thợ?</p>
+          <div class="blog-meta"><span><strong>5 phút đọc</strong></span><span>15/04/2026</span></div>
+        </div>
+      </article>
+
+      <article class="blog-card">
+        <div class="blog-thumb">💧</div>
+        <div class="blog-content">
+          <span class="blog-tag">Sửa nước</span>
+          <h3>Vòi nước rò rỉ - 3 cách khắc phục tại nhà</h3>
+          <p>Tiết kiệm 200-500k tiền nước mỗi tháng với 3 mẹo đơn giản này.</p>
+          <div class="blog-meta"><span><strong>4 phút đọc</strong></span><span>12/04/2026</span></div>
+        </div>
+      </article>
+
+      <article class="blog-card">
+        <div class="blog-thumb">🍳</div>
+        <div class="blog-content">
+          <span class="blog-tag">Nấu ăn</span>
+          <h3>Thực đơn tuần cho gia đình 4 người - tiết kiệm 30%</h3>
+          <p>Lên kế hoạch bữa ăn thông minh, đi chợ ít hơn, ăn ngon hơn.</p>
+          <div class="blog-meta"><span><strong>7 phút đọc</strong></span><span>10/04/2026</span></div>
+        </div>
+      </article>
+
+      <article class="blog-card">
+        <div class="blog-thumb">👴</div>
+        <div class="blog-content">
+          <span class="blog-tag">Chăm sóc NCT</span>
+          <h3>Chăm sóc cha mẹ già - 7 điều con cái nên biết</h3>
+          <p>Dấu hiệu sức khỏe cần lưu ý, cách giao tiếp, hỗ trợ tinh thần.</p>
+          <div class="blog-meta"><span><strong>8 phút đọc</strong></span><span>08/04/2026</span></div>
+        </div>
+      </article>
+
+      <article class="blog-card">
+        <div class="blog-thumb">🚛</div>
+        <div class="blog-content">
+          <span class="blog-tag">Chuyển nhà</span>
+          <h3>Checklist chuyển nhà không sót đồ - 50 mục cần nhớ</h3>
+          <p>Từ khâu đóng gói đến sắp xếp tại nhà mới - đầy đủ trong 1 file.</p>
+          <div class="blog-meta"><span><strong>6 phút đọc</strong></span><span>05/04/2026</span></div>
+        </div>
+      </article>
+
+      <article class="blog-card">
+        <div class="blog-thumb">🛒</div>
+        <div class="blog-content">
+          <span class="blog-tag">Đi chợ</span>
+          <h3>Cách chọn thịt cá tươi - mẹo từ chuyên gia chợ</h3>
+          <p>Phân biệt thịt tươi - thịt ôi qua 5 dấu hiệu. Cá ngon nhìn mắt và mang.</p>
+          <div class="blog-meta"><span><strong>5 phút đọc</strong></span><span>02/04/2026</span></div>
+        </div>
+      </article>
+    </div>
+
+    <div style="text-align: center; margin-top: 3rem;">
+      <a href="#" class="btn-secondary">Xem thêm bài viết <span>→</span></a>
+    </div>
+  </div>
+</section>
+
+<section class="cta-final">
+  <div class="container">
+    <div class="cta-card">
+      <h2>Cần dịch vụ <span class="accent">ngay bây giờ</span>?</h2>
+      <p>Đừng chỉ đọc - hãy để chúng tôi giúp bạn xử lý mọi việc trong nhà.</p>
+      <div class="cta-buttons">
+        <a href="index.html#dat-lich" class="btn-cta-primary">Đặt dịch vụ <span>→</span></a>
+        <a href="tel:19006247" class="btn-cta-secondary">📞 1900 6247</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand"><h3>ViệcNhà247</h3><p>Nền tảng dịch vụ gia đình — kết nối CTV với khách hàng trên 8 ngành.</p><p style="font-size: 0.8125rem;">📍 TPHCM<br>📞 1900 6247</p></div>
+      <div class="footer-col"><h4>Dịch vụ</h4><ul><li><a href="dich-vu.html">Tất cả dịch vụ</a></li><li><a href="index.html#dat-lich">Đặt lịch</a></li><li><a href="ve-app.html">Tải app</a></li></ul></div>
+      <div class="footer-col"><h4>Công ty</h4><ul><li><a href="ve-chung-toi.html">Về chúng tôi</a></li><li><a href="tuyen-ctv.html">Tuyển CTV</a></li><li><a href="blog.html">Blog</a></li><li><a href="lien-he.html">Liên hệ</a></li></ul></div>
+      <div class="footer-col"><h4>Pháp lý</h4><ul><li><a href="phap-ly.html">Điều khoản</a></li><li><a href="phap-ly.html">Bảo mật</a></li><li><a href="phap-ly.html">Khiếu nại</a></li></ul></div>
+    </div>
+    <div class="footer-bottom"><div>© 2026 ViệcNhà247. Bảo lưu mọi quyền.</div><div class="social"><a href="#">f</a><a href="#">t</a><a href="#">Z</a><a href="#">▶</a></div></div>
+  </div>
+</footer>
+
+<a href="tel:19006247" class="floating-call"><span class="ring"></span><span class="label">Gọi ngay</span></a>
+<script>function toggleSidebar(){document.querySelector('.sidebar').classList.toggle('active');document.querySelector('.sidebar-overlay').classList.toggle('active');document.body.style.overflow=document.querySelector('.sidebar').classList.contains('active')?'hidden':'';}</script>
+</body></html>

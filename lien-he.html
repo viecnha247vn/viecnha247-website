@@ -1,0 +1,170 @@
+<!DOCTYPE html><html lang="vi"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Liên hệ — ViệcNhà247</title>
+<meta name="description" content="Liên hệ ViệcNhà247: Hotline 1900 6247, Zalo OA, Facebook. Hỗ trợ 24/7.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<style>
+.contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-bottom: 3rem; }
+@media (max-width: 880px) { .contact-grid { grid-template-columns: 1fr; } }
+.contact-method { background: white; border-radius: 20px; padding: 2rem; border: 1px solid var(--cream-dark); transition: all var(--t-base); display: flex; gap: 1.25rem; align-items: flex-start; }
+.contact-method:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); border-color: var(--gold); }
+.contact-icon { width: 56px; height: 56px; background: linear-gradient(135deg, var(--gold), var(--gold-dark)); border-radius: 16px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; color: white; flex-shrink: 0; box-shadow: var(--shadow-gold); }
+.contact-info h3 { font-size: 1.0625rem; font-weight: 800; margin-bottom: 0.375rem; color: var(--ink); }
+.contact-info .value { font-size: 1.125rem; font-weight: 800; color: var(--gold-dark); margin-bottom: 0.25rem; }
+.contact-info .desc { font-size: 0.8125rem; color: var(--stone); }
+.contact-form { background: white; border-radius: 24px; padding: 2.5rem; box-shadow: var(--shadow-lg); }
+@media (max-width: 600px) { .contact-form { padding: 1.75rem 1.25rem; } }
+.btn-submit { width: 100%; background: linear-gradient(135deg, var(--gold), var(--gold-dark)); color: white; border: none; padding: 1.125rem; border-radius: 100px; font-family: inherit; font-size: 1rem; font-weight: 800; cursor: pointer; box-shadow: var(--shadow-gold); display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; transition: all 0.25s ease; margin-top: 0.5rem; }
+.btn-submit:hover { transform: translateY(-2px); }
+.faq-item { background: var(--cream); border-radius: 16px; padding: 1.5rem; margin-bottom: 0.75rem; cursor: pointer; transition: all var(--t-fast); }
+.faq-item:hover { background: white; }
+.faq-q { font-weight: 700; color: var(--ink); font-size: 0.9375rem; display: flex; justify-content: space-between; }
+.faq-a { font-size: 0.875rem; color: var(--stone); margin-top: 0.75rem; line-height: 1.6; display: none; }
+.faq-item.open .faq-a { display: block; }
+.faq-item.open .faq-q span { transform: rotate(45deg); }
+.faq-q span { transition: transform var(--t-fast); font-size: 1.25rem; color: var(--gold-dark); }
+</style></head>
+<body>
+
+<nav class="navbar">
+  <a href="index.html" class="nav-logo"><span class="mark">V</span>Việc<strong>Nhà247</strong></a>
+  <div class="nav-menu">
+    <a href="dich-vu.html">Dịch vụ</a><a href="ve-chung-toi.html">Về chúng tôi</a><a href="blog.html">Blog</a><a href="tuyen-ctv.html">Tuyển CTV</a><a href="lien-he.html" class="active">Liên hệ</a>
+  </div>
+  <a href="index.html#dat-lich" class="nav-cta">Đặt ngay <span>→</span></a>
+  <button class="nav-toggle" onclick="toggleSidebar()">☰</button>
+</nav>
+<div class="sidebar-overlay" onclick="toggleSidebar()"></div>
+<aside class="sidebar">
+  <button class="sidebar-close" onclick="toggleSidebar()">×</button>
+  <div class="sidebar-logo">ViệcNhà247</div>
+  <ul class="sidebar-menu">
+    <li><a href="index.html">Trang chủ</a></li><li><a href="dich-vu.html">Dịch vụ</a></li>
+    <li><a href="ve-chung-toi.html">Về chúng tôi</a></li><li><a href="blog.html">Blog</a></li>
+    <li><a href="tuyen-ctv.html">Tuyển CTV</a></li><li><a href="ve-app.html">Tải app</a></li>
+    <li><a href="lien-he.html" class="active">Liên hệ</a></li>
+  </ul>
+  <a href="index.html#dat-lich" class="sidebar-cta">Đặt dịch vụ ngay →</a>
+</aside>
+
+<section class="page-hero">
+  <div class="container">
+    <div class="page-hero-content">
+      <span class="page-hero-eyebrow">Liên hệ với chúng tôi</span>
+      <h1>Chúng tôi luôn <span class="accent">sẵn sàng</span> hỗ trợ bạn</h1>
+      <p>Hotline 24/7, Zalo OA, Facebook, Email — chọn cách bạn thoải mái nhất.</p>
+      <nav class="breadcrumb mt-4"><a href="index.html">Trang chủ</a><span class="separator">›</span><span class="current">Liên hệ</span></nav>
+    </div>
+  </div>
+</section>
+
+<section class="section section-light">
+  <div class="container">
+    <div class="contact-grid">
+      <div class="contact-method">
+        <div class="contact-icon">📞</div>
+        <div class="contact-info">
+          <h3>Hotline 24/7</h3>
+          <a href="tel:19006247" class="value">1900 6247</a>
+          <p class="desc">Gọi miễn phí · Đặt đơn nhanh nhất</p>
+        </div>
+      </div>
+      <div class="contact-method">
+        <div class="contact-icon">💬</div>
+        <div class="contact-info">
+          <h3>Zalo Official</h3>
+          <a href="#" class="value">@ViecNha247</a>
+          <p class="desc">Chat 5 phút phản hồi</p>
+        </div>
+      </div>
+      <div class="contact-method">
+        <div class="contact-icon">📧</div>
+        <div class="contact-info">
+          <h3>Email</h3>
+          <a href="mailto:hotro@viecnha247.vn" class="value">hotro@viecnha247.vn</a>
+          <p class="desc">Phản hồi trong 24 giờ</p>
+        </div>
+      </div>
+      <div class="contact-method">
+        <div class="contact-icon">📘</div>
+        <div class="contact-info">
+          <h3>Facebook</h3>
+          <a href="#" class="value">@ViecNha247</a>
+          <p class="desc">Cập nhật tin tức + khuyến mãi</p>
+        </div>
+      </div>
+    </div>
+
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; align-items: start;">
+      <div>
+        <span class="section-eyebrow">Gửi tin nhắn</span>
+        <h2 class="section-title" style="font-size: 1.75rem;">Có câu hỏi? <span class="accent">Hỏi ngay</span></h2>
+        <p class="section-desc" style="margin-bottom: 1.5rem;">Để lại thông tin — chúng tôi liên hệ trong 30 phút giờ hành chính.</p>
+
+        <h3 style="font-weight: 800; margin-bottom: 0.75rem; margin-top: 2rem;">📍 Văn phòng</h3>
+        <p style="color: var(--stone); margin-bottom: 1rem;">Sea Office, Quận 7, TPHCM<br><small>(Đăng ký doanh nghiệp năm 2026)</small></p>
+
+        <h3 style="font-weight: 800; margin-bottom: 0.75rem;">⏰ Giờ làm việc</h3>
+        <p style="color: var(--stone);">Hỗ trợ khách: 24/7<br>Văn phòng: 8h-18h (T2-T6)</p>
+      </div>
+
+      <form class="contact-form" onsubmit="event.preventDefault(); alert('Cảm ơn! Chúng tôi sẽ liên hệ trong 30 phút.');">
+        <div class="form-group"><label class="form-label">Họ tên <span class="req">*</span></label><input type="text" class="form-input" placeholder="Nguyễn Văn A" required></div>
+        <div class="form-row">
+          <div class="form-group"><label class="form-label">Số điện thoại <span class="req">*</span></label><input type="tel" class="form-input" placeholder="0901 234 567" required></div>
+          <div class="form-group"><label class="form-label">Email</label><input type="email" class="form-input" placeholder="email@example.com"></div>
+        </div>
+        <div class="form-group"><label class="form-label">Vấn đề cần hỗ trợ <span class="req">*</span></label>
+          <select class="form-input" required><option value="">Chọn vấn đề</option><option>Đặt dịch vụ mới</option><option>Hỏi giá / Tư vấn</option><option>Khiếu nại đơn cũ</option><option>Hợp tác doanh nghiệp</option><option>Trở thành CTV</option><option>Khác</option></select></div>
+        <div class="form-group"><label class="form-label">Nội dung <span class="req">*</span></label><textarea class="form-input" placeholder="Mô tả chi tiết vấn đề..." required></textarea></div>
+        <button type="submit" class="btn-submit">Gửi tin nhắn <span>→</span></button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<section class="section section-cream">
+  <div class="container container-narrow">
+    <div class="section-header">
+      <span class="section-eyebrow">FAQ</span>
+      <h2 class="section-title">Câu hỏi <span class="accent">thường gặp</span></h2>
+    </div>
+    <div class="faq-item" onclick="this.classList.toggle('open')">
+      <div class="faq-q">Đặt dịch vụ bao lâu thì có CTV đến? <span>+</span></div>
+      <div class="faq-a">Đơn thông thường: trong vòng 24 giờ. Đơn khẩn cấp (sửa nước, mất điện): chúng tôi cử CTV đến trong 2 giờ.</div>
+    </div>
+    <div class="faq-item" onclick="this.classList.toggle('open')">
+      <div class="faq-q">Giá có cố định hay thương lượng? <span>+</span></div>
+      <div class="faq-a">Chúng tôi báo giá theo bảng giá chuẩn cho từng dịch vụ. Đơn phức tạp hơn (diện tích lớn, đồ nặng) có thể có phụ phí — nhưng PHẢI báo trước khi làm.</div>
+    </div>
+    <div class="faq-item" onclick="this.classList.toggle('open')">
+      <div class="faq-q">Nếu không hài lòng với CTV thì sao? <span>+</span></div>
+      <div class="faq-a">Đánh giá 1 sao + ghi rõ lý do. Chúng tôi xử lý trong 24h. Nếu lỗi của CTV → hoàn 50-100% tiền hoặc đổi CTV khác miễn phí.</div>
+    </div>
+    <div class="faq-item" onclick="this.classList.toggle('open')">
+      <div class="faq-q">Có bảo hiểm khi CTV làm hỏng đồ không? <span>+</span></div>
+      <div class="faq-a">Có. Mọi đơn đặt qua nền tảng đều có bảo hiểm trách nhiệm đến 50 triệu/đơn. Chỉ áp dụng khi đặt qua app/web — không áp dụng đặt riêng với CTV.</div>
+    </div>
+    <div class="faq-item" onclick="this.classList.toggle('open')">
+      <div class="faq-q">Tôi muốn đặt CTV cụ thể (CTV cũ đã làm tốt)? <span>+</span></div>
+      <div class="faq-a">Có. Vào lịch sử đơn → bấm "Đặt lại với CTV này". Nếu CTV còn rảnh và phục vụ khu vực bạn, đơn sẽ được ưu tiên.</div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand"><h3>ViệcNhà247</h3><p>Nền tảng dịch vụ gia đình — kết nối CTV với khách hàng trên 8 ngành.</p><p style="font-size: 0.8125rem;">📍 TPHCM<br>📞 1900 6247</p></div>
+      <div class="footer-col"><h4>Dịch vụ</h4><ul><li><a href="dich-vu.html">Tất cả dịch vụ</a></li><li><a href="index.html#dat-lich">Đặt lịch</a></li><li><a href="ve-app.html">Tải app</a></li></ul></div>
+      <div class="footer-col"><h4>Công ty</h4><ul><li><a href="ve-chung-toi.html">Về chúng tôi</a></li><li><a href="tuyen-ctv.html">Tuyển CTV</a></li><li><a href="blog.html">Blog</a></li><li><a href="lien-he.html">Liên hệ</a></li></ul></div>
+      <div class="footer-col"><h4>Pháp lý</h4><ul><li><a href="phap-ly.html">Điều khoản</a></li><li><a href="phap-ly.html">Bảo mật</a></li><li><a href="phap-ly.html">Khiếu nại</a></li></ul></div>
+    </div>
+    <div class="footer-bottom"><div>© 2026 ViệcNhà247. Bảo lưu mọi quyền.</div><div class="social"><a href="#">f</a><a href="#">t</a><a href="#">Z</a><a href="#">▶</a></div></div>
+  </div>
+</footer>
+
+<a href="tel:19006247" class="floating-call"><span class="ring"></span><span class="label">Gọi ngay</span></a>
+<script>function toggleSidebar(){document.querySelector('.sidebar').classList.toggle('active');document.querySelector('.sidebar-overlay').classList.toggle('active');document.body.style.overflow=document.querySelector('.sidebar').classList.contains('active')?'hidden':'';}</script>
+</body></html>

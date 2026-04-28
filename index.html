@@ -1,0 +1,1829 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ViệcNhà247 — Dịch vụ gia đình tận tâm tại TPHCM</title>
+<meta name="description" content="Đặt 8 dịch vụ gia đình (dọn dẹp, sửa điện, sửa nước, chuyển nhà, nấu ăn, chăm sóc NCT, đi chợ hộ, sửa đa năng) — CTV được đào tạo bài bản, giá minh bạch, bảo hành 30 ngày.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<style>
+/* === ENHANCED HOME PAGE STYLES (v4) === */
+
+/* Reuse từ styles.css base nhưng override cho trang chủ mới */
+:root {
+  --gold: #E8A627;
+  --gold-dark: #C8861A;
+  --gold-light: #F5C45E;
+  --gold-glow: rgba(232, 166, 39, 0.4);
+  --cream: #FBF1DD;
+  --cream-light: #FDF8EC;
+  --cream-dark: #F0E2C0;
+  --ink: #1F1A0F;
+  --charcoal: #2D2820;
+  --stone: #6B6358;
+  --warm-white: #FFFCF5;
+  --success: #16A34A;
+  --shadow-sm: 0 2px 8px rgba(31, 26, 15, 0.06);
+  --shadow-md: 0 8px 24px rgba(31, 26, 15, 0.08);
+  --shadow-lg: 0 20px 48px rgba(31, 26, 15, 0.12);
+  --shadow-gold: 0 8px 24px rgba(232, 166, 39, 0.25);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Be Vietnam Pro', sans-serif;
+  background: var(--cream);
+  color: var(--ink);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+.container { max-width: 1200px; margin: 0 auto; padding: 0 1.25rem; }
+
+/* === FLOATING NAVBAR === */
+.navbar {
+  position: fixed;
+  top: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 100;
+  width: calc(100% - 2rem);
+  max-width: 1140px;
+  background: rgba(255, 252, 245, 0.85);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid rgba(232, 166, 39, 0.2);
+  border-radius: 100px;
+  padding: 0.625rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: var(--shadow-md);
+}
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+  font-weight: 800;
+  font-size: 1.0625rem;
+  color: var(--ink);
+  text-decoration: none;
+}
+.nav-logo .mark {
+  width: 36px; height: 36px;
+  background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dark) 100%);
+  border-radius: 10px;
+  display: flex; align-items: center; justify-content: center;
+  color: white;
+  font-weight: 900;
+  font-size: 1.125rem;
+  box-shadow: var(--shadow-gold);
+}
+.nav-logo .mark svg { width: 22px; height: 22px; }
+.nav-logo strong { color: var(--gold-dark); }
+.nav-menu { display: flex; gap: 0.25rem; }
+.nav-menu a {
+  color: var(--charcoal);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.875rem;
+  padding: 0.5rem 0.875rem;
+  border-radius: 100px;
+  transition: all 0.2s ease;
+}
+.nav-menu a:hover { background: var(--cream); color: var(--gold-dark); }
+.nav-cta {
+  background: var(--ink);
+  color: white;
+  padding: 0.5625rem 1.125rem;
+  border-radius: 100px;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 0.8125rem;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+}
+.nav-cta:hover { background: var(--gold-dark); transform: translateY(-1px); }
+.nav-toggle { display: none; }
+
+@media (max-width: 880px) {
+  .nav-menu { display: none; }
+  .nav-toggle {
+    display: flex;
+    width: 40px; height: 40px;
+    background: var(--ink);
+    border-radius: 50%;
+    align-items: center; justify-content: center;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 1.125rem;
+  }
+  .nav-cta { display: none; }
+}
+
+/* === SIDEBAR (mobile menu) === */
+.sidebar-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(31, 26, 15, 0.6);
+  backdrop-filter: blur(8px);
+  z-index: 200;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+.sidebar-overlay.active { opacity: 1; pointer-events: all; }
+.sidebar {
+  position: fixed;
+  top: 0; right: -100%;
+  width: 85%; max-width: 360px;
+  height: 100vh;
+  background: var(--warm-white);
+  z-index: 201;
+  padding: 2rem 1.5rem;
+  transition: right 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  overflow-y: auto;
+}
+.sidebar.active { right: 0; }
+.sidebar-close {
+  position: absolute;
+  top: 1.5rem; right: 1.5rem;
+  width: 36px; height: 36px;
+  background: var(--cream);
+  border: none;
+  border-radius: 50%;
+  font-size: 1.125rem;
+  cursor: pointer;
+}
+.sidebar-logo {
+  font-size: 1.25rem;
+  font-weight: 800;
+  margin-bottom: 2rem;
+  color: var(--gold-dark);
+}
+.sidebar-menu { list-style: none; }
+.sidebar-menu li { margin-bottom: 0.25rem; }
+.sidebar-menu a {
+  display: block;
+  padding: 1rem 1.25rem;
+  color: var(--charcoal);
+  text-decoration: none;
+  font-weight: 600;
+  border-radius: 12px;
+  transition: all 0.2s ease;
+}
+.sidebar-menu a:hover, .sidebar-menu a.active {
+  background: var(--gold);
+  color: white;
+}
+.sidebar-cta {
+  margin-top: 2rem;
+  display: block;
+  text-align: center;
+  background: var(--ink);
+  color: white;
+  padding: 1rem;
+  border-radius: 100px;
+  text-decoration: none;
+  font-weight: 700;
+}
+
+/* === HERO === */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  padding: 8rem 0 4rem;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  background: var(--cream);
+}
+.hero::before {
+  content: "";
+  position: absolute;
+  top: -20%; left: -10%;
+  width: 60%; height: 80%;
+  background: radial-gradient(circle, var(--gold-glow) 0%, transparent 60%);
+  filter: blur(80px);
+  animation: floatBlob 20s ease-in-out infinite;
+}
+.hero::after {
+  content: "";
+  position: absolute;
+  bottom: -10%; right: -10%;
+  width: 50%; height: 70%;
+  background: radial-gradient(circle, rgba(245, 196, 94, 0.3) 0%, transparent 60%);
+  filter: blur(80px);
+  animation: floatBlob 25s ease-in-out infinite reverse;
+}
+@keyframes floatBlob {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(30px, -40px) scale(1.1); }
+  66% { transform: translate(-20px, 30px) scale(0.95); }
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 3rem;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+}
+@media (max-width: 880px) {
+  .hero { padding-top: 7rem; min-height: auto; }
+  .hero-grid { grid-template-columns: 1fr; gap: 2.5rem; text-align: center; }
+}
+
+.hero-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--cream-dark);
+  padding: 0.5rem 1rem;
+  border-radius: 100px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--gold-dark);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  margin-bottom: 1.5rem;
+  animation: fadeUp 0.8s ease 0.1s both;
+}
+.hero-eyebrow::before {
+  content: "";
+  width: 6px; height: 6px;
+  background: var(--success);
+  border-radius: 50%;
+  animation: pulse 2s ease-in-out infinite;
+}
+@keyframes pulse {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.4); opacity: 0.6; }
+}
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.hero h1 {
+  font-size: clamp(2.5rem, 6vw, 4.25rem);
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  margin-bottom: 1.25rem;
+  color: var(--ink);
+  animation: fadeUp 0.8s ease 0.2s both;
+}
+.hero h1 .accent {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  color: var(--gold-dark);
+  font-weight: 900;
+}
+.hero h1 .underline {
+  position: relative;
+  display: inline-block;
+}
+.hero h1 .underline::after {
+  content: "";
+  position: absolute;
+  bottom: 0.05em;
+  left: 0;
+  right: 0;
+  height: 0.18em;
+  background: var(--gold);
+  z-index: -1;
+  opacity: 0.5;
+}
+
+.hero-desc {
+  font-size: 1.0625rem;
+  color: var(--stone);
+  margin-bottom: 2rem;
+  max-width: 520px;
+  animation: fadeUp 0.8s ease 0.3s both;
+}
+@media (max-width: 880px) {
+  .hero-desc { margin: 0 auto 2rem; }
+}
+
+.hero-stats {
+  display: flex;
+  gap: 2rem;
+  margin-bottom: 2.5rem;
+  animation: fadeUp 0.8s ease 0.4s both;
+}
+@media (max-width: 880px) {
+  .hero-stats { justify-content: center; }
+}
+@media (max-width: 480px) {
+  .hero-stats { gap: 1.25rem; }
+}
+.stat-item .value {
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: var(--gold-dark);
+  line-height: 1;
+  margin-bottom: 0.25rem;
+  font-variant-numeric: tabular-nums;
+}
+.stat-item .label {
+  font-size: 0.75rem;
+  color: var(--stone);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 0.875rem;
+  flex-wrap: wrap;
+  animation: fadeUp 0.8s ease 0.5s both;
+}
+@media (max-width: 880px) {
+  .hero-actions { justify-content: center; }
+}
+
+.btn-primary {
+  background: var(--ink);
+  color: white;
+  padding: 1rem 1.875rem;
+  border-radius: 100px;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 0.9375rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.625rem;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+  transition: all 0.25s ease;
+  position: relative;
+  overflow: hidden;
+}
+.btn-primary::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dark) 100%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: -1;
+}
+.btn-primary:hover { transform: translateY(-2px); box-shadow: var(--shadow-gold); }
+.btn-primary:hover::before { opacity: 1; }
+.btn-primary .arrow {
+  transition: transform 0.3s ease;
+}
+.btn-primary:hover .arrow { transform: translateX(4px); }
+
+.btn-secondary {
+  background: transparent;
+  color: var(--ink);
+  padding: 1rem 1.625rem;
+  border-radius: 100px;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 0.9375rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.625rem;
+  border: 2px solid var(--ink);
+  transition: all 0.25s ease;
+}
+.btn-secondary:hover {
+  background: var(--ink);
+  color: white;
+  transform: translateY(-2px);
+}
+
+/* === HERO VISUAL (right side) === */
+.hero-visual {
+  position: relative;
+  height: 480px;
+  animation: fadeUp 1s ease 0.4s both;
+}
+@media (max-width: 880px) {
+  .hero-visual { height: 360px; }
+}
+
+.visual-card {
+  position: absolute;
+  background: white;
+  border-radius: 24px;
+  box-shadow: var(--shadow-lg);
+  padding: 1.25rem;
+  border: 1px solid var(--cream-dark);
+}
+.visual-card-1 {
+  top: 0; right: 0;
+  width: 64%;
+  animation: float1 6s ease-in-out infinite;
+}
+.visual-card-2 {
+  bottom: 60px; left: 0;
+  width: 70%;
+  animation: float2 7s ease-in-out infinite;
+}
+.visual-card-3 {
+  bottom: 0; right: 5%;
+  width: 50%;
+  animation: float3 8s ease-in-out infinite;
+}
+@keyframes float1 {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-15px); }
+}
+@keyframes float2 {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(15px); }
+}
+@keyframes float3 {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.vc-row { display: flex; align-items: center; gap: 0.75rem; }
+.vc-icon {
+  width: 48px; height: 48px;
+  border-radius: 12px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.5rem;
+  flex-shrink: 0;
+}
+.vc-icon.gold { background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dark) 100%); color: white; }
+.vc-icon.cream { background: var(--cream); }
+.vc-icon.dark { background: var(--ink); color: white; }
+.vc-info .name { font-size: 0.8125rem; font-weight: 700; line-height: 1.3; }
+.vc-info .meta { font-size: 0.6875rem; color: var(--stone); margin-top: 0.125rem; }
+.vc-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  padding: 0.25rem 0.625rem;
+  background: rgba(22, 163, 74, 0.1);
+  color: var(--success);
+  border-radius: 100px;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  margin-top: 0.625rem;
+}
+.vc-status::before {
+  content: "";
+  width: 6px; height: 6px;
+  background: var(--success);
+  border-radius: 50%;
+}
+.vc-rating {
+  margin-top: 0.625rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.8125rem;
+}
+.vc-rating .stars { color: var(--gold); }
+.vc-rating .num { font-weight: 800; }
+.vc-rating .reviews { color: var(--stone); font-size: 0.75rem; }
+
+/* === SECTION SHARED === */
+.section { padding: 5rem 0; position: relative; }
+.section-eyebrow {
+  display: inline-block;
+  background: var(--cream);
+  color: var(--gold-dark);
+  padding: 0.5rem 1rem;
+  border-radius: 100px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  margin-bottom: 1rem;
+}
+.section-title {
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+  margin-bottom: 1rem;
+  color: var(--ink);
+}
+.section-title .accent {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  color: var(--gold-dark);
+  font-weight: 900;
+}
+.section-desc {
+  font-size: 1.0625rem;
+  color: var(--stone);
+  max-width: 640px;
+}
+.section-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+.section-header .section-desc { margin: 0 auto; }
+
+/* === 8 SERVICE CARDS === */
+.services-section {
+  background: linear-gradient(180deg, var(--cream) 0%, var(--warm-white) 100%);
+}
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+}
+@media (max-width: 1024px) {
+  .services-grid { grid-template-columns: repeat(3, 1fr); }
+}
+@media (max-width: 768px) {
+  .services-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 380px) {
+  .services-grid { grid-template-columns: 1fr; }
+}
+
+.service-card {
+  background: white;
+  border-radius: 20px;
+  padding: 1.5rem 1.25rem;
+  text-align: center;
+  border: 1px solid var(--cream-dark);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+}
+.service-card::before {
+  content: "";
+  position: absolute;
+  top: -50%; left: -50%;
+  width: 200%; height: 200%;
+  background: radial-gradient(circle, var(--gold-glow) 0%, transparent 50%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+.service-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--gold);
+}
+.service-card:hover::before { opacity: 0.4; }
+.service-card > * { position: relative; z-index: 1; }
+
+.service-icon-wrap {
+  width: 72px; height: 72px;
+  margin: 0 auto 1rem;
+  background: linear-gradient(135deg, var(--cream) 0%, var(--cream-dark) 100%);
+  border-radius: 20px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 2rem;
+  transition: all 0.3s ease;
+}
+.service-card:hover .service-icon-wrap {
+  background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dark) 100%);
+  transform: scale(1.05) rotate(-3deg);
+  box-shadow: var(--shadow-gold);
+}
+.service-card:hover .service-icon-wrap .emoji {
+  filter: brightness(0) invert(1);
+}
+
+.service-name {
+  font-size: 0.9375rem;
+  font-weight: 800;
+  color: var(--ink);
+  margin-bottom: 0.375rem;
+  line-height: 1.2;
+}
+.service-desc {
+  font-size: 0.75rem;
+  color: var(--stone);
+  margin-bottom: 0.75rem;
+  line-height: 1.45;
+  flex: 1;
+}
+.service-price {
+  font-size: 0.8125rem;
+  font-weight: 700;
+  color: var(--gold-dark);
+  padding-top: 0.75rem;
+  border-top: 1px dashed var(--cream-dark);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.25rem;
+}
+.service-price .from { color: var(--stone); font-size: 0.6875rem; font-weight: 500; text-transform: uppercase; letter-spacing: 0.08em; }
+
+/* === BOOKING FORM === */
+.booking-section {
+  position: relative;
+  background: linear-gradient(135deg, var(--ink) 0%, var(--charcoal) 100%);
+  color: white;
+  padding: 5rem 0;
+  overflow: hidden;
+}
+.booking-section::before {
+  content: "";
+  position: absolute;
+  top: -30%; right: -10%;
+  width: 60%; height: 160%;
+  background: radial-gradient(circle, var(--gold-glow) 0%, transparent 60%);
+  filter: blur(60px);
+}
+.booking-section .container { position: relative; z-index: 2; }
+.booking-section .section-eyebrow {
+  background: rgba(232, 166, 39, 0.15);
+  color: var(--gold-light);
+}
+.booking-section .section-title { color: white; }
+.booking-section .section-desc { color: rgba(255, 252, 245, 0.75); }
+
+.booking-form {
+  background: var(--warm-white);
+  color: var(--ink);
+  border-radius: 24px;
+  padding: 2.5rem;
+  margin-top: 3rem;
+  box-shadow: var(--shadow-lg);
+}
+@media (max-width: 600px) {
+  .booking-form { padding: 1.75rem 1.25rem; }
+}
+
+.form-steps {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+  position: relative;
+}
+.form-steps::before {
+  content: "";
+  position: absolute;
+  top: 16px;
+  left: 8%;
+  right: 8%;
+  height: 2px;
+  background: var(--cream-dark);
+  z-index: 0;
+}
+.form-step {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  flex: 1;
+}
+.form-step .step-num {
+  width: 32px; height: 32px;
+  background: var(--cream);
+  color: var(--stone);
+  border: 2px solid var(--cream-dark);
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 0.875rem;
+  margin-bottom: 0.5rem;
+  transition: all 0.3s ease;
+}
+.form-step.active .step-num {
+  background: var(--gold);
+  color: white;
+  border-color: var(--gold);
+  box-shadow: 0 0 0 4px var(--gold-glow);
+}
+.form-step.done .step-num {
+  background: var(--ink);
+  color: white;
+  border-color: var(--ink);
+}
+.form-step .step-label {
+  font-size: 0.6875rem;
+  color: var(--stone);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+.form-step.active .step-label { color: var(--ink); }
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+@media (max-width: 600px) {
+  .form-row { grid-template-columns: 1fr; }
+}
+.form-group { margin-bottom: 1rem; }
+.form-label {
+  display: block;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  margin-bottom: 0.4375rem;
+  color: var(--ink);
+}
+.form-label .req { color: #DC2626; }
+.form-input {
+  width: 100%;
+  padding: 0.875rem 1rem;
+  border: 1.5px solid var(--cream-dark);
+  border-radius: 12px;
+  font-family: inherit;
+  font-size: 0.9375rem;
+  background: var(--cream-light);
+  color: var(--ink);
+  outline: none;
+  transition: all 0.2s ease;
+}
+.form-input:focus {
+  border-color: var(--gold);
+  background: white;
+  box-shadow: 0 0 0 4px var(--gold-glow);
+}
+select.form-input { cursor: pointer; }
+textarea.form-input { resize: vertical; min-height: 80px; }
+
+.service-pills {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+.service-pill {
+  padding: 0.625rem 1rem;
+  background: var(--cream-light);
+  border: 1.5px solid var(--cream-dark);
+  border-radius: 100px;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--charcoal);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+}
+.service-pill:hover { background: var(--cream-dark); }
+.service-pill.selected {
+  background: var(--ink);
+  color: white;
+  border-color: var(--ink);
+}
+
+.btn-submit {
+  width: 100%;
+  background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dark) 100%);
+  color: white;
+  border: none;
+  padding: 1.125rem;
+  border-radius: 100px;
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 800;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.625rem;
+  transition: all 0.3s ease;
+  box-shadow: var(--shadow-gold);
+  margin-top: 0.5rem;
+}
+.btn-submit:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 32px rgba(232, 166, 39, 0.4);
+}
+
+.form-trust {
+  text-align: center;
+  margin-top: 1rem;
+  font-size: 0.75rem;
+  color: var(--stone);
+}
+.form-trust a { color: var(--gold-dark); font-weight: 600; text-decoration: none; }
+
+/* === WHY CHOOSE === */
+.why-section { background: var(--warm-white); }
+.why-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.25rem;
+}
+@media (max-width: 1024px) {
+  .why-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 480px) {
+  .why-grid { grid-template-columns: 1fr; }
+}
+.why-card {
+  background: var(--cream);
+  border-radius: 20px;
+  padding: 2rem 1.5rem;
+  border: 1px solid var(--cream-dark);
+  transition: all 0.3s ease;
+}
+.why-card:hover {
+  transform: translateY(-4px);
+  background: white;
+  box-shadow: var(--shadow-md);
+}
+.why-icon {
+  width: 56px; height: 56px;
+  background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dark) 100%);
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  color: white;
+  margin-bottom: 1.25rem;
+  box-shadow: var(--shadow-gold);
+}
+.why-card h3 {
+  font-size: 1.125rem;
+  font-weight: 800;
+  margin-bottom: 0.5rem;
+  color: var(--ink);
+}
+.why-card p {
+  font-size: 0.875rem;
+  color: var(--stone);
+  line-height: 1.55;
+}
+
+/* === HOW IT WORKS === */
+.how-section { background: var(--cream); }
+.how-steps {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  position: relative;
+}
+@media (max-width: 1024px) {
+  .how-steps { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 480px) {
+  .how-steps { grid-template-columns: 1fr; }
+}
+.how-step {
+  text-align: center;
+  position: relative;
+}
+.how-step-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 4rem;
+  font-weight: 900;
+  font-style: italic;
+  color: var(--gold-light);
+  line-height: 1;
+  margin-bottom: 0.75rem;
+  background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dark) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.how-step h4 {
+  font-size: 1.125rem;
+  font-weight: 800;
+  margin-bottom: 0.5rem;
+}
+.how-step p {
+  font-size: 0.875rem;
+  color: var(--stone);
+}
+
+/* === TESTIMONIALS === */
+.testimonials-section { background: var(--warm-white); }
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+@media (max-width: 880px) {
+  .testimonials-grid { grid-template-columns: 1fr; }
+}
+.testimonial-card {
+  background: var(--cream);
+  border-radius: 20px;
+  padding: 2rem 1.75rem;
+  border: 1px solid var(--cream-dark);
+  position: relative;
+}
+.testimonial-card::before {
+  content: '"';
+  font-family: 'Playfair Display', serif;
+  position: absolute;
+  top: -20px;
+  left: 1.5rem;
+  font-size: 6rem;
+  color: var(--gold);
+  line-height: 1;
+  font-weight: 900;
+}
+.testimonial-stars { color: var(--gold); margin-bottom: 1rem; font-size: 0.9375rem; }
+.testimonial-text {
+  color: var(--charcoal);
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  margin-bottom: 1.25rem;
+}
+.testimonial-author {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--cream-dark);
+}
+.testimonial-avatar {
+  width: 44px; height: 44px;
+  background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dark) 100%);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  color: white;
+  font-weight: 800;
+  font-size: 1rem;
+}
+.testimonial-info .name { font-weight: 700; font-size: 0.875rem; }
+.testimonial-info .meta { font-size: 0.75rem; color: var(--stone); margin-top: 0.125rem; }
+
+/* === STATS BAR === */
+.stats-bar {
+  background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dark) 100%);
+  padding: 3rem 0;
+  color: white;
+  position: relative;
+  overflow: hidden;
+}
+.stats-bar::before {
+  content: "";
+  position: absolute;
+  top: -50%; right: -10%;
+  width: 60%; height: 200%;
+  background: radial-gradient(circle, rgba(255, 235, 180, 0.4) 0%, transparent 60%);
+  filter: blur(40px);
+}
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  position: relative;
+  z-index: 2;
+}
+@media (max-width: 768px) {
+  .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 2rem 1rem; }
+}
+.stat-block {
+  text-align: center;
+}
+.stat-block .big {
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 900;
+  line-height: 1;
+  margin-bottom: 0.375rem;
+  font-variant-numeric: tabular-nums;
+}
+.stat-block .small {
+  font-size: 0.8125rem;
+  opacity: 0.95;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+/* === CTA FINAL === */
+.cta-final {
+  background: var(--cream);
+  padding: 5rem 0;
+}
+.cta-card {
+  background: linear-gradient(135deg, var(--ink) 0%, var(--charcoal) 100%);
+  border-radius: 32px;
+  padding: 4rem 3rem;
+  text-align: center;
+  color: white;
+  position: relative;
+  overflow: hidden;
+}
+.cta-card::before {
+  content: "";
+  position: absolute;
+  top: -50%; left: -10%;
+  width: 60%; height: 200%;
+  background: radial-gradient(circle, var(--gold-glow) 0%, transparent 60%);
+  filter: blur(60px);
+}
+.cta-card::after {
+  content: "";
+  position: absolute;
+  bottom: -50%; right: -10%;
+  width: 50%; height: 200%;
+  background: radial-gradient(circle, rgba(245, 196, 94, 0.25) 0%, transparent 60%);
+  filter: blur(50px);
+}
+.cta-card > * { position: relative; z-index: 2; }
+.cta-card h2 {
+  font-size: clamp(1.75rem, 4vw, 2.75rem);
+  font-weight: 800;
+  margin-bottom: 1rem;
+  line-height: 1.2;
+}
+.cta-card h2 .accent {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  color: var(--gold-light);
+  font-weight: 900;
+}
+.cta-card p {
+  font-size: 1.0625rem;
+  opacity: 0.85;
+  margin-bottom: 2rem;
+  max-width: 540px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.cta-buttons {
+  display: flex;
+  gap: 0.875rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.btn-cta-primary {
+  background: var(--gold);
+  color: white;
+  padding: 1.125rem 2rem;
+  border-radius: 100px;
+  text-decoration: none;
+  font-weight: 800;
+  font-size: 1rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.25s ease;
+  box-shadow: var(--shadow-gold);
+}
+.btn-cta-primary:hover { transform: translateY(-2px); background: var(--gold-light); color: var(--ink); }
+.btn-cta-secondary {
+  background: transparent;
+  color: white;
+  padding: 1.125rem 2rem;
+  border-radius: 100px;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 1rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  transition: all 0.25s ease;
+}
+.btn-cta-secondary:hover { background: white; color: var(--ink); border-color: white; }
+
+/* === FOOTER === */
+.footer {
+  background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dark) 100%);
+  color: white;
+  padding: 4rem 0 2rem;
+  position: relative;
+  overflow: hidden;
+}
+.footer::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+}
+.footer-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 2.5rem;
+  margin-bottom: 3rem;
+}
+@media (max-width: 880px) {
+  .footer-grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 480px) {
+  .footer-grid { grid-template-columns: 1fr; }
+}
+.footer-brand h3 {
+  font-size: 1.5rem;
+  font-weight: 800;
+  margin-bottom: 0.75rem;
+}
+.footer-brand p {
+  font-size: 0.875rem;
+  opacity: 0.9;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+.footer-col h4 {
+  font-size: 0.875rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+.footer-col ul { list-style: none; }
+.footer-col li { margin-bottom: 0.625rem; }
+.footer-col a {
+  color: rgba(255, 255, 255, 0.85);
+  text-decoration: none;
+  font-size: 0.875rem;
+  transition: color 0.2s ease;
+}
+.footer-col a:hover { color: white; }
+.footer-bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  padding-top: 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  font-size: 0.8125rem;
+  opacity: 0.85;
+}
+.footer-bottom .social {
+  display: flex;
+  gap: 0.625rem;
+}
+.footer-bottom .social a {
+  width: 36px; height: 36px;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  color: white;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+.footer-bottom .social a:hover { background: white; color: var(--gold-dark); }
+
+/* === FLOATING CALL BUTTON === */
+.floating-call {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  z-index: 90;
+  background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dark) 100%);
+  color: white;
+  padding: 0.875rem 1.5rem;
+  border-radius: 100px;
+  text-decoration: none;
+  font-weight: 800;
+  font-size: 0.9375rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  box-shadow: 0 12px 32px rgba(232, 166, 39, 0.5);
+  transition: transform 0.3s ease;
+  animation: floatCallButton 3s ease-in-out infinite;
+}
+@keyframes floatCallButton {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+.floating-call:hover { transform: scale(1.05); }
+.floating-call .ring {
+  width: 12px; height: 12px;
+  background: white;
+  border-radius: 50%;
+  position: relative;
+}
+.floating-call .ring::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: white;
+  animation: ringPulse 1.5s ease-in-out infinite;
+}
+@keyframes ringPulse {
+  0% { transform: scale(1); opacity: 0.7; }
+  100% { transform: scale(2.5); opacity: 0; }
+}
+@media (max-width: 480px) {
+  .floating-call .label { display: none; }
+  .floating-call { padding: 1rem; }
+}
+</style>
+</head>
+<body>
+
+<!-- ========== NAVBAR ========== -->
+<nav class="navbar">
+  <a href="index.html" class="nav-logo">
+    <span class="mark">V</span>
+    Việc<strong>Nhà247</strong>
+  </a>
+  <div class="nav-menu">
+    <a href="#dich-vu">Dịch vụ</a>
+    <a href="#cach-hoat-dong">Cách hoạt động</a>
+    <a href="#danh-gia">Đánh giá</a>
+    <a href="tuyen-ctv.html">Tuyển CTV</a>
+    <a href="ve-chung-toi.html">Về chúng tôi</a>
+  </div>
+  <a href="#dat-lich" class="nav-cta">Đặt ngay <span>→</span></a>
+  <button class="nav-toggle" onclick="toggleSidebar()">☰</button>
+</nav>
+
+<!-- Sidebar mobile -->
+<div class="sidebar-overlay" onclick="toggleSidebar()"></div>
+<aside class="sidebar">
+  <button class="sidebar-close" onclick="toggleSidebar()">×</button>
+  <div class="sidebar-logo">ViệcNhà247</div>
+  <ul class="sidebar-menu">
+    <li><a href="#dich-vu" onclick="toggleSidebar()">Dịch vụ</a></li>
+    <li><a href="#dat-lich" onclick="toggleSidebar()">Đặt lịch</a></li>
+    <li><a href="#cach-hoat-dong" onclick="toggleSidebar()">Cách hoạt động</a></li>
+    <li><a href="#danh-gia" onclick="toggleSidebar()">Đánh giá</a></li>
+    <li><a href="tuyen-ctv.html">Tuyển CTV</a></li>
+    <li><a href="ve-chung-toi.html">Về chúng tôi</a></li>
+    <li><a href="ve-app.html">Tải app</a></li>
+    <li><a href="lien-he.html">Liên hệ</a></li>
+  </ul>
+  <a href="#dat-lich" class="sidebar-cta" onclick="toggleSidebar()">Đặt dịch vụ ngay →</a>
+</aside>
+
+<!-- ========== HERO ========== -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-grid">
+      <div>
+        <div class="hero-eyebrow">Đang phục vụ TPHCM</div>
+        <h1>
+          Dịch vụ gia đình <br>
+          <span class="accent">tận tâm</span>, <span class="underline">đúng giờ</span>
+        </h1>
+        <p class="hero-desc">
+          Từ dọn dẹp, sửa chữa đến chăm sóc người thân — 8 dịch vụ thiết yếu, được thực hiện bởi cộng tác viên đào tạo bài bản. Đặt 60 giây, có người trong 2 giờ.
+        </p>
+        <div class="hero-stats">
+          <div class="stat-item">
+            <div class="value">10K+</div>
+            <div class="label">Đơn hoàn thành</div>
+          </div>
+          <div class="stat-item">
+            <div class="value">500+</div>
+            <div class="label">CTV được đào tạo</div>
+          </div>
+          <div class="stat-item">
+            <div class="value">4.8★</div>
+            <div class="label">Đánh giá trung bình</div>
+          </div>
+        </div>
+        <div class="hero-actions">
+          <a href="#dat-lich" class="btn-primary">
+            Đặt dịch vụ ngay
+            <span class="arrow">→</span>
+          </a>
+          <a href="tel:19006247" class="btn-secondary">
+            📞 Gọi 1900 6247
+          </a>
+        </div>
+      </div>
+
+      <div class="hero-visual">
+        <!-- Card 1: CTV đến đúng giờ -->
+        <div class="visual-card visual-card-1">
+          <div class="vc-row">
+            <div class="vc-icon gold">🧹</div>
+            <div class="vc-info">
+              <div class="name">Chị Mai đang đến</div>
+              <div class="meta">Còn 8 phút · 1.2 km</div>
+            </div>
+          </div>
+          <div class="vc-status">Đã xác nhận</div>
+        </div>
+
+        <!-- Card 2: Đánh giá khách -->
+        <div class="visual-card visual-card-2">
+          <div class="vc-row">
+            <div class="vc-icon dark">⚡</div>
+            <div class="vc-info">
+              <div class="name">Anh Tuấn — Sửa điện</div>
+              <div class="meta">Đơn hoàn thành · Q.7</div>
+            </div>
+          </div>
+          <div class="vc-rating">
+            <span class="stars">★★★★★</span>
+            <span class="num">5.0</span>
+            <span class="reviews">·</span>
+            <span class="reviews">"Sửa nhanh, sạch sẽ"</span>
+          </div>
+        </div>
+
+        <!-- Card 3: Số đơn hôm nay -->
+        <div class="visual-card visual-card-3">
+          <div class="vc-row">
+            <div class="vc-icon cream">📅</div>
+            <div class="vc-info">
+              <div class="name">Hôm nay</div>
+              <div class="meta" style="color: var(--gold-dark); font-weight: 800; font-size: 0.875rem;">237 đơn đã đặt</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== 8 SERVICES ========== -->
+<section class="section services-section" id="dich-vu">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-eyebrow">8 dịch vụ</span>
+      <h2 class="section-title">Tất cả những gì gia đình bạn <span class="accent">cần</span></h2>
+      <p class="section-desc">Mỗi dịch vụ được thực hiện bởi CTV chuyên ngành, có chứng chỉ, đào tạo bài bản. Bấm vào để tìm hiểu chi tiết & đặt lịch.</p>
+    </div>
+
+    <div class="services-grid">
+      <a href="#dat-lich" class="service-card" data-service="don-dep">
+        <div class="service-icon-wrap"><span class="emoji">🧹</span></div>
+        <div class="service-name">Dọn dẹp nhà cửa</div>
+        <div class="service-desc">Tổng vệ sinh, dọn theo giờ, deep clean định kỳ</div>
+        <div class="service-price"><span class="from">Từ</span> 200.000đ</div>
+      </a>
+
+      <a href="#dat-lich" class="service-card" data-service="sua-dien">
+        <div class="service-icon-wrap"><span class="emoji">⚡</span></div>
+        <div class="service-name">Sửa chữa điện</div>
+        <div class="service-desc">Thợ điện có chứng chỉ — bảo hành 6 tháng</div>
+        <div class="service-price"><span class="from">Từ</span> 150.000đ</div>
+      </a>
+
+      <a href="#dat-lich" class="service-card" data-service="sua-nuoc">
+        <div class="service-icon-wrap"><span class="emoji">💧</span></div>
+        <div class="service-name">Sửa chữa nước</div>
+        <div class="service-desc">Thông tắc, sửa ống, lắp thiết bị 24/7</div>
+        <div class="service-price"><span class="from">Từ</span> 180.000đ</div>
+      </a>
+
+      <a href="#dat-lich" class="service-card" data-service="chuyen-nha">
+        <div class="service-icon-wrap"><span class="emoji">🚛</span></div>
+        <div class="service-name">Chuyển nhà trọn gói</div>
+        <div class="service-desc">Đóng gói, vận chuyển, sắp xếp tại nhà mới</div>
+        <div class="service-price"><span class="from">Từ</span> 500.000đ</div>
+      </a>
+
+      <a href="#dat-lich" class="service-card" data-service="nau-an">
+        <div class="service-icon-wrap"><span class="emoji">🍳</span></div>
+        <div class="service-name">Nấu ăn tại gia</div>
+        <div class="service-desc">Đầu bếp tận tâm — bữa cơm gia đình, tiệc nhỏ</div>
+        <div class="service-price"><span class="from">Từ</span> 250.000đ</div>
+      </a>
+
+      <a href="#dat-lich" class="service-card" data-service="cham-soc">
+        <div class="service-icon-wrap"><span class="emoji">👴</span></div>
+        <div class="service-name">Chăm sóc người cao tuổi</div>
+        <div class="service-desc">Điều dưỡng có chứng chỉ — theo giờ hoặc tháng</div>
+        <div class="service-price"><span class="from">Từ</span> 300.000đ</div>
+      </a>
+
+      <a href="#dat-lich" class="service-card" data-service="di-cho">
+        <div class="service-icon-wrap"><span class="emoji">🛒</span></div>
+        <div class="service-name">Đi chợ hộ</div>
+        <div class="service-desc">Chọn đồ tươi — giao tận nhà — minh bạch hóa đơn</div>
+        <div class="service-price"><span class="from">Từ</span> 100.000đ</div>
+      </a>
+
+      <a href="#dat-lich" class="service-card" data-service="da-nang">
+        <div class="service-icon-wrap"><span class="emoji">🔨</span></div>
+        <div class="service-name">Sửa chữa đa năng</div>
+        <div class="service-desc">Lắp ráp, treo tranh, sửa cửa, vệ sinh máy lạnh</div>
+        <div class="service-price"><span class="from">Từ</span> 150.000đ</div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ========== BOOKING FORM ========== -->
+<section class="section booking-section" id="dat-lich">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-eyebrow">Đặt lịch nhanh</span>
+      <h2 class="section-title">Đặt dịch vụ chỉ <span class="accent">60 giây</span></h2>
+      <p class="section-desc">Điền thông tin — chúng tôi gọi xác nhận trong 30 phút và cử CTV phù hợp đến nhà bạn.</p>
+    </div>
+
+    <form class="booking-form" id="bookingForm" onsubmit="handleBookingSubmit(event)">
+      <!-- Steps indicator -->
+      <div class="form-steps">
+        <div class="form-step active">
+          <div class="step-num">1</div>
+          <div class="step-label">Dịch vụ</div>
+        </div>
+        <div class="form-step">
+          <div class="step-num">2</div>
+          <div class="step-label">Thời gian</div>
+        </div>
+        <div class="form-step">
+          <div class="step-num">3</div>
+          <div class="step-label">Liên hệ</div>
+        </div>
+      </div>
+
+      <!-- Bước 1: Chọn dịch vụ -->
+      <div class="form-group">
+        <label class="form-label">Bạn cần dịch vụ gì? <span class="req">*</span></label>
+        <div class="service-pills" id="servicePills">
+          <div class="service-pill" data-value="don-dep">🧹 Dọn dẹp</div>
+          <div class="service-pill" data-value="sua-dien">⚡ Sửa điện</div>
+          <div class="service-pill" data-value="sua-nuoc">💧 Sửa nước</div>
+          <div class="service-pill" data-value="chuyen-nha">🚛 Chuyển nhà</div>
+          <div class="service-pill" data-value="nau-an">🍳 Nấu ăn</div>
+          <div class="service-pill" data-value="cham-soc">👴 Chăm sóc NCT</div>
+          <div class="service-pill" data-value="di-cho">🛒 Đi chợ hộ</div>
+          <div class="service-pill" data-value="da-nang">🔨 Sửa đa năng</div>
+        </div>
+        <input type="hidden" id="selectedService" name="service" required>
+      </div>
+
+      <!-- Bước 2: Thời gian + địa chỉ -->
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-label" for="bookingDate">Ngày làm <span class="req">*</span></label>
+          <input type="date" id="bookingDate" name="date" class="form-input" required>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="bookingTime">Giờ làm <span class="req">*</span></label>
+          <select id="bookingTime" name="time" class="form-input" required>
+            <option value="">Chọn giờ</option>
+            <option value="07:00">07:00 sáng</option>
+            <option value="08:00">08:00 sáng</option>
+            <option value="09:00">09:00 sáng</option>
+            <option value="10:00">10:00 sáng</option>
+            <option value="11:00">11:00 sáng</option>
+            <option value="13:00">13:00 chiều</option>
+            <option value="14:00">14:00 chiều</option>
+            <option value="15:00">15:00 chiều</option>
+            <option value="16:00">16:00 chiều</option>
+            <option value="17:00">17:00 chiều</option>
+            <option value="18:00">18:00 tối</option>
+            <option value="19:00">19:00 tối</option>
+            <option value="khan-cap">⚡ Khẩn cấp (trong 2 giờ)</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label" for="bookingAddress">Địa chỉ làm việc <span class="req">*</span></label>
+        <input type="text" id="bookingAddress" name="address" class="form-input" placeholder="Ví dụ: 123 Nguyễn Thị Thập, Tân Phú, Quận 7" required>
+      </div>
+
+      <!-- Bước 3: Thông tin liên hệ -->
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-label" for="bookingName">Họ tên <span class="req">*</span></label>
+          <input type="text" id="bookingName" name="name" class="form-input" placeholder="Nguyễn Văn A" required>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="bookingPhone">Số điện thoại <span class="req">*</span></label>
+          <input type="tel" id="bookingPhone" name="phone" class="form-input" placeholder="0901 234 567" pattern="[0-9]{10,11}" required>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label" for="bookingNote">Yêu cầu thêm (không bắt buộc)</label>
+        <textarea id="bookingNote" name="note" class="form-input" placeholder="Ví dụ: Nhà 80m², có 2 phòng ngủ. Cần dọn cả ban công."></textarea>
+      </div>
+
+      <button type="submit" class="btn-submit">
+        Gửi yêu cầu — chúng tôi gọi lại trong 30 phút
+        <span>→</span>
+      </button>
+
+      <p class="form-trust">
+        🔒 Thông tin của bạn được bảo mật theo <a href="phap-ly.html">chính sách bảo mật</a>. Không spam.
+      </p>
+    </form>
+  </div>
+</section>
+
+<!-- ========== WHY CHOOSE ========== -->
+<section class="section why-section">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-eyebrow">Vì sao chọn chúng tôi</span>
+      <h2 class="section-title">Khác biệt thật sự, không <span class="accent">quảng cáo</span></h2>
+    </div>
+
+    <div class="why-grid">
+      <div class="why-card">
+        <div class="why-icon">🎓</div>
+        <h3>CTV được đào tạo</h3>
+        <p>120 video đào tạo bài bản cho 8 ngành. Mọi CTV đều phải pass bài kiểm tra 25 câu mới được nhận đơn.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">💰</div>
+        <h3>Giá minh bạch</h3>
+        <p>Báo giá chi tiết trước khi làm. Không phát sinh ngoài thỏa thuận. Hóa đơn rõ ràng từng món.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">🛡️</div>
+        <h3>Bảo hành 30 ngày</h3>
+        <p>Mọi đơn được bảo hành. Có vấn đề trong 30 ngày, CTV quay lại sửa miễn phí. Bảo hiểm đến 50 triệu/đơn.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">⚡</div>
+        <h3>Phục vụ 24/7</h3>
+        <p>Đơn khẩn cấp (sửa nước rò, mất điện) có CTV đến trong 2 giờ. Hotline 1900 6247 hoạt động cả đêm.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== HOW IT WORKS ========== -->
+<section class="section how-section" id="cach-hoat-dong">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-eyebrow">Quy trình</span>
+      <h2 class="section-title">Đơn giản trong <span class="accent">4 bước</span></h2>
+    </div>
+
+    <div class="how-steps">
+      <div class="how-step">
+        <div class="how-step-num">01</div>
+        <h4>Đặt lịch</h4>
+        <p>Chọn dịch vụ, ngày giờ, địa chỉ trên website hoặc gọi hotline. Mất 60 giây.</p>
+      </div>
+      <div class="how-step">
+        <div class="how-step-num">02</div>
+        <h4>Xác nhận</h4>
+        <p>Chúng tôi gọi xác nhận trong 30 phút, báo giá chi tiết, cử CTV phù hợp.</p>
+      </div>
+      <div class="how-step">
+        <div class="how-step-num">03</div>
+        <h4>Làm việc</h4>
+        <p>CTV đến đúng giờ, mặc đồng phục, có bảng tên. Làm việc theo quy trình chuẩn.</p>
+      </div>
+      <div class="how-step">
+        <div class="how-step-num">04</div>
+        <h4>Đánh giá</h4>
+        <p>Bạn đánh giá CTV — chúng tôi cải tiến liên tục. Bảo hành 30 ngày sau khi xong.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== TESTIMONIALS ========== -->
+<section class="section testimonials-section" id="danh-gia">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-eyebrow">Khách hàng nói gì</span>
+      <h2 class="section-title">Hơn 10.000 gia đình đã <span class="accent">tin tưởng</span></h2>
+    </div>
+
+    <div class="testimonials-grid">
+      <div class="testimonial-card">
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-text">Chị dọn dẹp đến đúng giờ, làm sạch sẽ hơn cả mong đợi. Sàn nhà sạch bóng, bếp gas hết dầu mỡ tích tụ 6 tháng. Tôi đã đặt thêm gói dọn hàng tuần.</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">L</div>
+          <div class="testimonial-info">
+            <div class="name">Chị Lan Anh</div>
+            <div class="meta">Khách thường · Q.7, TPHCM</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial-card">
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-text">Vòi nước nhà tôi rò rỉ giữa đêm. Gọi hotline 11h đêm, anh thợ đến trong 1h30. Sửa xong trong 30 phút, giá đúng như báo. Cực kỳ chuyên nghiệp!</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">H</div>
+          <div class="testimonial-info">
+            <div class="name">Anh Hoàng Minh</div>
+            <div class="meta">Đơn khẩn cấp · Q.4, TPHCM</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial-card">
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-text">Mẹ tôi ốm cần người chăm sóc. Cô điều dưỡng từ ViệcNhà247 không chỉ giỏi nghề mà còn rất tử tế. Mẹ tôi quý cô như con. Tôi yên tâm đi làm.</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">T</div>
+          <div class="testimonial-info">
+            <div class="name">Chị Thu Hương</div>
+            <div class="meta">Khách hợp đồng tháng · Q.1, TPHCM</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== STATS BAR ========== -->
+<section class="stats-bar">
+  <div class="container">
+    <div class="stats-grid">
+      <div class="stat-block">
+        <div class="big">500+</div>
+        <div class="small">CTV được đào tạo</div>
+      </div>
+      <div class="stat-block">
+        <div class="big">10K+</div>
+        <div class="small">Đơn đã hoàn thành</div>
+      </div>
+      <div class="stat-block">
+        <div class="big">4.8/5</div>
+        <div class="small">Đánh giá trung bình</div>
+      </div>
+      <div class="stat-block">
+        <div class="big">30 ngày</div>
+        <div class="small">Bảo hành mọi đơn</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== CTA FINAL ========== -->
+<section class="cta-final">
+  <div class="container">
+    <div class="cta-card">
+      <h2>Sẵn sàng để nhà bạn <span class="accent">được chăm sóc</span>?</h2>
+      <p>Đặt dịch vụ ngay hôm nay — nhận voucher 100.000đ cho đơn đầu tiên.</p>
+      <div class="cta-buttons">
+        <a href="#dat-lich" class="btn-cta-primary">
+          Đặt dịch vụ ngay
+          <span>→</span>
+        </a>
+        <a href="tel:19006247" class="btn-cta-secondary">
+          📞 1900 6247
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== FOOTER ========== -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <h3>ViệcNhà247</h3>
+        <p>Nền tảng dịch vụ gia đình — kết nối bạn với cộng tác viên đào tạo bài bản trên 8 ngành thiết yếu. Tận tâm. Đúng giờ. Minh bạch.</p>
+        <p style="font-size: 0.8125rem; opacity: 0.85;">📍 Trụ sở: TPHCM<br>📞 Hotline: 1900 6247</p>
+      </div>
+      <div class="footer-col">
+        <h4>Dịch vụ</h4>
+        <ul>
+          <li><a href="dich-vu.html">Tất cả dịch vụ</a></li>
+          <li><a href="#dat-lich">Đặt lịch</a></li>
+          <li><a href="#cach-hoat-dong">Cách hoạt động</a></li>
+          <li><a href="ve-app.html">Tải app</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Công ty</h4>
+        <ul>
+          <li><a href="ve-chung-toi.html">Về chúng tôi</a></li>
+          <li><a href="tuyen-ctv.html">Tuyển CTV</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="lien-he.html">Liên hệ</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Pháp lý</h4>
+        <ul>
+          <li><a href="phap-ly.html">Điều khoản</a></li>
+          <li><a href="phap-ly.html">Bảo mật</a></li>
+          <li><a href="phap-ly.html">Khiếu nại</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div>© 2026 ViệcNhà247. Bảo lưu mọi quyền.</div>
+      <div class="social">
+        <a href="#" aria-label="Facebook">f</a>
+        <a href="#" aria-label="TikTok">t</a>
+        <a href="#" aria-label="Zalo">Z</a>
+        <a href="#" aria-label="YouTube">▶</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Floating call button -->
+<a href="tel:19006247" class="floating-call">
+  <span class="ring"></span>
+  <span class="label">Gọi ngay</span>
+</a>
+
+<script>
+// Sidebar toggle
+function toggleSidebar() {
+  document.querySelector('.sidebar').classList.toggle('active');
+  document.querySelector('.sidebar-overlay').classList.toggle('active');
+  document.body.style.overflow = document.querySelector('.sidebar').classList.contains('active') ? 'hidden' : '';
+}
+
+// Service pill selection
+document.querySelectorAll('.service-pill').forEach(pill => {
+  pill.addEventListener('click', () => {
+    document.querySelectorAll('.service-pill').forEach(p => p.classList.remove('selected'));
+    pill.classList.add('selected');
+    document.getElementById('selectedService').value = pill.dataset.value;
+    
+    // Update step indicator
+    document.querySelectorAll('.form-step')[0].classList.add('done');
+    document.querySelectorAll('.form-step')[1].classList.add('active');
+  });
+});
+
+// Service card click → scroll to form & pre-select
+document.querySelectorAll('.service-card').forEach(card => {
+  card.addEventListener('click', (e) => {
+    const service = card.dataset.service;
+    const pill = document.querySelector(`.service-pill[data-value="${service}"]`);
+    if (pill) {
+      setTimeout(() => {
+        document.querySelectorAll('.service-pill').forEach(p => p.classList.remove('selected'));
+        pill.classList.add('selected');
+        document.getElementById('selectedService').value = service;
+        document.querySelectorAll('.form-step')[0].classList.add('done');
+        document.querySelectorAll('.form-step')[1].classList.add('active');
+      }, 800);
+    }
+  });
+});
+
+// Set min date to today
+const dateInput = document.getElementById('bookingDate');
+if (dateInput) {
+  const today = new Date().toISOString().split('T')[0];
+  dateInput.min = today;
+  dateInput.value = today;
+}
+
+// Form submission
+function handleBookingSubmit(e) {
+  e.preventDefault();
+  const formData = new FormData(e.target);
+  const data = Object.fromEntries(formData);
+  
+  if (!data.service) {
+    alert('Vui lòng chọn dịch vụ');
+    return;
+  }
+  
+  // TODO: Tích hợp với Google Form/Firebase/Backend
+  console.log('Đơn đặt:', data);
+  
+  alert(`Cảm ơn ${data.name}!\n\nChúng tôi đã nhận yêu cầu đặt ${data.service} vào ${data.date} ${data.time}.\n\nNhân viên sẽ gọi xác nhận trong 30 phút qua số ${data.phone}.\n\nMã đơn: VH${Date.now().toString().slice(-6)}`);
+  
+  e.target.reset();
+  document.querySelectorAll('.service-pill').forEach(p => p.classList.remove('selected'));
+  document.getElementById('selectedService').value = '';
+}
+
+// Smooth scroll for anchor links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function(e) {
+    const href = this.getAttribute('href');
+    if (href === '#') return;
+    const target = document.querySelector(href);
+    if (target) {
+      e.preventDefault();
+      const offset = 100;
+      const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - offset;
+      window.scrollTo({ top: targetPosition, behavior: 'smooth' });
+    }
+  });
+});
+
+// Animate stats on scroll
+const observerOptions = { threshold: 0.3 };
+const statsObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.style.animation = 'fadeUp 0.8s ease forwards';
+    }
+  });
+}, observerOptions);
+
+document.querySelectorAll('.service-card, .why-card, .testimonial-card, .how-step').forEach(el => {
+  el.style.opacity = '0';
+  statsObserver.observe(el);
+});
+</script>
+</body>
+</html>

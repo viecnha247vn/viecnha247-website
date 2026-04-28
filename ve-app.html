@@ -1,0 +1,127 @@
+<!DOCTYPE html><html lang="vi"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tải App — ViệcNhà247</title>
+<meta name="description" content="App ViệcNhà247 sắp ra mắt. Đặt sẵn để nhận thông báo và voucher 200k đầu tiên.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<style>
+.app-feature { display: flex; gap: 1rem; align-items: flex-start; margin-bottom: 2rem; }
+.app-feature-icon { width: 48px; height: 48px; background: var(--cream); border-radius: 14px; display: flex; align-items: center; justify-content: center; font-size: 1.375rem; flex-shrink: 0; }
+.app-feature h4 { font-size: 1.125rem; font-weight: 800; margin-bottom: 0.375rem; }
+.app-feature p { font-size: 0.9375rem; color: var(--stone); line-height: 1.6; }
+.coming-soon-badge { display: inline-block; background: linear-gradient(135deg, var(--gold), var(--gold-dark)); color: white; padding: 0.5rem 1rem; border-radius: 100px; font-size: 0.75rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 1rem; box-shadow: var(--shadow-gold); }
+.app-mockup-placeholder { background: linear-gradient(135deg, var(--cream-light), var(--cream-dark)); border-radius: 32px; aspect-ratio: 9/16; max-width: 280px; margin: 0 auto; display: flex; align-items: center; justify-content: center; font-size: 5rem; box-shadow: var(--shadow-lg); border: 8px solid var(--ink); }
+.notify-form { max-width: 480px; margin: 0 auto; background: white; border-radius: 24px; padding: 2.5rem; box-shadow: var(--shadow-lg); }
+@media (max-width: 600px) { .notify-form { padding: 1.75rem 1.25rem; } }
+</style></head>
+<body>
+
+<nav class="navbar">
+  <a href="index.html" class="nav-logo"><span class="mark">V</span>Việc<strong>Nhà247</strong></a>
+  <div class="nav-menu">
+    <a href="dich-vu.html">Dịch vụ</a><a href="ve-chung-toi.html">Về chúng tôi</a><a href="blog.html">Blog</a><a href="tuyen-ctv.html">Tuyển CTV</a><a href="lien-he.html">Liên hệ</a>
+  </div>
+  <a href="index.html#dat-lich" class="nav-cta">Đặt ngay <span>→</span></a>
+  <button class="nav-toggle" onclick="toggleSidebar()">☰</button>
+</nav>
+<div class="sidebar-overlay" onclick="toggleSidebar()"></div>
+<aside class="sidebar">
+  <button class="sidebar-close" onclick="toggleSidebar()">×</button>
+  <div class="sidebar-logo">ViệcNhà247</div>
+  <ul class="sidebar-menu">
+    <li><a href="index.html">Trang chủ</a></li><li><a href="dich-vu.html">Dịch vụ</a></li>
+    <li><a href="ve-chung-toi.html">Về chúng tôi</a></li><li><a href="blog.html">Blog</a></li>
+    <li><a href="tuyen-ctv.html">Tuyển CTV</a></li><li><a href="ve-app.html" class="active">Tải app</a></li>
+    <li><a href="lien-he.html">Liên hệ</a></li>
+  </ul>
+  <a href="index.html#dat-lich" class="sidebar-cta">Đặt dịch vụ ngay →</a>
+</aside>
+
+<section class="page-hero">
+  <div class="container">
+    <div class="page-hero-content">
+      <div class="coming-soon-badge">⚡ Sắp ra mắt</div>
+      <h1>App ViệcNhà247 — <span class="accent">đẹp hơn</span>, nhanh hơn</h1>
+      <p>Trải nghiệm đặt dịch vụ gia đình mượt mà nhất trên iOS và Android. Dự kiến ra mắt cuối 2026.</p>
+      <nav class="breadcrumb mt-4"><a href="index.html">Trang chủ</a><span class="separator">›</span><span class="current">Tải app</span></nav>
+    </div>
+  </div>
+</section>
+
+<section class="section section-light">
+  <div class="container">
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center;">
+      <div>
+        <span class="section-eyebrow">Tính năng nổi bật</span>
+        <h2 class="section-title" style="font-size: 2rem;">Mọi thứ bạn cần — <span class="accent">trong tay</span></h2>
+        <div style="margin-top: 2rem;">
+          <div class="app-feature">
+            <div class="app-feature-icon">⚡</div>
+            <div><h4>Đặt 60 giây</h4><p>Chọn dịch vụ → ngày giờ → xác nhận. Không cần điền nhiều lần.</p></div>
+          </div>
+          <div class="app-feature">
+            <div class="app-feature-icon">📍</div>
+            <div><h4>Theo dõi CTV trên bản đồ</h4><p>Xem CTV đang ở đâu, còn bao lâu thì đến — như Grab.</p></div>
+          </div>
+          <div class="app-feature">
+            <div class="app-feature-icon">💳</div>
+            <div><h4>Thanh toán in-app</h4><p>MoMo, VNPay, thẻ ngân hàng — không cần tiền mặt.</p></div>
+          </div>
+          <div class="app-feature">
+            <div class="app-feature-icon">🎁</div>
+            <div><h4>Voucher + tích điểm</h4><p>Mỗi đơn tích điểm. Hạng VIP giảm 10-15%.</p></div>
+          </div>
+          <div class="app-feature">
+            <div class="app-feature-icon">🔔</div>
+            <div><h4>Nhắc lịch định kỳ</h4><p>Đặt dọn nhà hàng tuần — app tự nhắc, không cần nhớ.</p></div>
+          </div>
+        </div>
+      </div>
+      <div class="app-mockup-placeholder">📱</div>
+    </div>
+    <style>@media (max-width: 880px) { section.section-light > .container > div[style*="grid-template-columns: 1fr 1fr"] { grid-template-columns: 1fr !important; gap: 2.5rem !important; } }</style>
+  </div>
+</section>
+
+<section class="section section-cream">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-eyebrow">Đăng ký nhận thông báo</span>
+      <h2 class="section-title">Là người <span class="accent">đầu tiên</span> trải nghiệm</h2>
+      <p class="section-desc">Đăng ký trước - nhận voucher 200.000đ khi app ra mắt + tải app sớm 1 tuần trước công chúng.</p>
+    </div>
+    <form class="notify-form" onsubmit="event.preventDefault(); alert('Cảm ơn! Bạn sẽ nhận thông báo khi app ra mắt.');">
+      <div class="form-group"><label class="form-label">Họ tên <span class="req">*</span></label><input type="text" class="form-input" placeholder="Nguyễn Văn A" required></div>
+      <div class="form-group"><label class="form-label">Email <span class="req">*</span></label><input type="email" class="form-input" placeholder="email@example.com" required></div>
+      <div class="form-group"><label class="form-label">Số điện thoại</label><input type="tel" class="form-input" placeholder="0901 234 567"></div>
+      <div class="form-group"><label class="form-label">Hệ điều hành</label>
+        <select class="form-input"><option>iOS (iPhone)</option><option>Android</option><option>Cả hai</option></select></div>
+      <button type="submit" style="width:100%;background:linear-gradient(135deg,var(--gold),var(--gold-dark));color:white;border:none;padding:1.125rem;border-radius:100px;font-family:inherit;font-size:1rem;font-weight:800;cursor:pointer;box-shadow:var(--shadow-gold);margin-top:0.5rem;">Đăng ký nhận thông báo →</button>
+      <p style="text-align: center; margin-top: 1rem; font-size: 0.75rem; color: var(--stone);">🔒 Email được bảo mật. Không spam.</p>
+    </form>
+  </div>
+</section>
+
+<section class="section section-light">
+  <div class="container container-narrow text-center">
+    <h2 class="section-title">Trong khi chờ app — <span class="accent">vẫn đặt được</span> trên web!</h2>
+    <p class="section-desc" style="margin: 0 auto 2rem;">Website đầy đủ tính năng đặt dịch vụ. Trải nghiệm mượt trên cả mobile.</p>
+    <a href="index.html#dat-lich" class="btn-gold">Đặt dịch vụ ngay <span>→</span></a>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand"><h3>ViệcNhà247</h3><p>Nền tảng dịch vụ gia đình — kết nối CTV với khách hàng trên 8 ngành.</p><p style="font-size: 0.8125rem;">📍 TPHCM<br>📞 1900 6247</p></div>
+      <div class="footer-col"><h4>Dịch vụ</h4><ul><li><a href="dich-vu.html">Tất cả dịch vụ</a></li><li><a href="index.html#dat-lich">Đặt lịch</a></li><li><a href="ve-app.html">Tải app</a></li></ul></div>
+      <div class="footer-col"><h4>Công ty</h4><ul><li><a href="ve-chung-toi.html">Về chúng tôi</a></li><li><a href="tuyen-ctv.html">Tuyển CTV</a></li><li><a href="blog.html">Blog</a></li><li><a href="lien-he.html">Liên hệ</a></li></ul></div>
+      <div class="footer-col"><h4>Pháp lý</h4><ul><li><a href="phap-ly.html">Điều khoản</a></li><li><a href="phap-ly.html">Bảo mật</a></li><li><a href="phap-ly.html">Khiếu nại</a></li></ul></div>
+    </div>
+    <div class="footer-bottom"><div>© 2026 ViệcNhà247. Bảo lưu mọi quyền.</div><div class="social"><a href="#">f</a><a href="#">t</a><a href="#">Z</a><a href="#">▶</a></div></div>
+  </div>
+</footer>
+
+<a href="tel:19006247" class="floating-call"><span class="ring"></span><span class="label">Gọi ngay</span></a>
+<script>function toggleSidebar(){document.querySelector('.sidebar').classList.toggle('active');document.querySelector('.sidebar-overlay').classList.toggle('active');document.body.style.overflow=document.querySelector('.sidebar').classList.contains('active')?'hidden':'';}</script>
+</body></html>

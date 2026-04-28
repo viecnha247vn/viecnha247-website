@@ -1,0 +1,177 @@
+<!DOCTYPE html><html lang="vi"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pháp lý — ViệcNhà247 | Điều khoản, Bảo mật, Khiếu nại</title>
+<meta name="description" content="Điều khoản sử dụng, chính sách bảo mật, quy trình khiếu nại của ViệcNhà247. Cam kết minh bạch.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<style>
+.tabs { display: flex; gap: 0.5rem; margin-bottom: 2rem; border-bottom: 2px solid var(--cream-dark); padding-bottom: 0; flex-wrap: wrap; justify-content: center; }
+.tab-btn { padding: 0.875rem 1.5rem; background: transparent; border: none; border-bottom: 3px solid transparent; margin-bottom: -2px; font-family: inherit; font-size: 0.9375rem; font-weight: 700; color: var(--stone); cursor: pointer; transition: all var(--t-fast); }
+.tab-btn:hover { color: var(--gold-dark); }
+.tab-btn.active { color: var(--gold-dark); border-bottom-color: var(--gold); }
+.tab-content { display: none; }
+.tab-content.active { display: block; animation: fadeUp 0.3s ease; }
+.legal-section { background: white; border-radius: 16px; padding: 1.75rem; margin-bottom: 1rem; border: 1px solid var(--cream-dark); }
+.legal-section h3 { font-size: 1.0625rem; font-weight: 800; margin-bottom: 0.625rem; color: var(--ink); display: flex; gap: 0.5rem; align-items: center; }
+.legal-section h3 .num { background: var(--gold); color: white; width: 28px; height: 28px; border-radius: 8px; display: inline-flex; align-items: center; justify-content: center; font-size: 0.8125rem; flex-shrink: 0; }
+.legal-section p, .legal-section li { color: var(--charcoal); font-size: 0.9375rem; line-height: 1.65; margin-bottom: 0.5rem; }
+.legal-section ul, .legal-section ol { padding-left: 1.5rem; margin-top: 0.5rem; }
+.update-info { background: var(--cream); padding: 1rem 1.25rem; border-radius: 12px; font-size: 0.8125rem; color: var(--stone); margin-bottom: 2rem; text-align: center; }
+.update-info strong { color: var(--gold-dark); }
+</style></head>
+<body>
+
+<nav class="navbar">
+  <a href="index.html" class="nav-logo"><span class="mark">V</span>Việc<strong>Nhà247</strong></a>
+  <div class="nav-menu">
+    <a href="dich-vu.html">Dịch vụ</a><a href="ve-chung-toi.html">Về chúng tôi</a><a href="blog.html">Blog</a><a href="tuyen-ctv.html">Tuyển CTV</a><a href="lien-he.html">Liên hệ</a>
+  </div>
+  <a href="index.html#dat-lich" class="nav-cta">Đặt ngay <span>→</span></a>
+  <button class="nav-toggle" onclick="toggleSidebar()">☰</button>
+</nav>
+<div class="sidebar-overlay" onclick="toggleSidebar()"></div>
+<aside class="sidebar">
+  <button class="sidebar-close" onclick="toggleSidebar()">×</button>
+  <div class="sidebar-logo">ViệcNhà247</div>
+  <ul class="sidebar-menu">
+    <li><a href="index.html">Trang chủ</a></li><li><a href="dich-vu.html">Dịch vụ</a></li>
+    <li><a href="ve-chung-toi.html">Về chúng tôi</a></li><li><a href="blog.html">Blog</a></li>
+    <li><a href="tuyen-ctv.html">Tuyển CTV</a></li><li><a href="ve-app.html">Tải app</a></li>
+    <li><a href="lien-he.html">Liên hệ</a></li><li><a href="phap-ly.html" class="active">Pháp lý</a></li>
+  </ul>
+</aside>
+
+<section class="page-hero">
+  <div class="container">
+    <div class="page-hero-content">
+      <span class="page-hero-eyebrow">Cam kết minh bạch</span>
+      <h1>Pháp lý <span class="accent">rõ ràng</span></h1>
+      <p>36 điều khoản chi tiết — đảm bảo quyền lợi cho cả khách hàng và cộng tác viên.</p>
+      <nav class="breadcrumb mt-4"><a href="index.html">Trang chủ</a><span class="separator">›</span><span class="current">Pháp lý</span></nav>
+    </div>
+  </div>
+</section>
+
+<section class="section section-light">
+  <div class="container container-narrow">
+    <div class="update-info">📅 Cập nhật lần cuối: <strong>28/04/2026</strong> · Áp dụng từ ngày đăng tải</div>
+
+    <div class="tabs">
+      <button class="tab-btn active" onclick="showTab('terms')">📋 Điều khoản (13)</button>
+      <button class="tab-btn" onclick="showTab('privacy')">🔒 Bảo mật (11)</button>
+      <button class="tab-btn" onclick="showTab('complaint')">⚖️ Khiếu nại (12)</button>
+    </div>
+
+    <!-- TAB 1: ĐIỀU KHOẢN -->
+    <div id="terms" class="tab-content active">
+      <h2 style="font-size: 1.5rem; font-weight: 800; margin-bottom: 1rem;">Điều khoản sử dụng dịch vụ</h2>
+
+      <div class="legal-section"><h3><span class="num">1</span>Phạm vi áp dụng</h3><p>Điều khoản này áp dụng cho mọi giao dịch giữa khách hàng, cộng tác viên (CTV) và ViệcNhà247. Bằng việc sử dụng dịch vụ, bạn đồng ý với toàn bộ điều khoản dưới đây.</p></div>
+
+      <div class="legal-section"><h3><span class="num">2</span>Định nghĩa</h3><ul><li><strong>"Nền tảng":</strong> Website viecnha247.vn và app ViệcNhà247</li><li><strong>"Khách hàng":</strong> Người đặt dịch vụ qua nền tảng</li><li><strong>"CTV":</strong> Cộng tác viên độc lập cung cấp dịch vụ</li><li><strong>"Đơn":</strong> Yêu cầu dịch vụ đã được xác nhận</li></ul></div>
+
+      <div class="legal-section"><h3><span class="num">3</span>Đăng ký tài khoản</h3><p>Người dùng phải từ 18 tuổi trở lên. Cung cấp thông tin chính xác. Một người chỉ đăng ký 1 tài khoản. ViệcNhà247 có quyền từ chối đăng ký không đủ điều kiện.</p></div>
+
+      <div class="legal-section"><h3><span class="num">4</span>Quyền và trách nhiệm khách hàng</h3><ul><li>Cung cấp địa chỉ chính xác, có người đón CTV</li><li>Mô tả nhu cầu rõ ràng để báo giá đúng</li><li>Thanh toán đầy đủ sau khi hoàn thành</li><li>Đánh giá CTV trung thực</li><li>Không liên hệ trực tiếp với CTV ngoài nền tảng</li></ul></div>
+
+      <div class="legal-section"><h3><span class="num">5</span>Quyền và trách nhiệm CTV</h3><ul><li>Đến đúng giờ, mặc đồng phục, đeo bảng tên</li><li>Làm việc theo quy trình đã đào tạo</li><li>Báo giá phát sinh trước khi làm thêm</li><li>Bảo quản đồ đạc khách như đồ của mình</li><li>Không nhận đặt riêng ngoài nền tảng</li></ul></div>
+
+      <div class="legal-section"><h3><span class="num">6</span>Phí dịch vụ và hoa hồng</h3><p>Hoa hồng nền tảng: 15-22% giá trị đơn (tùy ngành). CTV nhận 78-85%. Mức cụ thể được công bố rõ trong app cho từng ngành.</p></div>
+
+      <div class="legal-section"><h3><span class="num">7</span>Thanh toán</h3><p>Khách thanh toán qua: tiền mặt, MoMo, VNPay, chuyển khoản. Tiền vào tài khoản công ty → trích hoa hồng → chuyển CTV trong 24-48 giờ.</p></div>
+
+      <div class="legal-section"><h3><span class="num">8</span>Hủy đơn</h3><ul><li><strong>Hủy trước 24h:</strong> Miễn phí 100%</li><li><strong>Hủy 6-24h trước:</strong> Phí 30%</li><li><strong>Hủy dưới 6h:</strong> Phí 50%</li><li><strong>Hủy khi CTV đã đến:</strong> Phí 100%</li></ul></div>
+
+      <div class="legal-section"><h3><span class="num">9</span>Bảo hành</h3><p>Mọi đơn được bảo hành 30 ngày. Trong thời gian này, lỗi do CTV → sửa lại miễn phí. Lỗi do khách dùng sai → không bảo hành.</p></div>
+
+      <div class="legal-section"><h3><span class="num">10</span>Bảo hiểm</h3><p>Mọi đơn đặt qua nền tảng đều có bảo hiểm trách nhiệm đến 50 triệu/đơn cho thiệt hại do CTV gây ra. Không áp dụng đặt riêng ngoài nền tảng.</p></div>
+
+      <div class="legal-section"><h3><span class="num">11</span>Sở hữu trí tuệ</h3><p>Tên thương hiệu, logo, nội dung trên nền tảng thuộc sở hữu của ViệcNhà247. Cấm sao chép, sử dụng trái phép.</p></div>
+
+      <div class="legal-section"><h3><span class="num">12</span>Thay đổi điều khoản</h3><p>ViệcNhà247 có quyền cập nhật điều khoản. Thay đổi quan trọng được thông báo qua email/app trước 30 ngày.</p></div>
+
+      <div class="legal-section"><h3><span class="num">13</span>Luật áp dụng</h3><p>Điều khoản này tuân theo pháp luật Việt Nam. Tranh chấp giải quyết tại Tòa án nhân dân TPHCM.</p></div>
+    </div>
+
+    <!-- TAB 2: BẢO MẬT -->
+    <div id="privacy" class="tab-content">
+      <h2 style="font-size: 1.5rem; font-weight: 800; margin-bottom: 1rem;">Chính sách bảo mật thông tin</h2>
+
+      <div class="legal-section"><h3><span class="num">1</span>Thông tin chúng tôi thu thập</h3><ul><li>Họ tên, SĐT, email khi đăng ký</li><li>Địa chỉ giao dịch (chỉ khi đặt đơn)</li><li>Lịch sử đơn hàng và đánh giá</li><li>Thông tin thanh toán (mã hóa)</li><li>Cookies để cải thiện trải nghiệm</li></ul></div>
+
+      <div class="legal-section"><h3><span class="num">2</span>Cách chúng tôi sử dụng</h3><p>Thông tin được dùng để: cung cấp dịch vụ, liên hệ khách hàng, gửi voucher, cải thiện chất lượng. KHÔNG dùng cho mục đích khác mà không có sự đồng ý.</p></div>
+
+      <div class="legal-section"><h3><span class="num">3</span>Chia sẻ thông tin</h3><p>Chỉ chia sẻ với CTV nhận đơn (tên + SĐT + địa chỉ). KHÔNG bán thông tin cho bên thứ 3. KHÔNG dùng cho quảng cáo từ công ty khác.</p></div>
+
+      <div class="legal-section"><h3><span class="num">4</span>Lưu trữ dữ liệu</h3><p>Dữ liệu lưu tại server bảo mật ở Việt Nam và Singapore. Mã hóa SSL/TLS cho mọi giao dịch. Backup hàng ngày.</p></div>
+
+      <div class="legal-section"><h3><span class="num">5</span>Quyền của khách hàng</h3><ul><li>Yêu cầu xem dữ liệu cá nhân</li><li>Yêu cầu chỉnh sửa thông tin sai</li><li>Yêu cầu xóa tài khoản và dữ liệu</li><li>Hủy nhận email marketing bất cứ lúc nào</li></ul></div>
+
+      <div class="legal-section"><h3><span class="num">6</span>Bảo mật mật khẩu</h3><p>Mật khẩu được hash bằng bcrypt. Đội ngũ ViệcNhà247 KHÔNG bao giờ biết mật khẩu của bạn. Không gửi mật khẩu qua email.</p></div>
+
+      <div class="legal-section"><h3><span class="num">7</span>Cookies</h3><p>Sử dụng cookies để: nhớ đăng nhập, phân tích traffic, hiện ưu đãi phù hợp. Có thể tắt cookies trong trình duyệt (một số tính năng có thể bị hạn chế).</p></div>
+
+      <div class="legal-section"><h3><span class="num">8</span>Trẻ em dưới 18 tuổi</h3><p>ViệcNhà247 không cung cấp dịch vụ cho người dưới 18. Nếu phát hiện tài khoản của trẻ em, sẽ xóa ngay.</p></div>
+
+      <div class="legal-section"><h3><span class="num">9</span>Sự cố bảo mật</h3><p>Trong trường hợp rò rỉ dữ liệu, chúng tôi sẽ thông báo cho người dùng bị ảnh hưởng trong vòng 72 giờ và báo cáo cơ quan chức năng.</p></div>
+
+      <div class="legal-section"><h3><span class="num">10</span>Liên kết bên ngoài</h3><p>Chính sách này chỉ áp dụng cho viecnha247.vn. Khi click vào link bên ngoài (như MoMo, Facebook), bạn rời khỏi nền tảng và áp dụng chính sách của họ.</p></div>
+
+      <div class="legal-section"><h3><span class="num">11</span>Liên hệ về bảo mật</h3><p>Mọi thắc mắc về bảo mật vui lòng liên hệ: <a href="mailto:bao-mat@viecnha247.vn">bao-mat@viecnha247.vn</a> hoặc hotline 1900 6247.</p></div>
+    </div>
+
+    <!-- TAB 3: KHIẾU NẠI -->
+    <div id="complaint" class="tab-content">
+      <h2 style="font-size: 1.5rem; font-weight: 800; margin-bottom: 1rem;">Quy trình khiếu nại</h2>
+
+      <div class="legal-section"><h3><span class="num">1</span>Khi nào nên khiếu nại?</h3><ul><li>CTV đến muộn quá 30 phút không báo</li><li>Chất lượng dịch vụ không đạt</li><li>CTV làm hỏng đồ đạc</li><li>Phí phát sinh ngoài thỏa thuận</li><li>Thái độ không chuyên nghiệp</li><li>Bất cứ vấn đề nào khác</li></ul></div>
+
+      <div class="legal-section"><h3><span class="num">2</span>Thời hạn khiếu nại</h3><p>Khiếu nại trong vòng 24-72 giờ sau khi đơn hoàn thành. Quá hạn này, ViệcNhà247 vẫn xem xét nhưng có thể không xử lý được nếu không đủ bằng chứng.</p></div>
+
+      <div class="legal-section"><h3><span class="num">3</span>Cách thức khiếu nại</h3><ul><li><strong>Hotline 24/7:</strong> 1900 6247</li><li><strong>Email:</strong> khieu-nai@viecnha247.vn</li><li><strong>Trong app:</strong> Đơn → Khiếu nại</li><li><strong>Zalo OA:</strong> @ViecNha247</li></ul></div>
+
+      <div class="legal-section"><h3><span class="num">4</span>Thông tin cần cung cấp</h3><ol><li>Mã đơn (VD: VH123456)</li><li>Mô tả vấn đề chi tiết</li><li>Ảnh/video nếu có</li><li>Thời gian xảy ra</li><li>Yêu cầu giải quyết của bạn</li></ol></div>
+
+      <div class="legal-section"><h3><span class="num">5</span>Quy trình xử lý 5 bước</h3><ol><li><strong>Tiếp nhận:</strong> Trong 1 giờ</li><li><strong>Xác minh:</strong> Liên hệ CTV để xác nhận</li><li><strong>Đánh giá:</strong> Phân loại mức độ</li><li><strong>Giải quyết:</strong> Đề xuất phương án</li><li><strong>Khép đơn:</strong> Xác nhận khách hài lòng</li></ol></div>
+
+      <div class="legal-section"><h3><span class="num">6</span>Thời gian giải quyết</h3><ul><li><strong>Đơn giản (đến muộn, thái độ):</strong> 24 giờ</li><li><strong>Trung bình (chất lượng):</strong> 48-72 giờ</li><li><strong>Phức tạp (hỏng đồ trên 1tr):</strong> 5-10 ngày</li><li><strong>Liên quan bảo hiểm:</strong> 15-30 ngày</li></ul></div>
+
+      <div class="legal-section"><h3><span class="num">7</span>Phương án giải quyết</h3><ul><li>Hoàn 50-100% tiền đơn</li><li>Đổi CTV khác miễn phí</li><li>Voucher bồi thường</li><li>Bồi thường thiệt hại theo bảo hiểm</li><li>Khóa CTV vi phạm nghiêm trọng</li></ul></div>
+
+      <div class="legal-section"><h3><span class="num">8</span>Khiếu nại liên quan bảo hiểm</h3><p>Đối với thiệt hại trên 5 triệu, cần: ảnh hiện trường, biên bản xác nhận của CTV, hóa đơn mua đồ. ViệcNhà247 chuyển hồ sơ cho công ty bảo hiểm xử lý.</p></div>
+
+      <div class="legal-section"><h3><span class="num">9</span>Khiếu nại không hợp lệ</h3><p>Một số trường hợp không được xem xét: khiếu nại sau 7 ngày, không có bằng chứng, lỗi do khách (cung cấp địa chỉ sai), tranh chấp riêng với CTV ngoài nền tảng.</p></div>
+
+      <div class="legal-section"><h3><span class="num">10</span>Khiếu nại từ CTV</h3><p>CTV cũng có quyền khiếu nại khách hàng (gây khó dễ, không thanh toán, đe dọa). Quy trình tương tự, kết quả có thể là: hoàn tiền cho CTV, khóa khách hàng vi phạm.</p></div>
+
+      <div class="legal-section"><h3><span class="num">11</span>Không hài lòng với kết quả?</h3><p>Yêu cầu xem xét lại bằng email: <a href="mailto:appeal@viecnha247.vn">appeal@viecnha247.vn</a>. Nếu vẫn không thỏa đáng, có thể đưa vụ việc ra cơ quan bảo vệ người tiêu dùng hoặc tòa án.</p></div>
+
+      <div class="legal-section"><h3><span class="num">12</span>Cam kết của chúng tôi</h3><p>ViệcNhà247 cam kết: xử lý công bằng, không thiên vị bên nào, minh bạch quy trình, lắng nghe phản hồi để cải thiện. Mục tiêu: 95% khiếu nại được giải quyết trong 72 giờ.</p></div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand"><h3>ViệcNhà247</h3><p>Nền tảng dịch vụ gia đình — kết nối CTV với khách hàng trên 8 ngành.</p><p style="font-size: 0.8125rem;">📍 TPHCM<br>📞 1900 6247</p></div>
+      <div class="footer-col"><h4>Dịch vụ</h4><ul><li><a href="dich-vu.html">Tất cả dịch vụ</a></li><li><a href="index.html#dat-lich">Đặt lịch</a></li><li><a href="ve-app.html">Tải app</a></li></ul></div>
+      <div class="footer-col"><h4>Công ty</h4><ul><li><a href="ve-chung-toi.html">Về chúng tôi</a></li><li><a href="tuyen-ctv.html">Tuyển CTV</a></li><li><a href="blog.html">Blog</a></li><li><a href="lien-he.html">Liên hệ</a></li></ul></div>
+      <div class="footer-col"><h4>Pháp lý</h4><ul><li><a href="phap-ly.html">Điều khoản</a></li><li><a href="phap-ly.html">Bảo mật</a></li><li><a href="phap-ly.html">Khiếu nại</a></li></ul></div>
+    </div>
+    <div class="footer-bottom"><div>© 2026 ViệcNhà247. Bảo lưu mọi quyền.</div><div class="social"><a href="#">f</a><a href="#">t</a><a href="#">Z</a><a href="#">▶</a></div></div>
+  </div>
+</footer>
+
+<a href="tel:19006247" class="floating-call"><span class="ring"></span><span class="label">Gọi ngay</span></a>
+<script>
+function toggleSidebar(){document.querySelector('.sidebar').classList.toggle('active');document.querySelector('.sidebar-overlay').classList.toggle('active');document.body.style.overflow=document.querySelector('.sidebar').classList.contains('active')?'hidden':'';}
+function showTab(id) {
+  document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  event.target.classList.add('active');
+  window.scrollTo({ top: document.querySelector('.tabs').offsetTop - 100, behavior: 'smooth' });
+}
+</script>
+</body></html>
