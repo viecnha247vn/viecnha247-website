@@ -109,15 +109,15 @@
         <p style="color: var(--stone);">Hỗ trợ khách: 24/7<br>Văn phòng: 8h-18h (T2-T6)</p>
       </div>
 
-      <form class="contact-form" onsubmit="event.preventDefault(); alert('Cảm ơn! Chúng tôi sẽ liên hệ trong 30 phút.');">
-        <div class="form-group"><label class="form-label">Họ tên <span class="req">*</span></label><input type="text" class="form-input" placeholder="Nguyễn Văn A" required></div>
+      <form class="contact-form" onsubmit="handleContactSubmit(event)">
+        <div class="form-group"><label class="form-label">Họ tên <span class="req">*</span></label><input type="text" name="name" class="form-input" placeholder="Nguyễn Văn A" required></div>
         <div class="form-row">
-          <div class="form-group"><label class="form-label">Số điện thoại <span class="req">*</span></label><input type="tel" class="form-input" placeholder="0901 234 567" required></div>
-          <div class="form-group"><label class="form-label">Email</label><input type="email" class="form-input" placeholder="email@example.com"></div>
+          <div class="form-group"><label class="form-label">Số điện thoại <span class="req">*</span></label><input type="tel" name="phone" class="form-input" placeholder="0901 234 567" required></div>
+          <div class="form-group"><label class="form-label">Email</label><input type="email" name="email" class="form-input" placeholder="email@example.com"></div>
         </div>
         <div class="form-group"><label class="form-label">Vấn đề cần hỗ trợ <span class="req">*</span></label>
-          <select class="form-input" required><option value="">Chọn vấn đề</option><option>Đặt dịch vụ mới</option><option>Hỏi giá / Tư vấn</option><option>Khiếu nại đơn cũ</option><option>Hợp tác doanh nghiệp</option><option>Trở thành CTV</option><option>Khác</option></select></div>
-        <div class="form-group"><label class="form-label">Nội dung <span class="req">*</span></label><textarea class="form-input" placeholder="Mô tả chi tiết vấn đề..." required></textarea></div>
+          <select name="topic" class="form-input" required><option value="">Chọn vấn đề</option><option>Đặt dịch vụ mới</option><option>Hỏi giá / Tư vấn</option><option>Khiếu nại đơn cũ</option><option>Hợp tác doanh nghiệp</option><option>Trở thành CTV</option><option>Khác</option></select></div>
+        <div class="form-group"><label class="form-label">Nội dung <span class="req">*</span></label><textarea name="message" class="form-input" placeholder="Mô tả chi tiết vấn đề..." required></textarea></div>
         <button type="submit" class="btn-submit">Gửi tin nhắn <span>→</span></button>
       </form>
     </div>
@@ -166,5 +166,45 @@
 </footer>
 
 <a href="tel:19006247" class="floating-call"><span class="ring"></span><span class="label">Gọi ngay</span></a>
-<script>function toggleSidebar(){document.querySelector('.sidebar').classList.toggle('active');document.querySelector('.sidebar-overlay').classList.toggle('active');document.body.style.overflow=document.querySelector('.sidebar').classList.contains('active')?'hidden':'';}</script>
+<script>function toggleSidebar(){document.querySelector('.sidebar').classList.toggle('active');document.querySelector('.sidebar-overlay').classList.toggle('active');document.body.style.overflow=document.querySelector('.sidebar').classList.contains('active')?'hidden':'';}
+
+// === GOOGLE FORM LIÊN HỆ ===
+const FORM_CONTACT = {
+  formId: '1FAIpQLSd7b18EbQh39vaUyETl01yBE3-4vbrM_6gs2-34hXRv1ZOyrg',
+  entries: { name: 'entry.2118713488', phone: 'entry.544323364', email: 'entry.1716117090', topic: 'entry.1915643459', message: 'entry.844614255' }
+};
+
+async function handleContactSubmit(e) {
+  e.preventDefault();
+  const data = Object.fromEntries(new FormData(e.target));
+  const phoneClean = data.phone.replace(/\s/g, '');
+  if (!/^(0|\+84)(3|5|7|8|9)[0-9]{8}$/.test(phoneClean)) {
+    alert('⚠️ Số điện thoại không hợp lệ.'); return;
+  }
+  const btn = e.target.querySelector('button[type="submit"]');
+  const orig = btn.innerHTML; btn.disabled = true; btn.innerHTML = '⏳ Đang gửi...';
+  
+  const fd = new FormData();
+  fd.append(FORM_CONTACT.entries.name, data.name);
+  fd.append(FORM_CONTACT.entries.phone, data.phone);
+  fd.append(FORM_CONTACT.entries.email, data.email || '(không có)');
+  fd.append(FORM_CONTACT.entries.topic, data.topic);
+  fd.append(FORM_CONTACT.entries.message, data.message);
+  
+  try {
+    await fetch(`https://docs.google.com/forms/d/e/${FORM_CONTACT.formId}/formResponse`, { method: 'POST', mode: 'no-cors', body: fd });
+    showSuccessModal('Cảm ơn ' + data.name + '!', 'Đã nhận tin nhắn. Chúng tôi sẽ liên hệ lại trong 30 phút giờ hành chính.');
+    e.target.reset();
+  } catch (err) { alert('⚠️ Có lỗi. Vui lòng gọi 1900 6247.'); }
+  finally { btn.disabled = false; btn.innerHTML = orig; }
+}
+
+function showSuccessModal(title, msg) {
+  const m = document.createElement('div');
+  m.style.cssText = 'position:fixed;inset:0;background:rgba(31,26,15,0.7);backdrop-filter:blur(8px);z-index:999;display:flex;align-items:center;justify-content:center;padding:1rem;';
+  m.innerHTML = `<div style="background:white;border-radius:24px;padding:2.5rem 2rem;max-width:440px;width:100%;text-align:center;box-shadow:0 30px 80px rgba(0,0,0,0.3);"><div style="width:72px;height:72px;margin:0 auto 1.25rem;background:linear-gradient(135deg,#16A34A,#15803D);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:2.25rem;color:white;">✓</div><h2 style="font-size:1.375rem;font-weight:800;margin-bottom:0.625rem;color:#1F1A0F;">${title}</h2><p style="color:#6B6358;margin-bottom:1.5rem;font-size:0.9375rem;line-height:1.6;">${msg}</p><button onclick="this.closest('div[style*=fixed]').remove()" style="background:linear-gradient(135deg,#E8A627,#C8861A);color:white;border:none;padding:0.875rem 2rem;border-radius:100px;font-weight:700;font-size:0.9375rem;cursor:pointer;font-family:inherit;">Đóng</button></div>`;
+  document.body.appendChild(m);
+  m.addEventListener('click', e => { if (e.target === m) m.remove(); });
+}
+</script>
 </body></html>

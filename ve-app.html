@@ -90,12 +90,12 @@
       <h2 class="section-title">Là người <span class="accent">đầu tiên</span> trải nghiệm</h2>
       <p class="section-desc">Đăng ký trước - nhận voucher 200.000đ khi app ra mắt + tải app sớm 1 tuần trước công chúng.</p>
     </div>
-    <form class="notify-form" onsubmit="event.preventDefault(); alert('Cảm ơn! Bạn sẽ nhận thông báo khi app ra mắt.');">
-      <div class="form-group"><label class="form-label">Họ tên <span class="req">*</span></label><input type="text" class="form-input" placeholder="Nguyễn Văn A" required></div>
-      <div class="form-group"><label class="form-label">Email <span class="req">*</span></label><input type="email" class="form-input" placeholder="email@example.com" required></div>
-      <div class="form-group"><label class="form-label">Số điện thoại</label><input type="tel" class="form-input" placeholder="0901 234 567"></div>
+    <form class="notify-form" onsubmit="handleAppSubmit(event)">
+      <div class="form-group"><label class="form-label">Họ tên <span class="req">*</span></label><input type="text" name="name" class="form-input" placeholder="Nguyễn Văn A" required></div>
+      <div class="form-group"><label class="form-label">Email <span class="req">*</span></label><input type="email" name="email" class="form-input" placeholder="email@example.com" required></div>
+      <div class="form-group"><label class="form-label">Số điện thoại</label><input type="tel" name="phone" class="form-input" placeholder="0901 234 567"></div>
       <div class="form-group"><label class="form-label">Hệ điều hành</label>
-        <select class="form-input"><option>iOS (iPhone)</option><option>Android</option><option>Cả hai</option></select></div>
+        <select name="os" class="form-input"><option>iOS (iPhone)</option><option>Android</option><option>Cả hai</option></select></div>
       <button type="submit" style="width:100%;background:linear-gradient(135deg,var(--gold),var(--gold-dark));color:white;border:none;padding:1.125rem;border-radius:100px;font-family:inherit;font-size:1rem;font-weight:800;cursor:pointer;box-shadow:var(--shadow-gold);margin-top:0.5rem;">Đăng ký nhận thông báo →</button>
       <p style="text-align: center; margin-top: 1rem; font-size: 0.75rem; color: var(--stone);">🔒 Email được bảo mật. Không spam.</p>
     </form>
@@ -123,5 +123,40 @@
 </footer>
 
 <a href="tel:19006247" class="floating-call"><span class="ring"></span><span class="label">Gọi ngay</span></a>
-<script>function toggleSidebar(){document.querySelector('.sidebar').classList.toggle('active');document.querySelector('.sidebar-overlay').classList.toggle('active');document.body.style.overflow=document.querySelector('.sidebar').classList.contains('active')?'hidden':'';}</script>
+<script>function toggleSidebar(){document.querySelector('.sidebar').classList.toggle('active');document.querySelector('.sidebar-overlay').classList.toggle('active');document.body.style.overflow=document.querySelector('.sidebar').classList.contains('active')?'hidden':'';}
+
+// === GOOGLE FORM APP ===
+const FORM_APP = {
+  formId: '1FAIpQLScPYXhN9tHkMaUrpKehzkefbFCl-JDvzpici4Cr2sSABj-dkw',
+  entries: { name: 'entry.1867223366', email: 'entry.573438228', phone: 'entry.2073326063', os: 'entry.1654040533' }
+};
+
+async function handleAppSubmit(e) {
+  e.preventDefault();
+  const data = Object.fromEntries(new FormData(e.target));
+  const btn = e.target.querySelector('button[type="submit"]');
+  const orig = btn.innerHTML; btn.disabled = true; btn.innerHTML = '⏳ Đang gửi...';
+  
+  const fd = new FormData();
+  fd.append(FORM_APP.entries.name, data.name);
+  fd.append(FORM_APP.entries.email, data.email);
+  fd.append(FORM_APP.entries.phone, data.phone || '(không có)');
+  fd.append(FORM_APP.entries.os, data.os);
+  
+  try {
+    await fetch(`https://docs.google.com/forms/d/e/${FORM_APP.formId}/formResponse`, { method: 'POST', mode: 'no-cors', body: fd });
+    showSuccessModal('Cảm ơn ' + data.name + '!', 'Đã đăng ký nhận thông báo. Bạn sẽ là người đầu tiên biết khi app ra mắt + nhận voucher 200k.');
+    e.target.reset();
+  } catch (err) { alert('⚠️ Có lỗi xảy ra. Vui lòng thử lại.'); }
+  finally { btn.disabled = false; btn.innerHTML = orig; }
+}
+
+function showSuccessModal(title, msg) {
+  const m = document.createElement('div');
+  m.style.cssText = 'position:fixed;inset:0;background:rgba(31,26,15,0.7);backdrop-filter:blur(8px);z-index:999;display:flex;align-items:center;justify-content:center;padding:1rem;';
+  m.innerHTML = `<div style="background:white;border-radius:24px;padding:2.5rem 2rem;max-width:440px;width:100%;text-align:center;box-shadow:0 30px 80px rgba(0,0,0,0.3);"><div style="width:72px;height:72px;margin:0 auto 1.25rem;background:linear-gradient(135deg,#16A34A,#15803D);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:2.25rem;color:white;">✓</div><h2 style="font-size:1.375rem;font-weight:800;margin-bottom:0.625rem;color:#1F1A0F;">${title}</h2><p style="color:#6B6358;margin-bottom:1.5rem;font-size:0.9375rem;line-height:1.6;">${msg}</p><button onclick="this.closest('div[style*=fixed]').remove()" style="background:linear-gradient(135deg,#E8A627,#C8861A);color:white;border:none;padding:0.875rem 2rem;border-radius:100px;font-weight:700;font-size:0.9375rem;cursor:pointer;font-family:inherit;">Đóng</button></div>`;
+  document.body.appendChild(m);
+  m.addEventListener('click', e => { if (e.target === m) m.remove(); });
+}
+</script>
 </body></html>

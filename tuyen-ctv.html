@@ -137,19 +137,19 @@
       <h2 class="section-title">Bước đầu tiên trên <span class="accent">hành trình</span> mới</h2>
       <p class="section-desc">Điền form — chúng tôi gọi lại trong 24 giờ để hẹn phỏng vấn.</p>
     </div>
-    <form class="signup-form" onsubmit="event.preventDefault(); alert('Cảm ơn! Chúng tôi sẽ gọi lại trong 24 giờ.');">
+    <form class="signup-form" id="ctvForm" onsubmit="handleCtvSubmit(event)">
       <div class="form-row">
-        <div class="form-group"><label class="form-label">Họ tên <span class="req">*</span></label><input type="text" class="form-input" placeholder="Nguyễn Văn A" required></div>
-        <div class="form-group"><label class="form-label">Tuổi <span class="req">*</span></label><input type="number" class="form-input" placeholder="25" min="18" max="60" required></div>
+        <div class="form-group"><label class="form-label">Họ tên <span class="req">*</span></label><input type="text" name="name" class="form-input" placeholder="Nguyễn Văn A" required></div>
+        <div class="form-group"><label class="form-label">Tuổi <span class="req">*</span></label><input type="number" name="age" class="form-input" placeholder="25" min="18" max="60" required></div>
       </div>
       <div class="form-row">
-        <div class="form-group"><label class="form-label">Số điện thoại <span class="req">*</span></label><input type="tel" class="form-input" placeholder="0901 234 567" required></div>
+        <div class="form-group"><label class="form-label">Số điện thoại <span class="req">*</span></label><input type="tel" name="phone" class="form-input" placeholder="0901 234 567" required></div>
         <div class="form-group"><label class="form-label">Khu vực ở <span class="req">*</span></label>
-          <select class="form-input" required><option value="">Chọn quận</option><option>Quận 1</option><option>Quận 4</option><option>Quận 7</option><option>Bình Thạnh</option><option>Thủ Đức</option><option>Khác</option></select></div>
+          <select name="area" class="form-input" required><option value="">Chọn quận</option><option>Quận 1</option><option>Quận 4</option><option>Quận 7</option><option>Bình Thạnh</option><option>Thủ Đức</option><option>Khác</option></select></div>
       </div>
       <div class="form-group"><label class="form-label">Ngành muốn làm <span class="req">*</span></label>
-        <select class="form-input" required><option value="">Chọn ngành</option><option>🧹 Dọn dẹp</option><option>⚡ Sửa điện</option><option>💧 Sửa nước</option><option>🚛 Chuyển nhà</option><option>🍳 Nấu ăn</option><option>👴 Chăm sóc NCT</option><option>🛒 Đi chợ hộ</option><option>🔨 Sửa đa năng</option></select></div>
-      <div class="form-group"><label class="form-label">Kinh nghiệm</label><textarea class="form-input" placeholder="Mô tả ngắn kinh nghiệm của bạn (nếu có)"></textarea></div>
+        <select name="service" class="form-input" required><option value="">Chọn ngành</option><option>🧹 Dọn dẹp</option><option>⚡ Sửa điện</option><option>💧 Sửa nước</option><option>🚛 Chuyển nhà</option><option>🍳 Nấu ăn</option><option>👴 Chăm sóc NCT</option><option>🛒 Đi chợ hộ</option><option>🔨 Sửa đa năng</option></select></div>
+      <div class="form-group"><label class="form-label">Kinh nghiệm</label><textarea name="experience" class="form-input" placeholder="Mô tả ngắn kinh nghiệm của bạn (nếu có)"></textarea></div>
       <button type="submit" class="btn-submit">Đăng ký ngay <span>→</span></button>
       <p style="text-align: center; margin-top: 1rem; font-size: 0.75rem; color: var(--stone);">🔒 Thông tin được bảo mật. Chỉ dùng để liên hệ tuyển dụng.</p>
     </form>
@@ -181,6 +181,49 @@ document.querySelectorAll('a[href^="#"]').forEach(a => a.addEventListener('click
   const t = document.querySelector(href);
   if (t) { e.preventDefault(); window.scrollTo({ top: t.getBoundingClientRect().top + window.pageYOffset - 100, behavior: 'smooth' }); }
 }));
+
+// === GOOGLE FORM CTV ===
+const FORM_CTV = {
+  formId: '1FAIpQLSfeErXIn14JMzKop8HvQwyQsaNezWwaVzdaraCtitTLcQVyIw',
+  entries: {
+    name: 'entry.2146833753', age: 'entry.807768755', phone: 'entry.1354910815',
+    area: 'entry.1451248187', service: 'entry.267349692', experience: 'entry.110400103'
+  }
+};
+
+async function handleCtvSubmit(e) {
+  e.preventDefault();
+  const data = Object.fromEntries(new FormData(e.target));
+  const phoneClean = data.phone.replace(/\s/g, '');
+  if (!/^(0|\+84)(3|5|7|8|9)[0-9]{8}$/.test(phoneClean)) {
+    alert('⚠️ Số điện thoại không hợp lệ.'); return;
+  }
+  const btn = e.target.querySelector('button[type="submit"]');
+  const orig = btn.innerHTML; btn.disabled = true; btn.innerHTML = '⏳ Đang gửi...';
+  
+  const fd = new FormData();
+  fd.append(FORM_CTV.entries.name, data.name);
+  fd.append(FORM_CTV.entries.age, data.age);
+  fd.append(FORM_CTV.entries.phone, data.phone);
+  fd.append(FORM_CTV.entries.area, data.area);
+  fd.append(FORM_CTV.entries.service, data.service);
+  fd.append(FORM_CTV.entries.experience, data.experience || '(không có)');
+  
+  try {
+    await fetch(`https://docs.google.com/forms/d/e/${FORM_CTV.formId}/formResponse`, { method: 'POST', mode: 'no-cors', body: fd });
+    showSuccessModal('Cảm ơn ' + data.name + '!', 'Đã nhận đăng ký CTV. Chúng tôi sẽ gọi phỏng vấn trong 24 giờ qua số ' + data.phone + '.');
+    e.target.reset();
+  } catch (err) { alert('⚠️ Có lỗi xảy ra. Vui lòng gọi 1900 6247.'); }
+  finally { btn.disabled = false; btn.innerHTML = orig; }
+}
+
+function showSuccessModal(title, msg) {
+  const m = document.createElement('div');
+  m.style.cssText = 'position:fixed;inset:0;background:rgba(31,26,15,0.7);backdrop-filter:blur(8px);z-index:999;display:flex;align-items:center;justify-content:center;padding:1rem;';
+  m.innerHTML = `<div style="background:white;border-radius:24px;padding:2.5rem 2rem;max-width:440px;width:100%;text-align:center;box-shadow:0 30px 80px rgba(0,0,0,0.3);"><div style="width:72px;height:72px;margin:0 auto 1.25rem;background:linear-gradient(135deg,#16A34A,#15803D);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:2.25rem;color:white;">✓</div><h2 style="font-size:1.375rem;font-weight:800;margin-bottom:0.625rem;color:#1F1A0F;">${title}</h2><p style="color:#6B6358;margin-bottom:1.5rem;font-size:0.9375rem;line-height:1.6;">${msg}</p><button onclick="this.closest('div[style*=fixed]').remove()" style="background:linear-gradient(135deg,#E8A627,#C8861A);color:white;border:none;padding:0.875rem 2rem;border-radius:100px;font-weight:700;font-size:0.9375rem;cursor:pointer;font-family:inherit;">Đóng</button></div>`;
+  document.body.appendChild(m);
+  m.addEventListener('click', e => { if (e.target === m) m.remove(); });
+}
 </script>
 </body>
 </html>
