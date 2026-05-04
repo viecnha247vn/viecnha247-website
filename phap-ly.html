@@ -60,6 +60,7 @@
 
     <div class="tabs">
       <button class="tab-btn active" onclick="showTab('terms')">📋 Điều khoản (13)</button>
+      <button class="tab-btn" onclick="showTab('payment')">💰 Thanh toán (10)</button>
       <button class="tab-btn" onclick="showTab('privacy')">🔒 Bảo mật (11)</button>
       <button class="tab-btn" onclick="showTab('complaint')">⚖️ Khiếu nại (12)</button>
     </div>
@@ -93,6 +94,123 @@
       <div class="legal-section"><h3><span class="num">12</span>Thay đổi điều khoản</h3><p>ViệcNhà247 có quyền cập nhật điều khoản. Thay đổi quan trọng được thông báo qua email/app trước 30 ngày.</p></div>
 
       <div class="legal-section"><h3><span class="num">13</span>Luật áp dụng</h3><p>Điều khoản này tuân theo pháp luật Việt Nam. Tranh chấp giải quyết tại Tòa án nhân dân TPHCM.</p></div>
+    </div>
+
+    <!-- TAB 2: THANH TOÁN -->
+    <div id="payment" class="tab-content">
+      <h2 style="font-size: 1.5rem; font-weight: 800; margin-bottom: 1rem;">Quy định thanh toán</h2>
+
+      <div style="background: linear-gradient(135deg, #FFF8E5 0%, #FBF1DD 100%); border-left: 4px solid var(--gold); border-radius: 12px; padding: 1.25rem; margin-bottom: 1.5rem; font-size: 0.9375rem; color: var(--charcoal); line-height: 1.6;">
+        💡 <strong>Cam kết của ViệcNhà247:</strong> Mọi giao dịch đều minh bạch, không có phụ phí ẩn. Khách hàng được báo giá rõ ràng TRƯỚC khi cộng tác viên (CTV) bắt đầu làm việc và có quyền từ chối nếu giá không phù hợp.
+      </div>
+
+      <div class="legal-section"><h3><span class="num">1</span>3 hình thức thanh toán theo giá trị đơn</h3>
+        <p>ViệcNhà247 áp dụng hình thức thanh toán linh hoạt theo giá trị từng đơn:</p>
+        <ul>
+          <li><strong>🟢 Đơn dưới 500.000đ:</strong> Khách thanh toán 100% bằng <strong>tiền mặt</strong> trực tiếp cho CTV sau khi hoàn thành.</li>
+          <li><strong>🟡 Đơn từ 500.000đ đến 2.000.000đ:</strong> Khách <strong>đặt cọc 20%</strong> qua chuyển khoản/MoMo cho công ty trước, phần còn lại 80% trả tiền mặt cho CTV sau khi hoàn thành.</li>
+          <li><strong>🔴 Đơn trên 2.000.000đ:</strong> Khách thanh toán <strong>100% bằng chuyển khoản</strong> vào tài khoản công ty TRƯỚC khi CTV bắt đầu làm việc. Sau khi hoàn thành và khách xác nhận, công ty chuyển phần của CTV trong 24 giờ.</li>
+        </ul>
+      </div>
+
+      <div class="legal-section"><h3><span class="num">2</span>Phương thức thanh toán được chấp nhận</h3>
+        <ul>
+          <li><strong>Tiền mặt:</strong> CTV cấp hóa đơn ký nhận có dấu xác nhận của ViệcNhà247.</li>
+          <li><strong>Chuyển khoản ngân hàng:</strong> Vietcombank, Techcombank, MB Bank và các ngân hàng khác.</li>
+          <li><strong>Ví điện tử:</strong> MoMo, VNPay, ZaloPay (sắp ra mắt).</li>
+          <li><strong>Quét mã QR:</strong> Tại nơi làm việc (CTV cung cấp mã QR công ty).</li>
+        </ul>
+        <p>Tất cả khoản chuyển khoản phải vào <strong>tài khoản chính thức của ViệcNhà247</strong>, không bao giờ chuyển vào tài khoản cá nhân CTV.</p>
+      </div>
+
+      <div class="legal-section"><h3><span class="num">3</span>Thời điểm thanh toán</h3>
+        <ul>
+          <li><strong>Đặt cọc</strong> (đơn từ 500k): Trong vòng 30 phút sau khi đặt lịch và được công ty xác nhận. Cọc = bảo đảm CTV đến đúng giờ.</li>
+          <li><strong>Thanh toán phần còn lại</strong>: Ngay sau khi CTV hoàn thành công việc và khách kiểm tra/đồng ý.</li>
+          <li><strong>Đơn lớn (>2tr) chuyển khoản đầy đủ</strong>: Trước khi CTV xuất phát đến địa điểm làm việc.</li>
+        </ul>
+      </div>
+
+      <div class="legal-section"><h3><span class="num">4</span>Báo giá và phụ phí</h3>
+        <ul>
+          <li>Giá báo trên website là <strong>giá tham khảo</strong> dựa trên thông tin khách cung cấp.</li>
+          <li>CTV sẽ <strong>khảo sát thực tế</strong> tại nơi làm việc và báo giá chính xác trước khi bắt đầu.</li>
+          <li>Mọi <strong>phụ phí</strong> (cuối tuần, khẩn cấp, tầng cao, thú cưng...) phải được CTV thông báo và khách đồng ý <strong>BẰNG VĂN BẢN</strong> (Zalo/SMS) trước khi áp dụng.</li>
+          <li>Nếu phát sinh phụ phí mà CTV không báo trước, khách có quyền <strong>không thanh toán</strong> phần phụ phí đó.</li>
+        </ul>
+      </div>
+
+      <div class="legal-section"><h3><span class="num">5</span>Hóa đơn và biên nhận</h3>
+        <p>Mỗi giao dịch tiền mặt phải có:</p>
+        <ul>
+          <li><strong>Hóa đơn ViệcNhà247</strong> với mã đơn, ngày, dịch vụ, số tiền</li>
+          <li><strong>Chữ ký của khách</strong> xác nhận đã thanh toán</li>
+          <li><strong>Chữ ký của CTV</strong> xác nhận đã nhận tiền</li>
+          <li><strong>Ảnh chụp</strong> hóa đơn được CTV gửi về công ty trong cùng ngày</li>
+        </ul>
+        <p>Nếu khách không nhận được hóa đơn từ CTV, vui lòng yêu cầu hoặc báo công ty qua hotline 1900 6247.</p>
+      </div>
+
+      <div class="legal-section"><h3><span class="num">6</span>Hủy đơn và hoàn cọc</h3>
+        <p>Quy định hoàn tiền cọc:</p>
+        <ul>
+          <li><strong>Khách hủy trước 24 giờ:</strong> Hoàn 100% cọc trong 3-5 ngày làm việc.</li>
+          <li><strong>Khách hủy 6-24 giờ trước:</strong> Hoàn 70% cọc (giữ 30% phí xử lý).</li>
+          <li><strong>Khách hủy dưới 6 giờ:</strong> Hoàn 50% cọc.</li>
+          <li><strong>Khách hủy khi CTV đã đến:</strong> Không hoàn cọc + có thể tính phí công CTV.</li>
+          <li><strong>CTV không đến hoặc trễ quá 30 phút:</strong> Hoàn 100% cọc + voucher 100k đơn sau.</li>
+          <li><strong>Đơn lớn đã chuyển 100%:</strong> Hoàn 80-100% tùy thời điểm hủy, trong 5-7 ngày làm việc.</li>
+        </ul>
+      </div>
+
+      <div class="legal-section"><h3><span class="num">7</span>Thanh toán cho CTV</h3>
+        <p>ViệcNhà247 trích hoa hồng và trả phần còn lại cho CTV theo công thức:</p>
+        <ul>
+          <li><strong>Dọn dẹp, Nấu ăn:</strong> CTV nhận 82% giá trị đơn (hoa hồng công ty 18%)</li>
+          <li><strong>Sửa điện, Sửa nước, Đa năng, Chăm sóc NCT, Đi chợ hộ:</strong> CTV nhận 80% (hoa hồng 20%)</li>
+          <li><strong>Chuyển nhà:</strong> CTV nhận 78% (hoa hồng 22% — vì có bảo hiểm hàng hóa 50tr)</li>
+        </ul>
+        <p>Đối với <strong>đơn lớn (>2tr)</strong> khách đã chuyển 100% cho công ty, công ty chuyển khoản cho CTV trong vòng <strong>24 giờ</strong> sau khi khách xác nhận hoàn thành.</p>
+      </div>
+
+      <div class="legal-section"><h3><span class="num">8</span>Bảo hiểm và bồi thường thiệt hại</h3>
+        <p>Mọi đơn đặt qua nền tảng ViệcNhà247 đều có bảo hiểm trách nhiệm:</p>
+        <ul>
+          <li><strong>Đến 50 triệu/đơn</strong> cho thiệt hại tài sản do CTV gây ra trong quá trình làm việc.</li>
+          <li><strong>Bảo hiểm hàng hóa 50 triệu</strong> riêng cho dịch vụ Chuyển nhà.</li>
+          <li><strong>Bảo hiểm tai nạn lao động</strong> cho CTV trong giờ làm.</li>
+        </ul>
+        <p>Bảo hiểm <strong>KHÔNG áp dụng</strong> với:</p>
+        <ul>
+          <li>Đơn đặt riêng với CTV ngoài nền tảng</li>
+          <li>Thiệt hại do khách tự gây ra</li>
+          <li>Đồ vật quý giá khách không khai báo trước (đồ trên 10 triệu cần khai báo)</li>
+        </ul>
+      </div>
+
+      <div class="legal-section"><h3><span class="num">9</span>Tranh chấp về thanh toán</h3>
+        <p>Khi có tranh chấp về số tiền thanh toán:</p>
+        <ol>
+          <li>Khách báo công ty qua hotline <strong>1900 6247</strong> hoặc email <strong>khieu-nai@viecnha247.vn</strong> trong 24 giờ.</li>
+          <li>Cung cấp: mã đơn, hóa đơn (nếu có), bằng chứng (ảnh, video).</li>
+          <li>Công ty xác minh với CTV trong 1-3 ngày làm việc.</li>
+          <li>Quyết định cuối cùng dựa trên: hợp đồng, hóa đơn, tin nhắn xác nhận, lịch sử giao dịch.</li>
+          <li>Trong khi chờ giải quyết, công ty <strong>tạm giữ</strong> phần CTV chưa nhận.</li>
+        </ol>
+      </div>
+
+      <div class="legal-section"><h3><span class="num">10</span>Cảnh báo và bảo vệ khách hàng</h3>
+        <p>Để bảo vệ quyền lợi khách hàng, ViệcNhà247 khuyến cáo:</p>
+        <ul>
+          <li>❌ <strong>KHÔNG</strong> chuyển tiền vào tài khoản cá nhân CTV với lý do nào.</li>
+          <li>❌ <strong>KHÔNG</strong> đặt riêng với CTV ngoài nền tảng — sẽ mất hết bảo hiểm và bảo hành.</li>
+          <li>❌ <strong>KHÔNG</strong> thanh toán nếu CTV không có đồng phục + bảng tên ViệcNhà247.</li>
+          <li>✅ <strong>LUÔN</strong> yêu cầu hóa đơn ký nhận sau khi thanh toán.</li>
+          <li>✅ <strong>LUÔN</strong> báo công ty nếu CTV yêu cầu thêm tiền ngoài thỏa thuận.</li>
+          <li>✅ <strong>LUÔN</strong> kiểm tra giá trên website hoặc gọi 1900 6247 nếu nghi ngờ.</li>
+        </ul>
+        <p style="margin-top: 0.75rem; font-style: italic; color: var(--gold-dark); font-weight: 600;">Phát hiện CTV vi phạm? Báo ngay 1900 6247 — bạn được tặng voucher 100k và CTV sẽ bị xử lý nghiêm.</p>
+      </div>
     </div>
 
     <!-- TAB 2: BẢO MẬT -->
