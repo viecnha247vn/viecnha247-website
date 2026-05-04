@@ -820,6 +820,180 @@ textarea.form-input { resize: vertical; min-height: 80px; }
 }
 .form-trust a { color: var(--gold-dark); font-weight: 600; text-decoration: none; }
 
+/* === EXTRAS CHECKBOX === */
+.extras-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.625rem;
+}
+@media (max-width: 600px) {
+  .extras-grid { grid-template-columns: 1fr; }
+}
+.extra-checkbox {
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+  padding: 0.875rem 1rem;
+  background: var(--cream-light);
+  border: 1.5px solid var(--cream-dark);
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: 0.875rem;
+  color: var(--charcoal);
+}
+.extra-checkbox:hover {
+  background: white;
+  border-color: var(--gold);
+}
+.extra-checkbox input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--gold-dark);
+  cursor: pointer;
+  flex-shrink: 0;
+}
+.extra-checkbox input[type="checkbox"]:checked + span {
+  font-weight: 600;
+  color: var(--ink);
+}
+.extra-checkbox span {
+  flex: 1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5rem;
+}
+.extra-checkbox em {
+  font-style: normal;
+  font-weight: 800;
+  color: var(--gold-dark);
+  font-size: 0.8125rem;
+  white-space: nowrap;
+}
+.extra-checkbox:has(input:checked) {
+  background: linear-gradient(135deg, rgba(232, 166, 39, 0.08) 0%, rgba(232, 166, 39, 0.04) 100%);
+  border-color: var(--gold);
+}
+
+/* === PRICE ESTIMATE BOX === */
+.price-estimate-box {
+  background: linear-gradient(135deg, #FFF8E5 0%, #FBF1DD 100%);
+  border: 2px solid var(--gold);
+  border-radius: 20px;
+  padding: 1.75rem;
+  margin: 1.5rem 0;
+  position: relative;
+  overflow: hidden;
+  animation: priceGlow 0.6s ease;
+  box-shadow: 0 8px 24px rgba(232, 166, 39, 0.15);
+}
+@keyframes priceGlow {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.price-estimate-box::before {
+  content: "";
+  position: absolute;
+  top: -30%;
+  right: -10%;
+  width: 200px;
+  height: 200px;
+  background: radial-gradient(circle, var(--gold-glow) 0%, transparent 70%);
+  filter: blur(30px);
+}
+.price-estimate-box > * { position: relative; z-index: 1; }
+.price-estimate-header {
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+  margin-bottom: 1rem;
+}
+.price-estimate-header .price-icon {
+  font-size: 1.5rem;
+}
+.price-estimate-header h3 {
+  font-size: 1.0625rem;
+  font-weight: 800;
+  color: var(--ink);
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+.price-breakdown {
+  margin-bottom: 1rem;
+}
+.price-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 0;
+  border-bottom: 1px dashed var(--cream-dark);
+  font-size: 0.875rem;
+  color: var(--charcoal);
+}
+.price-row:last-child { border-bottom: none; }
+.price-row .label {
+  display: flex;
+  align-items: center;
+  gap: 0.375rem;
+}
+.price-row .amount {
+  font-weight: 700;
+  color: var(--ink);
+  font-variant-numeric: tabular-nums;
+}
+.price-row.surcharge .amount {
+  color: var(--gold-dark);
+}
+.price-total {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 0;
+  border-top: 2px solid var(--gold);
+  margin-top: 0.5rem;
+}
+.price-total-label {
+  font-size: 0.8125rem;
+  font-weight: 800;
+  color: var(--ink);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+.price-total-amount {
+  font-size: 1.75rem;
+  font-weight: 900;
+  color: var(--gold-dark);
+  font-variant-numeric: tabular-nums;
+  transition: all 0.3s ease;
+}
+.price-disclaimer {
+  background: rgba(255, 255, 255, 0.6);
+  border-radius: 12px;
+  padding: 0.75rem 0.875rem;
+  font-size: 0.75rem;
+  color: var(--stone);
+  line-height: 1.55;
+  margin-top: 1rem;
+}
+.price-disclaimer strong {
+  color: var(--ink);
+  font-weight: 700;
+}
+
+/* === FORM STEPS — 4 STEPS === */
+.form-steps::before {
+  content: "";
+  position: absolute;
+  top: 16px;
+  left: 6%;
+  right: 6%;
+  height: 2px;
+  background: var(--cream-dark);
+  z-index: 0;
+}
+
 /* === WHY CHOOSE === */
 .why-section { background: var(--warm-white); }
 .why-grid {
@@ -1235,6 +1409,7 @@ textarea.form-input { resize: vertical; min-height: 80px; }
   </a>
   <div class="nav-menu">
     <a href="#dich-vu">Dịch vụ</a>
+    <a href="bang-gia.html">Bảng giá</a>
     <a href="#cach-hoat-dong">Cách hoạt động</a>
     <a href="#danh-gia">Đánh giá</a>
     <a href="tuyen-ctv.html">Tuyển CTV</a>
@@ -1251,6 +1426,7 @@ textarea.form-input { resize: vertical; min-height: 80px; }
   <div class="sidebar-logo">ViệcNhà247</div>
   <ul class="sidebar-menu">
     <li><a href="#dich-vu" onclick="toggleSidebar()">Dịch vụ</a></li>
+    <li><a href="bang-gia.html">Bảng giá</a></li>
     <li><a href="#dat-lich" onclick="toggleSidebar()">Đặt lịch</a></li>
     <li><a href="#cach-hoat-dong" onclick="toggleSidebar()">Cách hoạt động</a></li>
     <li><a href="#danh-gia" onclick="toggleSidebar()">Đánh giá</a></li>
@@ -1436,13 +1612,17 @@ textarea.form-input { resize: vertical; min-height: 80px; }
         </div>
         <div class="form-step">
           <div class="step-num">3</div>
+          <div class="step-label">Yêu cầu</div>
+        </div>
+        <div class="form-step">
+          <div class="step-num">4</div>
           <div class="step-label">Liên hệ</div>
         </div>
       </div>
 
       <!-- Bước 1: Chọn dịch vụ -->
       <div class="form-group">
-        <label class="form-label">Bạn cần dịch vụ gì? <span class="req">*</span></label>
+        <label class="form-label">1. Bạn cần dịch vụ gì? <span class="req">*</span></label>
         <div class="service-pills" id="servicePills">
           <div class="service-pill" data-value="don-dep">🧹 Dọn dẹp</div>
           <div class="service-pill" data-value="sua-dien">⚡ Sửa điện</div>
@@ -1456,39 +1636,127 @@ textarea.form-input { resize: vertical; min-height: 80px; }
         <input type="hidden" id="selectedService" name="service" required>
       </div>
 
-      <!-- Bước 2: Thời gian + địa chỉ -->
+      <!-- Bước 2: Ngày + Thời gian (từ-đến) -->
+      <div class="form-group">
+        <label class="form-label">2. Ngày làm <span class="req">*</span></label>
+        <input type="date" id="bookingDate" name="date" class="form-input" required>
+      </div>
+
       <div class="form-row">
         <div class="form-group">
-          <label class="form-label" for="bookingDate">Ngày làm <span class="req">*</span></label>
-          <input type="date" id="bookingDate" name="date" class="form-input" required>
+          <label class="form-label" for="bookingTimeStart">Bắt đầu <span class="req">*</span></label>
+          <select id="bookingTimeStart" name="timeStart" class="form-input" required>
+            <option value="">Chọn giờ</option>
+            <option value="06:00">06:00</option>
+            <option value="07:00">07:00</option>
+            <option value="08:00">08:00</option>
+            <option value="09:00">09:00</option>
+            <option value="10:00">10:00</option>
+            <option value="11:00">11:00</option>
+            <option value="12:00">12:00</option>
+            <option value="13:00">13:00</option>
+            <option value="14:00">14:00</option>
+            <option value="15:00">15:00</option>
+            <option value="16:00">16:00</option>
+            <option value="17:00">17:00</option>
+            <option value="18:00">18:00</option>
+            <option value="19:00">19:00</option>
+            <option value="20:00">20:00</option>
+          </select>
         </div>
         <div class="form-group">
-          <label class="form-label" for="bookingTime">Giờ làm <span class="req">*</span></label>
-          <select id="bookingTime" name="time" class="form-input" required>
+          <label class="form-label" for="bookingTimeEnd">Kết thúc <span class="req">*</span></label>
+          <select id="bookingTimeEnd" name="timeEnd" class="form-input" required>
             <option value="">Chọn giờ</option>
-            <option value="07:00">07:00 sáng</option>
-            <option value="08:00">08:00 sáng</option>
-            <option value="09:00">09:00 sáng</option>
-            <option value="10:00">10:00 sáng</option>
-            <option value="11:00">11:00 sáng</option>
-            <option value="13:00">13:00 chiều</option>
-            <option value="14:00">14:00 chiều</option>
-            <option value="15:00">15:00 chiều</option>
-            <option value="16:00">16:00 chiều</option>
-            <option value="17:00">17:00 chiều</option>
-            <option value="18:00">18:00 tối</option>
-            <option value="19:00">19:00 tối</option>
-            <option value="khan-cap">⚡ Khẩn cấp (trong 2 giờ)</option>
+            <option value="07:00">07:00</option>
+            <option value="08:00">08:00</option>
+            <option value="09:00">09:00</option>
+            <option value="10:00">10:00</option>
+            <option value="11:00">11:00</option>
+            <option value="12:00">12:00</option>
+            <option value="13:00">13:00</option>
+            <option value="14:00">14:00</option>
+            <option value="15:00">15:00</option>
+            <option value="16:00">16:00</option>
+            <option value="17:00">17:00</option>
+            <option value="18:00">18:00</option>
+            <option value="19:00">19:00</option>
+            <option value="20:00">20:00</option>
+            <option value="21:00">21:00</option>
+            <option value="22:00">22:00</option>
           </select>
         </div>
       </div>
 
+      <!-- Hiển thị tổng số giờ -->
+      <div id="durationDisplay" style="display:none; padding:0.75rem 1rem; background:var(--cream-light); border-radius:12px; margin-bottom:1rem; font-size:0.875rem; color:var(--charcoal);">
+        ⏱️ Tổng thời gian làm việc: <strong id="durationText" style="color:var(--gold-dark); font-weight:800;">0 giờ</strong>
+      </div>
+
+      <!-- Tùy chọn riêng theo ngành (hiện theo dịch vụ chọn) -->
+      <div class="form-group" id="serviceOptionsGroup" style="display:none;">
+        <label class="form-label" id="serviceOptionsLabel">Quy mô công việc</label>
+        <select id="serviceScale" name="scale" class="form-input">
+          <option value="">Chọn quy mô</option>
+        </select>
+      </div>
+
+      <!-- Bước 3: Yêu cầu thêm (checkbox phụ phí + ô tự nhập) -->
       <div class="form-group">
-        <label class="form-label" for="bookingAddress">Địa chỉ làm việc <span class="req">*</span></label>
+        <label class="form-label">3. Yêu cầu đặc biệt (tùy chọn)</label>
+        <div class="extras-grid">
+          <label class="extra-checkbox">
+            <input type="checkbox" id="extraPet" data-fee="50000" data-label="Có thú cưng">
+            <span>🐶 Có thú cưng <em>+50k</em></span>
+          </label>
+          <label class="extra-checkbox">
+            <input type="checkbox" id="extraHighFloor" data-fee="50000" data-label="Tầng cao không thang máy">
+            <span>🏢 Tầng cao không thang máy <em>+50k</em></span>
+          </label>
+          <label class="extra-checkbox">
+            <input type="checkbox" id="extraUrgent" data-fee="0" data-percent="30" data-label="Khẩn cấp <2h">
+            <span>⚡ Khẩn cấp dưới 2 giờ <em>+30%</em></span>
+          </label>
+          <label class="extra-checkbox">
+            <input type="checkbox" id="extraWeekend" data-fee="0" data-percent="20" data-label="Cuối tuần/lễ">
+            <span>📅 Cuối tuần/lễ <em>+20%</em></span>
+          </label>
+          <label class="extra-checkbox">
+            <input type="checkbox" id="extraNight" data-fee="0" data-percent="50" data-label="Đêm khuya 22h-6h">
+            <span>🌙 Đêm khuya 22h-6h <em>+50%</em></span>
+          </label>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label" for="bookingNote">Ghi chú thêm (không bắt buộc)</label>
+        <textarea id="bookingNote" name="note" class="form-input" placeholder="Ví dụ: Nhà 80m², có 2 phòng ngủ. Cần dọn cả ban công và lau quạt trần."></textarea>
+      </div>
+
+      <!-- BÁO GIÁ DỰ KIẾN -->
+      <div id="priceEstimate" class="price-estimate-box" style="display:none;">
+        <div class="price-estimate-header">
+          <span class="price-icon">💰</span>
+          <h3>Báo giá dự kiến</h3>
+        </div>
+        <div class="price-breakdown" id="priceBreakdown">
+          <!-- Tự fill bởi JS -->
+        </div>
+        <div class="price-total">
+          <span class="price-total-label">TỔNG TẠM TÍNH</span>
+          <span class="price-total-amount" id="priceTotalAmount">0đ</span>
+        </div>
+        <div class="price-disclaimer">
+          💡 <strong>Đây là giá tham khảo</strong> dựa trên thông tin bạn cung cấp. CTV sẽ khảo sát thực tế và báo giá chính xác trước khi làm. Bạn có thể từ chối nếu giá không phù hợp.
+        </div>
+      </div>
+
+      <!-- Bước 4: Thông tin liên hệ -->
+      <div class="form-group">
+        <label class="form-label" for="bookingAddress">4. Địa chỉ làm việc <span class="req">*</span></label>
         <input type="text" id="bookingAddress" name="address" class="form-input" placeholder="Ví dụ: 123 Nguyễn Thị Thập, Tân Phú, Quận 7" required>
       </div>
 
-      <!-- Bước 3: Thông tin liên hệ -->
       <div class="form-row">
         <div class="form-group">
           <label class="form-label" for="bookingName">Họ tên <span class="req">*</span></label>
@@ -1498,11 +1766,6 @@ textarea.form-input { resize: vertical; min-height: 80px; }
           <label class="form-label" for="bookingPhone">Số điện thoại <span class="req">*</span></label>
           <input type="tel" id="bookingPhone" name="phone" class="form-input" placeholder="0901 234 567" pattern="[0-9]{10,11}" required>
         </div>
-      </div>
-
-      <div class="form-group">
-        <label class="form-label" for="bookingNote">Yêu cầu thêm (không bắt buộc)</label>
-        <textarea id="bookingNote" name="note" class="form-input" placeholder="Ví dụ: Nhà 80m², có 2 phòng ngủ. Cần dọn cả ban công."></textarea>
       </div>
 
       <button type="submit" class="btn-submit">
@@ -1686,7 +1949,7 @@ textarea.form-input { resize: vertical; min-height: 80px; }
       <div class="footer-col">
         <h4>Dịch vụ</h4>
         <ul>
-          <li><a href="dich-vu.html">Tất cả dịch vụ</a></li>
+          <li><a href="dich-vu.html">Tất cả dịch vụ</a></li><li><a href="bang-gia.html">Bảng giá</a></li>
           <li><a href="#dat-lich">Đặt lịch</a></li>
           <li><a href="#cach-hoat-dong">Cách hoạt động</a></li>
           <li><a href="ve-app.html">Tải app</a></li>
@@ -1736,44 +1999,6 @@ function toggleSidebar() {
   document.body.style.overflow = document.querySelector('.sidebar').classList.contains('active') ? 'hidden' : '';
 }
 
-// Service pill selection
-document.querySelectorAll('.service-pill').forEach(pill => {
-  pill.addEventListener('click', () => {
-    document.querySelectorAll('.service-pill').forEach(p => p.classList.remove('selected'));
-    pill.classList.add('selected');
-    document.getElementById('selectedService').value = pill.dataset.value;
-    
-    // Update step indicator
-    document.querySelectorAll('.form-step')[0].classList.add('done');
-    document.querySelectorAll('.form-step')[1].classList.add('active');
-  });
-});
-
-// Service card click → scroll to form & pre-select
-document.querySelectorAll('.service-card').forEach(card => {
-  card.addEventListener('click', (e) => {
-    const service = card.dataset.service;
-    const pill = document.querySelector(`.service-pill[data-value="${service}"]`);
-    if (pill) {
-      setTimeout(() => {
-        document.querySelectorAll('.service-pill').forEach(p => p.classList.remove('selected'));
-        pill.classList.add('selected');
-        document.getElementById('selectedService').value = service;
-        document.querySelectorAll('.form-step')[0].classList.add('done');
-        document.querySelectorAll('.form-step')[1].classList.add('active');
-      }, 800);
-    }
-  });
-});
-
-// Set min date to today
-const dateInput = document.getElementById('bookingDate');
-if (dateInput) {
-  const today = new Date().toISOString().split('T')[0];
-  dateInput.min = today;
-  dateInput.value = today;
-}
-
 // === GOOGLE FORM INTEGRATION ===
 const GOOGLE_FORM_BOOKING = {
   formId: '1FAIpQLSd9xWK7vdBnnYvESqDdx3yEll0MrQ8E-YdeMsV6IB5ER0HaQA',
@@ -1800,6 +2025,268 @@ const SERVICE_NAMES = {
   'da-nang':    '🔨 Sửa chữa đa năng'
 };
 
+// === LOGIC TÍNH GIÁ 8 NGÀNH ===
+const SERVICE_PRICING = {
+  'don-dep': {
+    type: 'hourly',
+    pricePerHour: 99000,
+    minHours: 2,
+    label: 'Tính theo giờ',
+    description: 'Giá: 99,000đ/giờ (tối thiểu 2 giờ)'
+  },
+  'sua-dien': {
+    type: 'inspection',
+    inspectionFee: 149000,
+    estimatedJob: 199000,
+    label: 'Phí khám + việc làm',
+    description: 'Phí kiểm tra: 150k + giá công việc thực tế (CTV báo giá khi đến)'
+  },
+  'sua-nuoc': {
+    type: 'inspection',
+    inspectionFee: 179000,
+    estimatedJob: 249000,
+    label: 'Phí khám + việc làm',
+    description: 'Phí kiểm tra: 180k + giá công việc thực tế (CTV báo giá khi đến)'
+  },
+  'chuyen-nha': {
+    type: 'package',
+    options: [
+      { value: 'goi-1', label: 'Gói 1: Chỉ vận chuyển', price: 999000, desc: 'Khách tự đóng gói' },
+      { value: 'goi-2', label: 'Gói 2: VC + Đóng gói cơ bản', price: 1999000 },
+      { value: 'goi-3', label: 'Gói 3: Trọn gói A-Z', price: 3999000, desc: 'Đóng gói + VC + Sắp xếp' }
+    ],
+    label: 'Chọn gói chuyển nhà'
+  },
+  'nau-an': {
+    type: 'meal',
+    options: [
+      { value: 'gd-nho', label: 'Bữa cơm 4 người', price: 299000 },
+      { value: 'gd-lon', label: 'Bữa cơm 6-8 người', price: 499000 },
+      { value: 'tiec-nho', label: 'Tiệc nhỏ 10-20 người', price: 2499000 },
+      { value: 'com-thang', label: 'Cơm tháng (30 bữa)', price: 7499000 }
+    ],
+    label: 'Chọn loại bữa ăn',
+    note: '💡 Tiền nguyên liệu trả riêng'
+  },
+  'cham-soc': {
+    type: 'hourly',
+    pricePerHour: 74000,
+    minHours: 4,
+    label: 'Tính theo giờ',
+    description: 'Giá: 74,000đ/giờ (tối thiểu 4 giờ)'
+  },
+  'di-cho': {
+    type: 'fixed',
+    basePrice: 99000,
+    label: 'Phí dịch vụ cố định',
+    description: 'Phí 100k + 5% giá trị hàng (khách trả riêng tiền hàng)'
+  },
+  'da-nang': {
+    type: 'inspection',
+    inspectionFee: 149000,
+    estimatedJob: 199000,
+    label: 'Phí khám + việc làm',
+    description: 'Phí kiểm tra: 150k + giá công việc (CTV báo giá khi đến)'
+  }
+};
+
+// === HÀM TÍNH GIỜ TỪ START - END ===
+function calculateDuration(timeStart, timeEnd) {
+  if (!timeStart || !timeEnd) return 0;
+  const [hStart, mStart] = timeStart.split(':').map(Number);
+  const [hEnd, mEnd] = timeEnd.split(':').map(Number);
+  const minutes = (hEnd * 60 + mEnd) - (hStart * 60 + mStart);
+  return Math.max(0, minutes / 60);
+}
+
+// === HÀM TÍNH GIÁ ===
+function calculatePrice() {
+  const service = document.getElementById('selectedService').value;
+  if (!service) {
+    document.getElementById('priceEstimate').style.display = 'none';
+    return;
+  }
+  
+  const pricing = SERVICE_PRICING[service];
+  const timeStart = document.getElementById('bookingTimeStart').value;
+  const timeEnd = document.getElementById('bookingTimeEnd').value;
+  const duration = calculateDuration(timeStart, timeEnd);
+  
+  let basePrice = 0;
+  let priceLabel = '';
+  let breakdown = [];
+  let canShowPrice = false;
+  
+  // Tính giá cơ bản theo từng ngành
+  if (pricing.type === 'hourly') {
+    if (duration < pricing.minHours) {
+      if (timeStart && timeEnd) {
+        breakdown.push({
+          label: `⚠️ Tối thiểu ${pricing.minHours} giờ`,
+          amount: 'Vui lòng chọn lại'
+        });
+        renderPriceBreakdown(breakdown, 0, false);
+        return;
+      } else {
+        document.getElementById('priceEstimate').style.display = 'none';
+        return;
+      }
+    }
+    basePrice = duration * pricing.pricePerHour;
+    breakdown.push({
+      label: `${duration} giờ × ${formatPrice(pricing.pricePerHour)}đ/giờ`,
+      amount: formatPrice(basePrice) + 'đ'
+    });
+    canShowPrice = true;
+  } 
+  else if (pricing.type === 'inspection') {
+    basePrice = pricing.inspectionFee + pricing.estimatedJob;
+    breakdown.push({
+      label: 'Phí kiểm tra (đến nhà)',
+      amount: formatPrice(pricing.inspectionFee) + 'đ'
+    });
+    breakdown.push({
+      label: 'Ước tính công việc',
+      amount: 'Từ ' + formatPrice(pricing.estimatedJob) + 'đ'
+    });
+    canShowPrice = true;
+  }
+  else if (pricing.type === 'package') {
+    const scale = document.getElementById('serviceScale').value;
+    if (!scale) {
+      document.getElementById('priceEstimate').style.display = 'none';
+      return;
+    }
+    const option = pricing.options.find(o => o.value === scale);
+    if (option) {
+      basePrice = option.price;
+      breakdown.push({
+        label: option.label,
+        amount: 'Từ ' + formatPrice(basePrice) + 'đ'
+      });
+      canShowPrice = true;
+    }
+  }
+  else if (pricing.type === 'meal') {
+    const scale = document.getElementById('serviceScale').value;
+    if (!scale) {
+      document.getElementById('priceEstimate').style.display = 'none';
+      return;
+    }
+    const option = pricing.options.find(o => o.value === scale);
+    if (option) {
+      basePrice = option.price;
+      breakdown.push({
+        label: option.label,
+        amount: formatPrice(basePrice) + 'đ'
+      });
+      canShowPrice = true;
+    }
+  }
+  else if (pricing.type === 'fixed') {
+    basePrice = pricing.basePrice;
+    breakdown.push({
+      label: 'Phí dịch vụ đi chợ hộ',
+      amount: formatPrice(basePrice) + 'đ'
+    });
+    breakdown.push({
+      label: '+ 5% giá trị hàng (tính sau)',
+      amount: 'Theo hóa đơn'
+    });
+    canShowPrice = true;
+  }
+  
+  if (!canShowPrice) {
+    document.getElementById('priceEstimate').style.display = 'none';
+    return;
+  }
+  
+  // Tính phụ phí từ checkbox
+  let surchargeFlat = 0; // phụ phí số tiền
+  let surchargePercent = 0; // phụ phí %
+  
+  document.querySelectorAll('.extras-grid input[type="checkbox"]').forEach(cb => {
+    if (cb.checked) {
+      const fee = parseInt(cb.dataset.fee) || 0;
+      const percent = parseInt(cb.dataset.percent) || 0;
+      const label = cb.dataset.label;
+      
+      if (fee > 0) {
+        surchargeFlat += fee;
+        breakdown.push({
+          label: '+ ' + label,
+          amount: '+' + formatPrice(fee) + 'đ',
+          isSurcharge: true
+        });
+      }
+      if (percent > 0) {
+        surchargePercent += percent;
+        const percentAmount = Math.round(basePrice * percent / 100);
+        breakdown.push({
+          label: '+ ' + label + ' (' + percent + '%)',
+          amount: '+' + formatPrice(percentAmount) + 'đ',
+          isSurcharge: true
+        });
+      }
+    }
+  });
+  
+  const surchargePercentAmount = Math.round(basePrice * surchargePercent / 100);
+  const total = basePrice + surchargeFlat + surchargePercentAmount;
+  
+  renderPriceBreakdown(breakdown, total, true);
+}
+
+function formatPrice(num) {
+  return num.toLocaleString('vi-VN');
+}
+
+function renderPriceBreakdown(breakdown, total, valid) {
+  const breakdownEl = document.getElementById('priceBreakdown');
+  const totalEl = document.getElementById('priceTotalAmount');
+  const boxEl = document.getElementById('priceEstimate');
+  
+  breakdownEl.innerHTML = breakdown.map(item => `
+    <div class="price-row${item.isSurcharge ? ' surcharge' : ''}">
+      <span class="label">${item.label}</span>
+      <span class="amount">${item.amount}</span>
+    </div>
+  `).join('');
+  
+  if (valid) {
+    totalEl.textContent = formatPrice(total) + 'đ';
+    boxEl.style.display = 'block';
+  } else {
+    totalEl.textContent = '—';
+    boxEl.style.display = 'block';
+  }
+}
+
+// === UPDATE OPTIONS THEO DỊCH VỤ ===
+function updateServiceOptions(service) {
+  const group = document.getElementById('serviceOptionsGroup');
+  const select = document.getElementById('serviceScale');
+  const label = document.getElementById('serviceOptionsLabel');
+  const pricing = SERVICE_PRICING[service];
+  
+  if (!pricing || (pricing.type !== 'package' && pricing.type !== 'meal')) {
+    group.style.display = 'none';
+    select.value = '';
+    return;
+  }
+  
+  // Hiện dropdown
+  group.style.display = 'block';
+  label.textContent = pricing.label;
+  
+  // Build options
+  let html = '<option value="">Chọn ' + pricing.label.toLowerCase() + '</option>';
+  pricing.options.forEach(opt => {
+    html += `<option value="${opt.value}">${opt.label} — Từ ${formatPrice(opt.price)}đ</option>`;
+  });
+  select.innerHTML = html;
+}
+
 async function handleBookingSubmit(e) {
   e.preventDefault();
   const formData = new FormData(e.target);
@@ -1817,6 +2304,13 @@ async function handleBookingSubmit(e) {
     return;
   }
   
+  // Validate giờ kết thúc > giờ bắt đầu
+  const duration = calculateDuration(data.timeStart, data.timeEnd);
+  if (duration <= 0) {
+    alert('⚠️ Giờ kết thúc phải sau giờ bắt đầu.');
+    return;
+  }
+  
   const submitBtn = e.target.querySelector('button[type="submit"]');
   const originalText = submitBtn.innerHTML;
   submitBtn.disabled = true;
@@ -1824,26 +2318,50 @@ async function handleBookingSubmit(e) {
   
   const orderId = 'VH' + Date.now().toString().slice(-6);
   const serviceName = SERVICE_NAMES[data.service] || data.service;
+  const timeRange = data.timeStart + ' - ' + data.timeEnd + ' (' + duration + 'h)';
+  
+  // Lấy giá hiển thị
+  const priceText = document.getElementById('priceTotalAmount').textContent;
+  
+  // Tổng hợp ghi chú: extras + note
+  let noteText = data.note || '';
+  const extras = [];
+  document.querySelectorAll('.extras-grid input[type="checkbox"]:checked').forEach(cb => {
+    extras.push(cb.dataset.label);
+  });
+  if (extras.length > 0) {
+    noteText = 'Phụ phí: ' + extras.join(', ') + (noteText ? '. Ghi chú: ' + noteText : '');
+  }
+  if (data.scale) {
+    const pricing = SERVICE_PRICING[data.service];
+    const opt = pricing.options?.find(o => o.value === data.scale);
+    if (opt) noteText = opt.label + '. ' + noteText;
+  }
+  noteText += ' | 💰 Báo giá web: ' + priceText;
   
   const formUrl = `https://docs.google.com/forms/d/e/${GOOGLE_FORM_BOOKING.formId}/formResponse`;
   const submitData = new FormData();
   submitData.append(GOOGLE_FORM_BOOKING.entries.service, serviceName);
   submitData.append(GOOGLE_FORM_BOOKING.entries.date, data.date);
-  submitData.append(GOOGLE_FORM_BOOKING.entries.time, data.time);
+  submitData.append(GOOGLE_FORM_BOOKING.entries.time, timeRange);
   submitData.append(GOOGLE_FORM_BOOKING.entries.address, data.address);
   submitData.append(GOOGLE_FORM_BOOKING.entries.name, data.name);
   submitData.append(GOOGLE_FORM_BOOKING.entries.phone, data.phone);
-  submitData.append(GOOGLE_FORM_BOOKING.entries.note, data.note || '(không có)');
+  submitData.append(GOOGLE_FORM_BOOKING.entries.note, noteText || '(không có)');
   submitData.append(GOOGLE_FORM_BOOKING.entries.orderId, orderId);
   
   try {
     await fetch(formUrl, { method: 'POST', mode: 'no-cors', body: submitData });
     
-    showBookingSuccess(data.name, serviceName, data.date, data.time, data.phone, orderId);
+    showBookingSuccess(data.name, serviceName, data.date, timeRange, data.phone, orderId, priceText);
     
     e.target.reset();
     document.querySelectorAll('.service-pill').forEach(p => p.classList.remove('selected'));
     document.getElementById('selectedService').value = '';
+    document.querySelectorAll('.extras-grid input[type="checkbox"]').forEach(cb => cb.checked = false);
+    document.getElementById('priceEstimate').style.display = 'none';
+    document.getElementById('serviceOptionsGroup').style.display = 'none';
+    document.getElementById('durationDisplay').style.display = 'none';
     document.querySelectorAll('.form-step').forEach((step, idx) => {
       step.classList.remove('done');
       if (idx > 0) step.classList.remove('active');
@@ -1859,11 +2377,11 @@ async function handleBookingSubmit(e) {
   }
 }
 
-function showBookingSuccess(name, service, date, time, phone, orderId) {
+function showBookingSuccess(name, service, date, time, phone, orderId, priceText) {
   const modal = document.createElement('div');
   modal.style.cssText = `position: fixed; inset: 0; background: rgba(31, 26, 15, 0.7); backdrop-filter: blur(8px); z-index: 999; display: flex; align-items: center; justify-content: center; padding: 1rem; animation: fadeIn 0.3s ease;`;
   modal.innerHTML = `
-    <div style="background: white; border-radius: 24px; padding: 2.5rem 2rem; max-width: 480px; width: 100%; text-align: center; box-shadow: 0 30px 80px rgba(0,0,0,0.3); animation: bounceIn 0.5s ease;">
+    <div style="background: white; border-radius: 24px; padding: 2.5rem 2rem; max-width: 480px; width: 100%; text-align: center; box-shadow: 0 30px 80px rgba(0,0,0,0.3); animation: bounceIn 0.5s ease; max-height: 90vh; overflow-y: auto;">
       <div style="width: 80px; height: 80px; margin: 0 auto 1.5rem; background: linear-gradient(135deg, #16A34A, #15803D); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2.5rem; color: white;">✓</div>
       <h2 style="font-size: 1.5rem; font-weight: 800; margin-bottom: 0.5rem; color: #1F1A0F;">Cảm ơn ${name}!</h2>
       <p style="color: #6B6358; margin-bottom: 1.5rem; font-size: 0.9375rem;">Đã nhận yêu cầu đặt lịch thành công</p>
@@ -1873,7 +2391,8 @@ function showBookingSuccess(name, service, date, time, phone, orderId) {
         <div style="border-top: 1px dashed #F0E2C0; padding-top: 1rem;">
           <div style="margin-bottom: 0.5rem; font-size: 0.875rem;"><strong>Dịch vụ:</strong> ${service}</div>
           <div style="margin-bottom: 0.5rem; font-size: 0.875rem;"><strong>Thời gian:</strong> ${time} - ${date}</div>
-          <div style="font-size: 0.875rem;"><strong>SĐT:</strong> ${phone}</div>
+          <div style="margin-bottom: 0.5rem; font-size: 0.875rem;"><strong>SĐT:</strong> ${phone}</div>
+          <div style="font-size: 0.9375rem; color: #C8861A; font-weight: 800;"><strong>Báo giá tham khảo:</strong> ${priceText}</div>
         </div>
       </div>
       <p style="color: #1F1A0F; margin-bottom: 1.5rem; font-size: 0.9375rem;">📞 Chúng tôi sẽ <strong>gọi xác nhận trong 30 phút</strong></p>
@@ -1886,6 +2405,74 @@ function showBookingSuccess(name, service, date, time, phone, orderId) {
 const animStyle = document.createElement('style');
 animStyle.textContent = `@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } } @keyframes bounceIn { 0% { transform: scale(0.8); opacity: 0; } 60% { transform: scale(1.05); } 100% { transform: scale(1); opacity: 1; } }`;
 document.head.appendChild(animStyle);
+
+// === EVENT LISTENERS CHO PRICE CALC ===
+// Khi chọn dịch vụ
+document.querySelectorAll('.service-pill').forEach(pill => {
+  pill.addEventListener('click', () => {
+    document.querySelectorAll('.service-pill').forEach(p => p.classList.remove('selected'));
+    pill.classList.add('selected');
+    document.getElementById('selectedService').value = pill.dataset.value;
+    document.querySelectorAll('.form-step')[0].classList.add('done');
+    document.querySelectorAll('.form-step')[1].classList.add('active');
+    
+    updateServiceOptions(pill.dataset.value);
+    calculatePrice();
+  });
+});
+
+// Khi chọn từ service-card grid
+document.querySelectorAll('.service-card').forEach(card => {
+  card.addEventListener('click', (e) => {
+    const service = card.dataset.service;
+    const pill = document.querySelector(`.service-pill[data-value="${service}"]`);
+    if (pill) {
+      setTimeout(() => {
+        document.querySelectorAll('.service-pill').forEach(p => p.classList.remove('selected'));
+        pill.classList.add('selected');
+        document.getElementById('selectedService').value = service;
+        document.querySelectorAll('.form-step')[0].classList.add('done');
+        document.querySelectorAll('.form-step')[1].classList.add('active');
+        updateServiceOptions(service);
+        calculatePrice();
+      }, 800);
+    }
+  });
+});
+
+// Khi đổi giờ bắt đầu/kết thúc
+['bookingTimeStart', 'bookingTimeEnd'].forEach(id => {
+  document.getElementById(id).addEventListener('change', () => {
+    const ts = document.getElementById('bookingTimeStart').value;
+    const te = document.getElementById('bookingTimeEnd').value;
+    const dur = calculateDuration(ts, te);
+    
+    if (ts && te && dur > 0) {
+      document.getElementById('durationText').textContent = dur + ' giờ';
+      document.getElementById('durationDisplay').style.display = 'block';
+    } else {
+      document.getElementById('durationDisplay').style.display = 'none';
+    }
+    
+    calculatePrice();
+  });
+});
+
+// Khi đổi quy mô (dropdown gói/bữa)
+document.getElementById('serviceScale').addEventListener('change', calculatePrice);
+
+// Khi tick/bỏ tick checkbox phụ phí
+document.querySelectorAll('.extras-grid input[type="checkbox"]').forEach(cb => {
+  cb.addEventListener('change', calculatePrice);
+});
+
+// Set min date to today
+const dateInput = document.getElementById('bookingDate');
+if (dateInput) {
+  const today = new Date().toISOString().split('T')[0];
+  dateInput.min = today;
+  dateInput.value = today;
+}
 
 // Smooth scroll for anchor links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {

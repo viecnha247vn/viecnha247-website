@@ -1,0 +1,1141 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bảng giá dịch vụ — ViệcNhà247 | Minh bạch, không phí ẩn</title>
+<meta name="description" content="Bảng giá chi tiết 8 dịch vụ gia đình ViệcNhà247: Dọn dẹp từ 199k, Sửa điện từ 149k, Sửa nước từ 179k, Chuyển nhà từ 799k. Tính giá nhanh online.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<style>
+/* === CALCULATOR === */
+.calculator-section {
+  background: linear-gradient(135deg, var(--ink) 0%, var(--charcoal) 100%);
+  padding: 5rem 0;
+  position: relative;
+  overflow: hidden;
+}
+.calculator-section::before {
+  content: ""; position: absolute; top: -30%; right: -10%;
+  width: 60%; height: 160%;
+  background: radial-gradient(circle, var(--gold-glow) 0%, transparent 60%);
+  filter: blur(60px);
+}
+.calculator-section .container { position: relative; z-index: 2; }
+.calculator-section .section-eyebrow { background: rgba(232, 166, 39, 0.15); color: var(--gold-light); }
+.calculator-section .section-title { color: white; }
+.calculator-section .section-desc { color: rgba(255, 252, 245, 0.75); }
+
+.calc-box {
+  background: var(--warm-white);
+  border-radius: 24px;
+  padding: 2.5rem;
+  margin-top: 3rem;
+  box-shadow: var(--shadow-lg);
+  max-width: 720px;
+  margin-left: auto;
+  margin-right: auto;
+}
+@media (max-width: 600px) {
+  .calc-box { padding: 1.75rem 1.25rem; }
+}
+
+.calc-step {
+  margin-bottom: 1.5rem;
+}
+.calc-step-label {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+  color: var(--ink);
+}
+.calc-step-label .step-num {
+  display: inline-flex;
+  width: 24px;
+  height: 24px;
+  background: var(--gold);
+  color: white;
+  border-radius: 50%;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  font-weight: 800;
+  margin-right: 0.5rem;
+}
+
+.service-pills-calc {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.5rem;
+}
+@media (max-width: 700px) {
+  .service-pills-calc { grid-template-columns: repeat(2, 1fr); }
+}
+.service-pill-calc {
+  padding: 0.875rem 0.625rem;
+  background: var(--cream-light);
+  border: 1.5px solid var(--cream-dark);
+  border-radius: 12px;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--charcoal);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-align: center;
+  user-select: none;
+}
+.service-pill-calc:hover { background: var(--cream-dark); }
+.service-pill-calc.selected {
+  background: var(--ink);
+  color: white;
+  border-color: var(--ink);
+}
+
+/* === SLIDER === */
+.slider-wrap {
+  background: var(--cream-light);
+  border-radius: 16px;
+  padding: 1.5rem 1.25rem;
+}
+.slider-display {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+.slider-display .num {
+  font-size: 2.5rem;
+  font-weight: 900;
+  color: var(--gold-dark);
+  font-variant-numeric: tabular-nums;
+  line-height: 1;
+}
+.slider-display .unit {
+  font-size: 1rem;
+  color: var(--stone);
+  margin-left: 0.25rem;
+  font-weight: 600;
+}
+.slider-display .hint {
+  font-size: 0.75rem;
+  color: var(--stone);
+  margin-top: 0.375rem;
+}
+
+.range-slider {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 8px;
+  background: var(--cream-dark);
+  border-radius: 100px;
+  outline: none;
+  cursor: pointer;
+}
+.range-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 28px;
+  height: 28px;
+  background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dark) 100%);
+  border-radius: 50%;
+  cursor: pointer;
+  border: 4px solid white;
+  box-shadow: var(--shadow-gold);
+  transition: transform 0.15s ease;
+}
+.range-slider::-webkit-slider-thumb:hover { transform: scale(1.1); }
+.range-slider::-moz-range-thumb {
+  width: 28px;
+  height: 28px;
+  background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dark) 100%);
+  border-radius: 50%;
+  cursor: pointer;
+  border: 4px solid white;
+  box-shadow: var(--shadow-gold);
+}
+.slider-marks {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 0.5rem;
+  padding: 0 4px;
+  font-size: 0.6875rem;
+  color: var(--stone);
+  font-weight: 600;
+}
+
+/* Package selector for Chuyển nhà / Nấu ăn */
+.package-options {
+  display: grid;
+  gap: 0.625rem;
+}
+.package-card {
+  padding: 1rem 1.25rem;
+  background: var(--cream-light);
+  border: 1.5px solid var(--cream-dark);
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.package-card:hover { background: white; border-color: var(--gold); }
+.package-card.selected {
+  background: linear-gradient(135deg, rgba(232, 166, 39, 0.08) 0%, rgba(232, 166, 39, 0.04) 100%);
+  border-color: var(--gold);
+}
+.package-card .pkg-row {
+  display: flex; justify-content: space-between; align-items: center;
+}
+.package-card .pkg-name {
+  font-weight: 700; font-size: 0.9375rem; color: var(--ink);
+}
+.package-card .pkg-price {
+  font-weight: 800; color: var(--gold-dark); font-size: 1rem;
+}
+.package-card .pkg-desc {
+  font-size: 0.75rem; color: var(--stone); margin-top: 0.25rem;
+}
+
+/* === EXTRAS — like form */
+.extras-grid-calc {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5rem;
+}
+@media (max-width: 600px) { .extras-grid-calc { grid-template-columns: 1fr; } }
+.extra-checkbox-calc {
+  display: flex; align-items: center; gap: 0.625rem;
+  padding: 0.75rem 0.875rem;
+  background: var(--cream-light);
+  border: 1.5px solid var(--cream-dark);
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: 0.8125rem;
+  color: var(--charcoal);
+}
+.extra-checkbox-calc:hover { background: white; border-color: var(--gold); }
+.extra-checkbox-calc input[type="checkbox"] {
+  width: 18px; height: 18px; accent-color: var(--gold-dark); cursor: pointer; flex-shrink: 0;
+}
+.extra-checkbox-calc span {
+  flex: 1; display: flex; justify-content: space-between; gap: 0.5rem;
+}
+.extra-checkbox-calc em {
+  font-style: normal; font-weight: 800; color: var(--gold-dark); font-size: 0.75rem; white-space: nowrap;
+}
+.extra-checkbox-calc:has(input:checked) {
+  background: linear-gradient(135deg, rgba(232, 166, 39, 0.08) 0%, rgba(232, 166, 39, 0.04) 100%);
+  border-color: var(--gold);
+}
+
+/* === RESULT === */
+.calc-result {
+  background: linear-gradient(135deg, #FFF8E5 0%, #FBF1DD 100%);
+  border: 2px solid var(--gold);
+  border-radius: 20px;
+  padding: 1.75rem;
+  margin-top: 1.5rem;
+  position: relative;
+  overflow: hidden;
+  box-shadow: var(--shadow-gold);
+}
+.calc-result::before {
+  content: ""; position: absolute; top: -30%; right: -10%;
+  width: 200px; height: 200px;
+  background: radial-gradient(circle, var(--gold-glow) 0%, transparent 70%);
+  filter: blur(30px);
+}
+.calc-result > * { position: relative; z-index: 1; }
+.calc-result-label {
+  font-size: 0.75rem; font-weight: 800; color: var(--ink);
+  text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.5rem;
+}
+.calc-result-amount {
+  font-size: 2.75rem; font-weight: 900; color: var(--gold-dark);
+  line-height: 1; font-variant-numeric: tabular-nums; margin-bottom: 0.5rem;
+}
+@media (max-width: 600px) { .calc-result-amount { font-size: 2rem; } }
+.calc-result-breakdown {
+  font-size: 0.8125rem; color: var(--charcoal); line-height: 1.6;
+  padding-top: 0.75rem; border-top: 1px dashed var(--cream-dark);
+  margin-top: 0.75rem;
+}
+.calc-result-breakdown div { margin: 0.25rem 0; }
+.calc-result-breakdown strong { color: var(--gold-dark); }
+
+.calc-cta {
+  display: block; text-align: center; margin-top: 1.25rem;
+  background: var(--ink); color: white;
+  padding: 1rem 1.5rem; border-radius: 100px;
+  text-decoration: none; font-weight: 800; font-size: 0.9375rem;
+  transition: all 0.25s ease;
+}
+.calc-cta:hover {
+  background: var(--gold-dark); transform: translateY(-2px);
+  box-shadow: var(--shadow-gold);
+}
+
+.calc-empty {
+  text-align: center; padding: 2rem 1rem;
+  color: var(--stone); font-size: 0.9375rem;
+}
+.calc-empty .big-icon { font-size: 3rem; margin-bottom: 0.75rem; opacity: 0.3; }
+
+/* === PRICE TABLE === */
+.price-card {
+  background: white;
+  border-radius: 20px;
+  border: 1px solid var(--cream-dark);
+  margin-bottom: 1.5rem;
+  overflow: hidden;
+  transition: all var(--t-base);
+}
+.price-card:hover {
+  border-color: var(--gold);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+.price-card-head {
+  display: flex; align-items: center; gap: 1rem;
+  padding: 1.25rem 1.5rem;
+  background: linear-gradient(135deg, var(--cream) 0%, var(--cream-light) 100%);
+  border-bottom: 1px solid var(--cream-dark);
+}
+.price-card-icon {
+  width: 56px; height: 56px;
+  background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dark) 100%);
+  border-radius: 16px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.625rem; flex-shrink: 0;
+  box-shadow: var(--shadow-gold);
+}
+.price-card-title {
+  flex: 1;
+}
+.price-card-title h3 {
+  font-size: 1.125rem; font-weight: 800; color: var(--ink); margin: 0;
+}
+.price-card-title .formula {
+  font-size: 0.75rem; color: var(--stone);
+  margin-top: 0.25rem; font-weight: 600;
+}
+.price-card-from {
+  font-size: 0.6875rem; color: var(--stone);
+  text-transform: uppercase; letter-spacing: 0.08em; font-weight: 700;
+}
+.price-card-from-amount {
+  font-size: 1.25rem; font-weight: 900; color: var(--gold-dark);
+}
+
+.price-card-body {
+  padding: 1.25rem 1.5rem;
+}
+.price-list {
+  display: grid; gap: 0.5rem;
+}
+.price-list .item {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 0.625rem 0;
+  border-bottom: 1px dashed var(--cream-dark);
+  font-size: 0.875rem;
+}
+.price-list .item:last-child { border-bottom: none; }
+.price-list .item-name { color: var(--charcoal); }
+.price-list .item-price { font-weight: 700; color: var(--ink); white-space: nowrap; }
+
+/* === SURCHARGE BOX === */
+.surcharge-box {
+  background: linear-gradient(135deg, #FFF8E5 0%, #FBF1DD 100%);
+  border-radius: 20px;
+  padding: 2rem;
+  border: 1px solid var(--gold);
+}
+.surcharge-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.75rem 1.5rem;
+}
+@media (max-width: 600px) { .surcharge-grid { grid-template-columns: 1fr; } }
+.surcharge-item {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 0.625rem 0;
+  border-bottom: 1px dashed rgba(232, 166, 39, 0.3);
+  font-size: 0.875rem;
+}
+.surcharge-item .name { color: var(--charcoal); }
+.surcharge-item .amount { font-weight: 800; color: var(--gold-dark); }
+
+/* === FAQ === */
+.faq-item {
+  background: white; border-radius: 16px;
+  padding: 1.25rem 1.5rem; margin-bottom: 0.75rem;
+  cursor: pointer; transition: all var(--t-fast);
+  border: 1px solid var(--cream-dark);
+}
+.faq-item:hover { border-color: var(--gold); }
+.faq-q {
+  font-weight: 700; color: var(--ink); font-size: 0.9375rem;
+  display: flex; justify-content: space-between; align-items: center;
+}
+.faq-a {
+  font-size: 0.875rem; color: var(--stone);
+  margin-top: 0.75rem; line-height: 1.6; display: none;
+}
+.faq-item.open .faq-a { display: block; }
+.faq-item.open .faq-q span { transform: rotate(45deg); }
+.faq-q span {
+  transition: transform var(--t-fast);
+  font-size: 1.5rem; color: var(--gold-dark); font-weight: 300;
+}
+
+/* Hidden when not relevant */
+.calc-section { display: none; }
+.calc-section.active { display: block; }
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+  <a href="index.html" class="nav-logo"><span class="mark">V</span>Việc<strong>Nhà247</strong></a>
+  <div class="nav-menu">
+    <a href="dich-vu.html">Dịch vụ</a>
+    <a href="bang-gia.html" class="active">Bảng giá</a>
+    <a href="ve-chung-toi.html">Về chúng tôi</a>
+    <a href="tuyen-ctv.html">Tuyển CTV</a>
+    <a href="lien-he.html">Liên hệ</a>
+  </div>
+  <a href="index.html#dat-lich" class="nav-cta">Đặt ngay <span>→</span></a>
+  <button class="nav-toggle" onclick="toggleSidebar()">☰</button>
+</nav>
+
+<div class="sidebar-overlay" onclick="toggleSidebar()"></div>
+<aside class="sidebar">
+  <button class="sidebar-close" onclick="toggleSidebar()">×</button>
+  <div class="sidebar-logo">ViệcNhà247</div>
+  <ul class="sidebar-menu">
+    <li><a href="index.html">Trang chủ</a></li>
+    <li><a href="dich-vu.html">Dịch vụ</a></li>
+    <li><a href="bang-gia.html" class="active">Bảng giá</a></li>
+    <li><a href="ve-chung-toi.html">Về chúng tôi</a></li>
+    <li><a href="blog.html">Blog</a></li>
+    <li><a href="tuyen-ctv.html">Tuyển CTV</a></li>
+    <li><a href="ve-app.html">Tải app</a></li>
+    <li><a href="lien-he.html">Liên hệ</a></li>
+  </ul>
+  <a href="index.html#dat-lich" class="sidebar-cta">Đặt dịch vụ ngay →</a>
+</aside>
+
+<!-- HERO -->
+<section class="page-hero">
+  <div class="container">
+    <div class="page-hero-content">
+      <span class="page-hero-eyebrow">💰 Bảng giá minh bạch</span>
+      <h1>Giá <span class="accent">rõ ràng</span>, không phí ẩn</h1>
+      <p>Tham khảo giá ngay trước khi đặt — tính giá nhanh chỉ trong 30 giây. Không cần gọi điện hỏi.</p>
+      <nav class="breadcrumb mt-4">
+        <a href="index.html">Trang chủ</a>
+        <span class="separator">›</span>
+        <span class="current">Bảng giá</span>
+      </nav>
+    </div>
+  </div>
+</section>
+
+<!-- ============= CALCULATOR ============= -->
+<section class="calculator-section">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-eyebrow">⚡ Tính giá nhanh</span>
+      <h2 class="section-title">Báo giá <span class="accent">trong 30 giây</span></h2>
+      <p class="section-desc">Chọn dịch vụ → kéo slider → xem giá ngay. Đơn giản như đặt khách sạn.</p>
+    </div>
+
+    <div class="calc-box">
+      <!-- Bước 1: Chọn dịch vụ -->
+      <div class="calc-step">
+        <label class="calc-step-label">
+          <span class="step-num">1</span>Chọn dịch vụ bạn cần
+        </label>
+        <div class="service-pills-calc" id="calcPills">
+          <div class="service-pill-calc" data-service="don-dep">🧹 Dọn dẹp</div>
+          <div class="service-pill-calc" data-service="sua-dien">⚡ Sửa điện</div>
+          <div class="service-pill-calc" data-service="sua-nuoc">💧 Sửa nước</div>
+          <div class="service-pill-calc" data-service="chuyen-nha">🚛 Chuyển nhà</div>
+          <div class="service-pill-calc" data-service="nau-an">🍳 Nấu ăn</div>
+          <div class="service-pill-calc" data-service="cham-soc">👴 Chăm sóc NCT</div>
+          <div class="service-pill-calc" data-service="di-cho">🛒 Đi chợ hộ</div>
+          <div class="service-pill-calc" data-service="da-nang">🔨 Sửa đa năng</div>
+        </div>
+      </div>
+
+      <!-- Bước 2: Slider giờ (cho hourly) -->
+      <div class="calc-step calc-section" id="hourlyStep">
+        <label class="calc-step-label">
+          <span class="step-num">2</span>Số giờ làm việc
+        </label>
+        <div class="slider-wrap">
+          <div class="slider-display">
+            <span class="num" id="hourValue">3</span>
+            <span class="unit">giờ</span>
+            <div class="hint" id="hourHint">Tối thiểu 2 giờ</div>
+          </div>
+          <input type="range" min="2" max="10" step="1" value="3" class="range-slider" id="hourSlider">
+          <div class="slider-marks">
+            <span>2h</span><span>4h</span><span>6h</span><span>8h</span><span>10h</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bước 2b: Package (cho chuyển nhà / nấu ăn) -->
+      <div class="calc-step calc-section" id="packageStep">
+        <label class="calc-step-label">
+          <span class="step-num">2</span><span id="packageLabel">Chọn gói</span>
+        </label>
+        <div class="package-options" id="packageOptions">
+          <!-- Filled by JS -->
+        </div>
+      </div>
+
+      <!-- Bước 2c: Info (cho inspection - sửa điện/nước/đa năng) -->
+      <div class="calc-step calc-section" id="inspectionStep">
+        <div style="background: var(--cream-light); border-radius: 12px; padding: 1rem 1.25rem; font-size: 0.875rem; color: var(--charcoal); line-height: 1.6;">
+          <strong style="color: var(--ink);">📋 Cách tính:</strong> Phí kiểm tra cố định + giá công việc thực tế. CTV sẽ kiểm tra & báo giá chính xác trước khi sửa. Bạn có thể từ chối nếu giá không phù hợp.
+        </div>
+      </div>
+
+      <!-- Bước 3: Phụ phí -->
+      <div class="calc-step" id="extrasStep" style="display:none;">
+        <label class="calc-step-label">
+          <span class="step-num">3</span>Yêu cầu thêm (tùy chọn)
+        </label>
+        <div class="extras-grid-calc">
+          <label class="extra-checkbox-calc">
+            <input type="checkbox" data-fee="50000" data-label="Có thú cưng">
+            <span>🐶 Có thú cưng <em>+50k</em></span>
+          </label>
+          <label class="extra-checkbox-calc">
+            <input type="checkbox" data-fee="50000" data-label="Tầng cao không TM">
+            <span>🏢 Tầng cao không TM <em>+50k</em></span>
+          </label>
+          <label class="extra-checkbox-calc">
+            <input type="checkbox" data-percent="30" data-label="Khẩn cấp <2h">
+            <span>⚡ Khẩn cấp dưới 2h <em>+30%</em></span>
+          </label>
+          <label class="extra-checkbox-calc">
+            <input type="checkbox" data-percent="20" data-label="Cuối tuần/lễ">
+            <span>📅 Cuối tuần/lễ <em>+20%</em></span>
+          </label>
+        </div>
+      </div>
+
+      <!-- Result -->
+      <div id="calcResult">
+        <div class="calc-empty">
+          <div class="big-icon">💰</div>
+          <p>Chọn dịch vụ để xem giá ngay</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============= BẢNG GIÁ CHI TIẾT 8 NGÀNH ============= -->
+<section class="section section-cream">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-eyebrow">📋 Bảng giá chi tiết</span>
+      <h2 class="section-title">Đầy đủ <span class="accent">8 ngành dịch vụ</span></h2>
+      <p class="section-desc">Mọi mức giá rõ ràng, dễ hiểu. Click vào để xem chi tiết từng loại đơn.</p>
+    </div>
+
+    <!-- 1. DỌN DẸP -->
+    <div class="price-card">
+      <div class="price-card-head">
+        <div class="price-card-icon">🧹</div>
+        <div class="price-card-title">
+          <h3>Dọn dẹp nhà cửa</h3>
+          <div class="formula">Tính theo giờ — 99,000đ/giờ • Tối thiểu 2 giờ</div>
+        </div>
+        <div style="text-align:right;">
+          <div class="price-card-from">Từ</div>
+          <div class="price-card-from-amount">199k</div>
+        </div>
+      </div>
+      <div class="price-card-body">
+        <div class="price-list">
+          <div class="item"><span class="item-name">2 giờ — 1 phòng nhỏ (~30m²)</span><span class="item-price">199,000đ</span></div>
+          <div class="item"><span class="item-name">3 giờ — 2 phòng (~50m²)</span><span class="item-price">299,000đ</span></div>
+          <div class="item"><span class="item-name">4 giờ — căn hộ 60m²</span><span class="item-price">399,000đ</span></div>
+          <div class="item"><span class="item-name">6 giờ — nhà 100m²</span><span class="item-price">579,000đ</span></div>
+          <div class="item"><span class="item-name">Tổng vệ sinh nhà mới</span><span class="item-price">Từ 798,000đ</span></div>
+          <div class="item"><span class="item-name">Vệ sinh sau xây dựng</span><span class="item-price">Từ 1,498,000đ</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2. SỬA ĐIỆN -->
+    <div class="price-card">
+      <div class="price-card-head">
+        <div class="price-card-icon">⚡</div>
+        <div class="price-card-title">
+          <h3>Sửa chữa điện</h3>
+          <div class="formula">Phí kiểm tra 149k + giá công việc thực tế</div>
+        </div>
+        <div style="text-align:right;">
+          <div class="price-card-from">Từ</div>
+          <div class="price-card-from-amount">149k</div>
+        </div>
+      </div>
+      <div class="price-card-body">
+        <div class="price-list">
+          <div class="item"><span class="item-name">Phí kiểm tra (đến nhà khảo sát)</span><span class="item-price">149,000đ</span></div>
+          <div class="item"><span class="item-name">Lắp 1 ổ cắm/công tắc</span><span class="item-price">79,000 - 149,000đ</span></div>
+          <div class="item"><span class="item-name">Lắp đèn LED + đi dây</span><span class="item-price">199,000 - 399,000đ</span></div>
+          <div class="item"><span class="item-name">Sửa chập điện 1 mạch</span><span class="item-price">249,000 - 499,000đ</span></div>
+          <div class="item"><span class="item-name">Đi dây điện âm tường</span><span class="item-price">799,000 - 1,999,000đ</span></div>
+          <div class="item"><span class="item-name">Lắp aptomat tủ điện</span><span class="item-price">499,000 - 1,199,000đ</span></div>
+        </div>
+        <p style="margin-top: 1rem; font-size: 0.75rem; color: var(--stone); font-style: italic;">💡 Linh kiện thay thế tính riêng theo hóa đơn. Bảo hành 6 tháng.</p>
+      </div>
+    </div>
+
+    <!-- 3. SỬA NƯỚC -->
+    <div class="price-card">
+      <div class="price-card-head">
+        <div class="price-card-icon">💧</div>
+        <div class="price-card-title">
+          <h3>Sửa chữa nước</h3>
+          <div class="formula">Phí kiểm tra 179k + giá công việc • Phục vụ 24/7</div>
+        </div>
+        <div style="text-align:right;">
+          <div class="price-card-from">Từ</div>
+          <div class="price-card-from-amount">179k</div>
+        </div>
+      </div>
+      <div class="price-card-body">
+        <div class="price-list">
+          <div class="item"><span class="item-name">Phí kiểm tra (đến nhà)</span><span class="item-price">179,000đ</span></div>
+          <div class="item"><span class="item-name">Thông tắc bồn cầu</span><span class="item-price">199,000 - 499,000đ</span></div>
+          <div class="item"><span class="item-name">Sửa rò rỉ ống nhỏ</span><span class="item-price">249,000 - 449,000đ</span></div>
+          <div class="item"><span class="item-name">Lắp vòi sen mới</span><span class="item-price">199,000 - 399,000đ</span></div>
+          <div class="item"><span class="item-name">Lắp bình nóng lạnh</span><span class="item-price">399,000 - 699,000đ</span></div>
+          <div class="item"><span class="item-name">Vệ sinh bồn nước (lớn)</span><span class="item-price">599,000 - 1,199,000đ</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 4. CHUYỂN NHÀ -->
+    <div class="price-card">
+      <div class="price-card-head">
+        <div class="price-card-icon">🚛</div>
+        <div class="price-card-title">
+          <h3>Chuyển nhà trọn gói</h3>
+          <div class="formula">3 gói linh hoạt • Bảo hiểm hàng hóa đến 50 triệu</div>
+        </div>
+        <div style="text-align:right;">
+          <div class="price-card-from">Từ</div>
+          <div class="price-card-from-amount">799k</div>
+        </div>
+      </div>
+      <div class="price-card-body">
+        <div class="price-list">
+          <div class="item"><span class="item-name">Gói 1: Chỉ vận chuyển (khách tự đóng gói)</span><span class="item-price">799,000 - 1,499,000đ</span></div>
+          <div class="item"><span class="item-name">Gói 2: Vận chuyển + đóng gói cơ bản</span><span class="item-price">1,499,000 - 2,999,000đ</span></div>
+          <div class="item"><span class="item-name">Gói 3: Trọn gói A-Z (đóng gói + chuyển + sắp xếp)</span><span class="item-price">2,999,000 - 7,999,000đ</span></div>
+        </div>
+        <p style="margin-top: 1rem; font-size: 0.75rem; color: var(--stone); font-style: italic;">💡 Phụ phí cầu thang xoắn (>3 tầng): +500k/tầng. Liên tỉnh: +1k/km.</p>
+      </div>
+    </div>
+
+    <!-- 5. NẤU ĂN -->
+    <div class="price-card">
+      <div class="price-card-head">
+        <div class="price-card-icon">🍳</div>
+        <div class="price-card-title">
+          <h3>Nấu ăn tại gia</h3>
+          <div class="formula">Đầu bếp có chứng chỉ ATTP</div>
+        </div>
+        <div style="text-align:right;">
+          <div class="price-card-from">Từ</div>
+          <div class="price-card-from-amount">249k</div>
+        </div>
+      </div>
+      <div class="price-card-body">
+        <div class="price-list">
+          <div class="item"><span class="item-name">Bữa cơm gia đình 4 người</span><span class="item-price">249,000 - 399,000đ</span></div>
+          <div class="item"><span class="item-name">Bữa cơm gia đình 6-8 người</span><span class="item-price">399,000 - 699,000đ</span></div>
+          <div class="item"><span class="item-name">Tiệc nhỏ tại nhà 10-20 người</span><span class="item-price">1,499,000 - 3,499,000đ</span></div>
+          <div class="item"><span class="item-name">Cơm tháng (gói 30 bữa)</span><span class="item-price">5,999,000 - 8,999,000đ</span></div>
+        </div>
+        <p style="margin-top: 1rem; font-size: 0.75rem; color: var(--stone); font-style: italic;">💡 Tiền nguyên liệu khách trả riêng (CTV xuất hóa đơn rõ ràng).</p>
+      </div>
+    </div>
+
+    <!-- 6. CHĂM SÓC NCT -->
+    <div class="price-card">
+      <div class="price-card-head">
+        <div class="price-card-icon">👴</div>
+        <div class="price-card-title">
+          <h3>Chăm sóc người cao tuổi</h3>
+          <div class="formula">74,000đ/giờ • Tối thiểu 4 giờ • Điều dưỡng có chứng chỉ</div>
+        </div>
+        <div style="text-align:right;">
+          <div class="price-card-from">Từ</div>
+          <div class="price-card-from-amount">299k</div>
+        </div>
+      </div>
+      <div class="price-card-body">
+        <div class="price-list">
+          <div class="item"><span class="item-name">4 giờ (buổi sáng/chiều)</span><span class="item-price">299,000đ</span></div>
+          <div class="item"><span class="item-name">8 giờ (cả ngày)</span><span class="item-price">499,000 - 699,000đ</span></div>
+          <div class="item"><span class="item-name">24/24 tại nhà (1 ngày)</span><span class="item-price">799,000 - 1,199,000đ</span></div>
+          <div class="item"><span class="item-name">Hợp đồng tháng (8h × 26 ngày)</span><span class="item-price">11,999,000 - 17,999,000đ</span></div>
+        </div>
+        <p style="margin-top: 1rem; font-size: 0.75rem; color: var(--stone); font-style: italic;">💡 Chăm người liệt: +30%. Người bệnh nặng cần điều dưỡng chuyên môn: +50%.</p>
+      </div>
+    </div>
+
+    <!-- 7. ĐI CHỢ HỘ -->
+    <div class="price-card">
+      <div class="price-card-head">
+        <div class="price-card-icon">🛒</div>
+        <div class="price-card-title">
+          <h3>Đi chợ hộ</h3>
+          <div class="formula">Phí cố định + 5% giá trị hàng • Hóa đơn minh bạch</div>
+        </div>
+        <div style="text-align:right;">
+          <div class="price-card-from">Từ</div>
+          <div class="price-card-from-amount">99k</div>
+        </div>
+      </div>
+      <div class="price-card-body">
+        <div class="price-list">
+          <div class="item"><span class="item-name">Đi chợ truyền thống</span><span class="item-price">99,000đ + 5% hàng</span></div>
+          <div class="item"><span class="item-name">Đi siêu thị (Big C, Coopmart...)</span><span class="item-price">79,000đ + 3% hàng</span></div>
+          <div class="item"><span class="item-name">Combo nhiều nơi (>2 chỗ)</span><span class="item-price">149,000đ + 5% hàng</span></div>
+        </div>
+        <p style="margin-top: 1rem; font-size: 0.75rem; color: var(--stone); font-style: italic;">💡 Ví dụ: Mua 500k thực phẩm chợ → Phí = 99k + 25k = 124k. Tổng khách trả: 624k.</p>
+      </div>
+    </div>
+
+    <!-- 8. ĐA NĂNG -->
+    <div class="price-card">
+      <div class="price-card-head">
+        <div class="price-card-icon">🔨</div>
+        <div class="price-card-title">
+          <h3>Sửa chữa đa năng</h3>
+          <div class="formula">Phí kiểm tra 149k + giá công việc</div>
+        </div>
+        <div style="text-align:right;">
+          <div class="price-card-from">Từ</div>
+          <div class="price-card-from-amount">149k</div>
+        </div>
+      </div>
+      <div class="price-card-body">
+        <div class="price-list">
+          <div class="item"><span class="item-name">Lắp ráp đồ IKEA (1-2 món)</span><span class="item-price">199,000 - 499,000đ</span></div>
+          <div class="item"><span class="item-name">Treo tranh, gắn kệ (5-10 món)</span><span class="item-price">299,000 - 599,000đ</span></div>
+          <div class="item"><span class="item-name">Vệ sinh máy lạnh 1 cục</span><span class="item-price">249,000 - 399,000đ</span></div>
+          <div class="item"><span class="item-name">Vệ sinh máy lạnh 2 cục</span><span class="item-price">449,000 - 699,000đ</span></div>
+          <div class="item"><span class="item-name">Sửa cửa, bản lề</span><span class="item-price">199,000 - 399,000đ</span></div>
+          <div class="item"><span class="item-name">Lắp rèm, mành cửa</span><span class="item-price">249,000 - 499,000đ</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============= PHỤ PHÍ ============= -->
+<section class="section section-light">
+  <div class="container container-narrow">
+    <div class="section-header">
+      <span class="section-eyebrow">⚠️ Phụ phí (nếu áp dụng)</span>
+      <h2 class="section-title">Minh bạch trong <span class="accent">mọi trường hợp</span></h2>
+      <p class="section-desc">Mọi phụ phí được báo trước khi làm — không bao giờ tính ngầm.</p>
+    </div>
+
+    <div class="surcharge-box">
+      <div class="surcharge-grid">
+        <div class="surcharge-item">
+          <span class="name">⚡ Khẩn cấp dưới 2 giờ</span>
+          <span class="amount">+30%</span>
+        </div>
+        <div class="surcharge-item">
+          <span class="name">🌙 Đêm khuya (22h-6h)</span>
+          <span class="amount">+50%</span>
+        </div>
+        <div class="surcharge-item">
+          <span class="name">📅 Cuối tuần / Ngày lễ</span>
+          <span class="amount">+20%</span>
+        </div>
+        <div class="surcharge-item">
+          <span class="name">🏢 Tầng cao không thang máy</span>
+          <span class="amount">+49,000đ</span>
+        </div>
+        <div class="surcharge-item">
+          <span class="name">🐶 Có thú cưng</span>
+          <span class="amount">+49,000đ</span>
+        </div>
+        <div class="surcharge-item">
+          <span class="name">🔧 Linh kiện thay thế</span>
+          <span class="amount">Theo hóa đơn</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============= ƯU ĐÃI ============= -->
+<section class="section section-cream">
+  <div class="container container-narrow">
+    <div class="section-header">
+      <span class="section-eyebrow">🎁 Ưu đãi đặc biệt</span>
+      <h2 class="section-title">Tiết kiệm <span class="accent">thông minh</span></h2>
+    </div>
+
+    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem;">
+      <div class="card">
+        <div style="font-size: 2rem; margin-bottom: 0.75rem;">🎉</div>
+        <h3 style="font-size: 1.0625rem; font-weight: 800; margin-bottom: 0.5rem;">Voucher đơn đầu</h3>
+        <p style="font-size: 0.875rem; color: var(--stone); line-height: 1.55;">Giảm <strong style="color:var(--gold-dark)">99,000đ</strong> cho khách lần đầu đặt dịch vụ.</p>
+      </div>
+      <div class="card">
+        <div style="font-size: 2rem; margin-bottom: 0.75rem;">💎</div>
+        <h3 style="font-size: 1.0625rem; font-weight: 800; margin-bottom: 0.5rem;">Hợp đồng tháng</h3>
+        <p style="font-size: 0.875rem; color: var(--stone); line-height: 1.55;">Đặt cố định hàng tuần — giảm <strong style="color:var(--gold-dark)">15%</strong> tổng giá trị.</p>
+      </div>
+      <div class="card">
+        <div style="font-size: 2rem; margin-bottom: 0.75rem;">🤝</div>
+        <h3 style="font-size: 1.0625rem; font-weight: 800; margin-bottom: 0.5rem;">Giới thiệu bạn bè</h3>
+        <p style="font-size: 0.875rem; color: var(--stone); line-height: 1.55;">Bạn được <strong style="color:var(--gold-dark)">49,000đ</strong>, người được giới thiệu cũng được <strong style="color:var(--gold-dark)">49,000đ</strong>.</p>
+      </div>
+    </div>
+    <style>
+      @media (max-width: 880px) {
+        .section-cream > .container > div[style*="grid-template-columns"] { grid-template-columns: 1fr 1fr !important; }
+      }
+      @media (max-width: 480px) {
+        .section-cream > .container > div[style*="grid-template-columns"] { grid-template-columns: 1fr !important; }
+      }
+    </style>
+  </div>
+</section>
+
+<!-- ============= FAQ ============= -->
+<section class="section section-light">
+  <div class="container container-narrow">
+    <div class="section-header">
+      <span class="section-eyebrow">❓ Câu hỏi thường gặp</span>
+      <h2 class="section-title">Mọi điều bạn cần <span class="accent">biết</span> về giá</h2>
+    </div>
+
+    <div class="faq-item" onclick="this.classList.toggle('open')">
+      <div class="faq-q">Giá báo trên web có chính xác 100% không? <span>+</span></div>
+      <div class="faq-a">Giá web là <strong>giá tham khảo</strong> dựa trên thông tin bạn cung cấp. CTV sẽ khảo sát thực tế (kích thước nhà, mức độ bẩn, độ phức tạp...) và báo giá chính xác trước khi làm. Bạn có quyền từ chối nếu giá không phù hợp.</div>
+    </div>
+
+    <div class="faq-item" onclick="this.classList.toggle('open')">
+      <div class="faq-q">Có phụ phí ẩn không? <span>+</span></div>
+      <div class="faq-a">KHÔNG. Mọi phụ phí được liệt kê công khai ở trang này (cuối tuần, khẩn cấp, thú cưng...). CTV PHẢI thông báo và được khách đồng ý TRƯỚC KHI làm. Nếu phát sinh phụ phí mà CTV không báo, bạn có quyền không thanh toán.</div>
+    </div>
+
+    <div class="faq-item" onclick="this.classList.toggle('open')">
+      <div class="faq-q">Hợp đồng tháng có giảm giá thật không? <span>+</span></div>
+      <div class="faq-a">Có. Khách đặt định kỳ (hàng tuần hoặc 2 lần/tuần) trong tối thiểu 1 tháng được giảm <strong>15%</strong> tổng giá. Ưu đãi này áp dụng chủ yếu cho dọn dẹp, chăm sóc NCT và nấu ăn.</div>
+    </div>
+
+    <div class="faq-item" onclick="this.classList.toggle('open')">
+      <div class="faq-q">Thanh toán bằng cách nào? <span>+</span></div>
+      <div class="faq-a">3 cách: <strong>Tiền mặt</strong> (trả CTV sau khi xong), <strong>Chuyển khoản</strong> (số TK công ty, có hóa đơn), <strong>MoMo/VNPay</strong> (sắp ra mắt qua app).</div>
+    </div>
+
+    <div class="faq-item" onclick="this.classList.toggle('open')">
+      <div class="faq-q">Có hoàn tiền nếu tôi không hài lòng không? <span>+</span></div>
+      <div class="faq-a">Có. Nếu CTV làm việc không đạt chất lượng (đến muộn quá 30 phút không báo, làm ẩu, hư đồ đạc...), bạn được hoàn <strong>50-100% tiền đơn</strong> hoặc đổi CTV khác miễn phí. Mỗi đơn có bảo hiểm trách nhiệm đến <strong>50 triệu</strong>.</div>
+    </div>
+
+    <div class="faq-item" onclick="this.classList.toggle('open')">
+      <div class="faq-q">Tôi có thể mặc cả giá được không? <span>+</span></div>
+      <div class="faq-a">Giá web đã là giá tốt nhất chúng tôi cung cấp — minh bạch và công bằng cho cả khách lẫn CTV. Tuy nhiên, với <strong>đơn lớn</strong> (trên 2 triệu), <strong>khách hợp đồng tháng</strong> hoặc <strong>khách giới thiệu</strong>, chúng tôi có thể linh hoạt giảm 5-15%.</div>
+    </div>
+
+    <div class="faq-item" onclick="this.classList.toggle('open')">
+      <div class="faq-q">Sao giá có vẻ cao hơn người bên ngoài? <span>+</span></div>
+      <div class="faq-a">Vì chúng tôi đảm bảo: <strong>(1)</strong> CTV có chứng chỉ + đào tạo bài bản 120 video, <strong>(2)</strong> Bảo hành 30 ngày, <strong>(3)</strong> Bảo hiểm đến 50tr/đơn, <strong>(4)</strong> Hotline 24/7. Người bên ngoài rẻ hơn nhưng không có cam kết — rủi ro cao.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============= CTA FINAL ============= -->
+<section class="cta-final">
+  <div class="container">
+    <div class="cta-card">
+      <h2>Hài lòng với <span class="accent">giá</span> rồi chứ?</h2>
+      <p>Đặt dịch vụ ngay — nhận voucher 99,000đ cho đơn đầu tiên!</p>
+      <div class="cta-buttons">
+        <a href="index.html#dat-lich" class="btn-cta-primary">Đặt dịch vụ ngay <span>→</span></a>
+        <a href="tel:19006247" class="btn-cta-secondary">📞 1900 6247</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <h3>ViệcNhà247</h3>
+        <p>Nền tảng dịch vụ gia đình — kết nối CTV với khách hàng trên 8 ngành.</p>
+        <p style="font-size: 0.8125rem;">📍 TPHCM<br>📞 1900 6247</p>
+      </div>
+      <div class="footer-col"><h4>Dịch vụ</h4><ul><li><a href="dich-vu.html">Tất cả dịch vụ</a></li><li><a href="bang-gia.html">Bảng giá</a></li><li><a href="index.html#dat-lich">Đặt lịch</a></li><li><a href="ve-app.html">Tải app</a></li></ul></div>
+      <div class="footer-col"><h4>Công ty</h4><ul><li><a href="ve-chung-toi.html">Về chúng tôi</a></li><li><a href="tuyen-ctv.html">Tuyển CTV</a></li><li><a href="blog.html">Blog</a></li><li><a href="lien-he.html">Liên hệ</a></li></ul></div>
+      <div class="footer-col"><h4>Pháp lý</h4><ul><li><a href="phap-ly.html">Điều khoản</a></li><li><a href="phap-ly.html">Bảo mật</a></li><li><a href="phap-ly.html">Khiếu nại</a></li></ul></div>
+    </div>
+    <div class="footer-bottom">
+      <div>© 2026 ViệcNhà247. Bảo lưu mọi quyền.</div>
+      <div class="social"><a href="#">f</a><a href="#">t</a><a href="#">Z</a><a href="#">▶</a></div>
+    </div>
+  </div>
+</footer>
+
+<a href="tel:19006247" class="floating-call"><span class="ring"></span><span class="label">Gọi ngay</span></a>
+
+<script>
+function toggleSidebar(){
+  document.querySelector('.sidebar').classList.toggle('active');
+  document.querySelector('.sidebar-overlay').classList.toggle('active');
+  document.body.style.overflow=document.querySelector('.sidebar').classList.contains('active')?'hidden':'';
+}
+
+// === LOGIC TÍNH GIÁ 8 NGÀNH (giống index.html) ===
+const PRICING = {
+  'don-dep': { type: 'hourly', pricePerHour: 99000, minHours: 2, maxHours: 10, defaultHours: 3, hint: 'Tối thiểu 2 giờ' },
+  'cham-soc': { type: 'hourly', pricePerHour: 74000, minHours: 4, maxHours: 24, defaultHours: 4, hint: 'Tối thiểu 4 giờ' },
+  'sua-dien': { type: 'inspection', inspectionFee: 149000, estimatedJob: 199000 },
+  'sua-nuoc': { type: 'inspection', inspectionFee: 179000, estimatedJob: 249000 },
+  'da-nang': { type: 'inspection', inspectionFee: 149000, estimatedJob: 199000 },
+  'chuyen-nha': {
+    type: 'package',
+    label: 'Chọn gói chuyển nhà',
+    options: [
+      { value: 'goi-1', name: 'Gói 1: Chỉ vận chuyển', desc: 'Khách tự đóng gói', price: 999000 },
+      { value: 'goi-2', name: 'Gói 2: VC + Đóng gói cơ bản', desc: 'Đóng gói + vận chuyển', price: 1999000 },
+      { value: 'goi-3', name: 'Gói 3: Trọn gói A-Z', desc: 'Đóng gói + VC + Sắp xếp', price: 3999000 }
+    ]
+  },
+  'nau-an': {
+    type: 'package',
+    label: 'Chọn loại bữa ăn',
+    options: [
+      { value: 'gd-nho', name: 'Bữa cơm 4 người', desc: 'Gia đình nhỏ', price: 299000 },
+      { value: 'gd-lon', name: 'Bữa cơm 6-8 người', desc: 'Gia đình lớn', price: 499000 },
+      { value: 'tiec-nho', name: 'Tiệc nhỏ 10-20 người', desc: 'Sinh nhật, họp mặt', price: 2499000 },
+      { value: 'com-thang', name: 'Cơm tháng (30 bữa)', desc: 'Hợp đồng định kỳ', price: 7499000 }
+    ]
+  },
+  'di-cho': { type: 'fixed', basePrice: 99000 }
+};
+
+let currentService = null;
+let currentHours = 3;
+let currentPackage = null;
+
+function formatVND(num) {
+  return num.toLocaleString('vi-VN') + 'đ';
+}
+
+function selectService(service) {
+  currentService = service;
+  currentPackage = null;
+  
+  // Update pills UI
+  document.querySelectorAll('.service-pill-calc').forEach(p => p.classList.remove('selected'));
+  document.querySelector(`.service-pill-calc[data-service="${service}"]`).classList.add('selected');
+  
+  const pricing = PRICING[service];
+  
+  // Hide all sections
+  document.getElementById('hourlyStep').classList.remove('active');
+  document.getElementById('packageStep').classList.remove('active');
+  document.getElementById('inspectionStep').classList.remove('active');
+  document.getElementById('extrasStep').style.display = 'none';
+  
+  if (pricing.type === 'hourly') {
+    // Show hourly slider
+    document.getElementById('hourlyStep').classList.add('active');
+    document.getElementById('extrasStep').style.display = 'block';
+    
+    const slider = document.getElementById('hourSlider');
+    slider.min = pricing.minHours;
+    slider.max = pricing.maxHours;
+    slider.value = pricing.defaultHours;
+    currentHours = pricing.defaultHours;
+    document.getElementById('hourValue').textContent = pricing.defaultHours;
+    document.getElementById('hourHint').textContent = pricing.hint;
+    
+    // Update marks
+    const marks = document.querySelector('.slider-marks');
+    if (marks) {
+      const min = pricing.minHours;
+      const max = pricing.maxHours;
+      const step = (max - min) / 4;
+      marks.innerHTML = `<span>${min}h</span><span>${Math.round(min+step)}h</span><span>${Math.round(min+step*2)}h</span><span>${Math.round(min+step*3)}h</span><span>${max}h</span>`;
+    }
+  } 
+  else if (pricing.type === 'package') {
+    // Show package options
+    document.getElementById('packageStep').classList.add('active');
+    document.getElementById('extrasStep').style.display = 'block';
+    document.getElementById('packageLabel').textContent = pricing.label;
+    
+    const optionsHtml = pricing.options.map(opt => `
+      <div class="package-card" data-value="${opt.value}" onclick="selectPackage('${opt.value}')">
+        <div class="pkg-row">
+          <span class="pkg-name">${opt.name}</span>
+          <span class="pkg-price">Từ ${formatVND(opt.price)}</span>
+        </div>
+        ${opt.desc ? `<div class="pkg-desc">${opt.desc}</div>` : ''}
+      </div>
+    `).join('');
+    document.getElementById('packageOptions').innerHTML = optionsHtml;
+  }
+  else if (pricing.type === 'inspection') {
+    document.getElementById('inspectionStep').classList.add('active');
+    document.getElementById('extrasStep').style.display = 'block';
+  }
+  else if (pricing.type === 'fixed') {
+    document.getElementById('extrasStep').style.display = 'block';
+  }
+  
+  calculateAndShow();
+}
+
+function selectPackage(value) {
+  currentPackage = value;
+  document.querySelectorAll('.package-card').forEach(c => c.classList.remove('selected'));
+  document.querySelector(`.package-card[data-value="${value}"]`).classList.add('selected');
+  calculateAndShow();
+}
+
+function calculateAndShow() {
+  if (!currentService) {
+    document.getElementById('calcResult').innerHTML = `
+      <div class="calc-empty">
+        <div class="big-icon">💰</div>
+        <p>Chọn dịch vụ để xem giá ngay</p>
+      </div>
+    `;
+    return;
+  }
+  
+  const pricing = PRICING[currentService];
+  let basePrice = 0;
+  let breakdown = [];
+  let canShow = false;
+  let isRange = false;
+  
+  if (pricing.type === 'hourly') {
+    basePrice = currentHours * pricing.pricePerHour;
+    breakdown.push(`${currentHours} giờ × ${formatVND(pricing.pricePerHour)}/giờ = <strong>${formatVND(basePrice)}</strong>`);
+    canShow = true;
+  }
+  else if (pricing.type === 'package' && currentPackage) {
+    const opt = pricing.options.find(o => o.value === currentPackage);
+    if (opt) {
+      basePrice = opt.price;
+      breakdown.push(`<strong>${opt.name}</strong>`);
+      breakdown.push(`Từ ${formatVND(basePrice)}`);
+      canShow = true;
+      isRange = true;
+    }
+  }
+  else if (pricing.type === 'inspection') {
+    basePrice = pricing.inspectionFee + pricing.estimatedJob;
+    breakdown.push(`Phí kiểm tra: <strong>${formatVND(pricing.inspectionFee)}</strong>`);
+    breakdown.push(`Ước tính công việc: từ <strong>${formatVND(pricing.estimatedJob)}</strong>`);
+    canShow = true;
+    isRange = true;
+  }
+  else if (pricing.type === 'fixed') {
+    basePrice = pricing.basePrice;
+    breakdown.push(`Phí cố định: <strong>${formatVND(basePrice)}</strong>`);
+    breakdown.push(`+ 5% giá trị hàng (tính sau)`);
+    canShow = true;
+  }
+  
+  if (!canShow) {
+    document.getElementById('calcResult').innerHTML = `
+      <div class="calc-empty">
+        <div class="big-icon">👆</div>
+        <p>Chọn ${pricing.type === 'package' ? 'gói' : 'tùy chọn'} để xem giá</p>
+      </div>
+    `;
+    return;
+  }
+  
+  // Tính phụ phí
+  let surchargeFlat = 0;
+  let surchargePercent = 0;
+  const extras = [];
+  
+  document.querySelectorAll('.extras-grid-calc input[type="checkbox"]:checked').forEach(cb => {
+    const fee = parseInt(cb.dataset.fee) || 0;
+    const percent = parseInt(cb.dataset.percent) || 0;
+    const label = cb.dataset.label;
+    
+    if (fee > 0) {
+      surchargeFlat += fee;
+      extras.push(`+ ${label}: <strong>+${formatVND(fee)}</strong>`);
+    }
+    if (percent > 0) {
+      surchargePercent += percent;
+      const amount = Math.round(basePrice * percent / 100);
+      extras.push(`+ ${label} (${percent}%): <strong>+${formatVND(amount)}</strong>`);
+    }
+  });
+  
+  const surchargeAmount = Math.round(basePrice * surchargePercent / 100);
+  const total = basePrice + surchargeFlat + surchargeAmount;
+  
+  // Render
+  const allBreakdown = [...breakdown, ...extras];
+  document.getElementById('calcResult').innerHTML = `
+    <div class="calc-result">
+      <div class="calc-result-label">${isRange ? 'Giá khởi điểm' : 'Tổng tạm tính'}</div>
+      <div class="calc-result-amount">${isRange ? 'Từ ' : ''}${formatVND(total)}</div>
+      <div class="calc-result-breakdown">
+        ${allBreakdown.map(b => `<div>${b}</div>`).join('')}
+      </div>
+      <a href="index.html#dat-lich" class="calc-cta">Đặt với giá này → 🎉</a>
+    </div>
+  `;
+}
+
+// Event listeners
+document.querySelectorAll('.service-pill-calc').forEach(pill => {
+  pill.addEventListener('click', () => selectService(pill.dataset.service));
+});
+
+document.getElementById('hourSlider').addEventListener('input', (e) => {
+  currentHours = parseInt(e.target.value);
+  document.getElementById('hourValue').textContent = currentHours;
+  calculateAndShow();
+});
+
+document.querySelectorAll('.extras-grid-calc input[type="checkbox"]').forEach(cb => {
+  cb.addEventListener('change', calculateAndShow);
+});
+
+// Smooth scroll
+document.querySelectorAll('a[href^="#"]').forEach(a => a.addEventListener('click', e => {
+  const href = a.getAttribute('href'); if (href === '#') return;
+  const t = document.querySelector(href);
+  if (t) { e.preventDefault(); window.scrollTo({ top: t.getBoundingClientRect().top + window.pageYOffset - 100, behavior: 'smooth' }); }
+}));
+</script>
+</body>
+</html>
