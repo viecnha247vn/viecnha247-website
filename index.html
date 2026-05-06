@@ -952,6 +952,28 @@ textarea.form-input { resize: vertical; min-height: 80px; }
 .price-row.surcharge .amount {
   color: var(--gold-dark);
 }
+.price-row.highlight .amount {
+  color: #16A34A;
+  font-weight: 800;
+}
+.price-row.highlight .label {
+  color: #15803D;
+  font-weight: 700;
+}
+.price-row.note {
+  background: rgba(232, 166, 39, 0.08);
+  border-radius: 8px;
+  padding: 0.5rem 0.75rem !important;
+  margin: 0.25rem 0;
+  border-bottom: none !important;
+}
+.price-row.note .label {
+  font-size: 0.75rem !important;
+  color: var(--charcoal) !important;
+  font-weight: 600 !important;
+  font-style: italic;
+}
+.price-row.note .amount { display: none; }
 .price-total {
   display: flex;
   justify-content: space-between;
@@ -1988,14 +2010,14 @@ textarea.form-input { resize: vertical; min-height: 80px; }
         <div class="service-icon-wrap"><span class="emoji">⚡</span></div>
         <div class="service-name">Sửa chữa điện</div>
         <div class="service-desc">Thợ điện có chứng chỉ — bảo hành 6 tháng</div>
-        <div class="service-price"><span class="from">Từ</span> 149.000đ</div>
+        <div class="service-price"><span class="from">Từ</span> 199.000đ</div>
       </a>
 
       <a href="#dat-lich" class="service-card" data-service="sua-nuoc">
         <div class="service-icon-wrap"><span class="emoji">💧</span></div>
         <div class="service-name">Sửa chữa nước</div>
         <div class="service-desc">Thông tắc, sửa ống, lắp thiết bị 24/7</div>
-        <div class="service-price"><span class="from">Từ</span> 179.000đ</div>
+        <div class="service-price"><span class="from">Từ</span> 249.000đ</div>
       </a>
 
       <a href="#dat-lich" class="service-card" data-service="chuyen-nha">
@@ -2030,7 +2052,7 @@ textarea.form-input { resize: vertical; min-height: 80px; }
         <div class="service-icon-wrap"><span class="emoji">🔨</span></div>
         <div class="service-name">Sửa chữa đa năng</div>
         <div class="service-desc">Lắp ráp, treo tranh, sửa cửa, vệ sinh máy lạnh</div>
-        <div class="service-price"><span class="from">Từ</span> 149.000đ</div>
+        <div class="service-price"><span class="from">Từ</span> 199.000đ</div>
       </a>
     </div>
   </div>
@@ -2068,12 +2090,12 @@ textarea.form-input { resize: vertical; min-height: 80px; }
           <button type="button" class="service-card-wizard" data-service="sua-dien">
             <div class="svc-icon">⚡</div>
             <div class="svc-name">Sửa điện</div>
-            <div class="svc-price">Từ 149k</div>
+            <div class="svc-price">Từ 199k</div>
           </button>
           <button type="button" class="service-card-wizard" data-service="sua-nuoc">
             <div class="svc-icon">💧</div>
             <div class="svc-name">Sửa nước</div>
-            <div class="svc-price">Từ 179k</div>
+            <div class="svc-price">Từ 249k</div>
           </button>
           <button type="button" class="service-card-wizard" data-service="chuyen-nha">
             <div class="svc-icon">🚛</div>
@@ -2098,7 +2120,7 @@ textarea.form-input { resize: vertical; min-height: 80px; }
           <button type="button" class="service-card-wizard" data-service="da-nang">
             <div class="svc-icon">🔨</div>
             <div class="svc-name">Sửa đa năng</div>
-            <div class="svc-price">Từ 149k</div>
+            <div class="svc-price">Từ 199k</div>
           </button>
         </div>
       </div>
@@ -2543,7 +2565,7 @@ const WIZARD_CONFIG = {
   // ==================== SỬA ĐIỆN ====================
   'sua-dien': {
     title: 'Chi tiết sửa điện',
-    desc: 'CTV sẽ kiểm tra thực tế và báo giá chính xác trước khi sửa.',
+    desc: '✨ Khảo sát tận nơi MIỄN PHÍ nếu khách làm tiếp. CTV sẽ kiểm tra thực tế và báo giá chính xác trước khi sửa.',
     timeMode: 'range',
     fields: [
       {
@@ -2573,7 +2595,7 @@ const WIZARD_CONFIG = {
   // ==================== SỬA NƯỚC ====================
   'sua-nuoc': {
     title: 'Chi tiết sửa nước',
-    desc: 'Phục vụ 24/7. CTV sẽ khảo sát và báo giá trước khi làm.',
+    desc: '✨ Khảo sát tận nơi MIỄN PHÍ nếu khách làm tiếp. Phục vụ 24/7. CTV sẽ khảo sát và báo giá trước khi làm.',
     timeMode: 'range',
     fields: [
       {
@@ -2777,7 +2799,7 @@ const WIZARD_CONFIG = {
   // ==================== ĐA NĂNG ====================
   'da-nang': {
     title: 'Chi tiết sửa đa năng',
-    desc: 'CTV đa kỹ năng cho các việc nhỏ trong nhà.',
+    desc: '✨ Khảo sát tận nơi MIỄN PHÍ nếu khách làm tiếp. CTV đa kỹ năng cho các việc nhỏ trong nhà.',
     timeMode: 'range',
     fields: [
       {
@@ -3302,13 +3324,16 @@ function calculateAndRenderPrice() {
     }
   } 
   else if (wizardState.service === 'sua-dien' || wizardState.service === 'sua-nuoc' || wizardState.service === 'da-nang') {
+    // Phí kiểm tra: MIỄN PHÍ nếu khách làm tiếp, THU nếu khách chỉ kiểm tra rồi không làm
     const inspectionFees = { 'sua-dien': 149000, 'sua-nuoc': 179000, 'da-nang': 149000 };
     const estimatedJobs = { 'sua-dien': 199000, 'sua-nuoc': 249000, 'da-nang': 199000 };
     const inspFee = inspectionFees[wizardState.service];
     const estJob = estimatedJobs[wizardState.service];
-    basePrice = inspFee + estJob;
-    breakdown.push({ label: 'Phí kiểm tra (đến nhà)', amount: formatPrice(inspFee) + 'đ' });
+    // basePrice CHỈ tính ước tính công việc (không cộng phí kiểm tra)
+    basePrice = estJob;
+    breakdown.push({ label: '✨ Khảo sát + báo giá tận nơi', amount: 'MIỄN PHÍ', highlight: true });
     breakdown.push({ label: 'Ước tính công việc', amount: 'Từ ' + formatPrice(estJob) + 'đ' });
+    breakdown.push({ label: `💡 Lưu ý: phí khảo sát ${formatPrice(inspFee)}đ chỉ áp dụng nếu KHÔNG làm tiếp`, amount: '', note: true });
   }
   else if (wizardState.service === 'chuyen-nha') {
     const pkg = wizardState.fields.package;
@@ -3432,12 +3457,18 @@ function calculateAndRenderPrice() {
   
   // Render
   const breakdownEl = document.getElementById('priceBreakdown');
-  breakdownEl.innerHTML = breakdown.map(b => `
-    <div class="price-row${b.surcharge ? ' surcharge' : ''}">
-      <span class="label">${b.label}</span>
-      <span class="amount">${b.amount}</span>
-    </div>
-  `).join('');
+  breakdownEl.innerHTML = breakdown.map(b => {
+    let cls = 'price-row';
+    if (b.surcharge) cls += ' surcharge';
+    if (b.highlight) cls += ' highlight';
+    if (b.note) cls += ' note';
+    return `
+      <div class="${cls}">
+        <span class="label">${b.label}</span>
+        <span class="amount">${b.amount}</span>
+      </div>
+    `;
+  }).join('');
   
   document.getElementById('priceTotalAmount').textContent = formatPrice(total) + 'đ';
   document.getElementById('priceEstimate').style.display = 'block';
@@ -3805,6 +3836,6 @@ document.querySelectorAll('.service-card, .why-card, .testimonial-card, .how-ste
 </script>
 
 <!-- AI Chat Widget -->
-<script src="chat.js" defer></script>
+<script src="chat-widget-frontend.js" defer></script>
 </body>
 </html>

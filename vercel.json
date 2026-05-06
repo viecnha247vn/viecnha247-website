@@ -1,6 +1,6 @@
 {
   "functions": {
-    "api/chat.js": {
+    "api/gemini-backend.js": {
       "maxDuration": 30
     }
   }
