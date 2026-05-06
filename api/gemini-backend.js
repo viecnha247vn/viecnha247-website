@@ -192,7 +192,7 @@ export default async function handler(req, res) {
     }));
     
     // Gọi Gemini API (model: gemini-2.0-flash-exp - free tier)
-    const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${API_KEY}`;
+    const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key=${API_KEY}`;
     
     const geminiRes = await fetch(url, {
       method: 'POST',
