@@ -210,8 +210,8 @@ const contents = messages.map(m => ({
   parts: [{ text: m.content }]
 }));
 
-// Gọi Gemini API (model: gemini-2.0-flash-exp - free tier)
-const url = const url = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=' + API_KEY;
+// Gọi Gemini API (model: gemini-1.5-flash - free tier)
+const url = const url = const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${API_KEY}`;
 
 const geminiRes = await fetch(url, {
   method: 'POST',
