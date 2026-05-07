@@ -1,64 +1,50 @@
-// =========================================================================
-// VERCEL FUNCTION — GROK API (xAI)
-// =========================================================================
-
-const SYSTEM_PROMPT = `Bạn là Trợ lý ảo của ViệcNhà247 — nền tảng dịch vụ gia đình tận tâm tại TPHCM.
-Slogan: "Dịch vụ gia đình tận tâm, đúng giờ".
-Phục vụ các dịch vụ: Dọn dẹp nhà cửa (99k/h), Sửa điện nước, Chuyển nhà, Nấu ăn, Chăm sóc người già, Đi chợ hộ.
-Phong cách: Ấm áp, thân thiện, ngắn gọn. Xưng em, gọi khách là anh/chị.`;
-
 export default async function handler(req, res) {
-  // Cấu hình CORS
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
-
   if (req.method === 'OPTIONS') return res.status(200).end();
-  if (req.method !== 'POST') return res.status(405).json({ error: 'Method not allowed' });
 
   try {
     const { messages } = req.body;
+    if (!messages || messages.length === 0) return res.status(400).end();
+
+    const rawMsg = messages[messages.length - 1].content;
+    const msg = rawMsg.toLowerCase();
     
-    // Lấy Key từ biến môi trường trên Vercel
-    const API_KEY = process.env.GROK_API_KEY;
+    const hour = (new Date().getUTCHours() + 7) % 24; 
+    let greeting = "Dạ ViệcNhà247 xin chào!";
+    if (hour >= 5 && hour < 12) greeting = "Chào buổi sáng anh/chị! Chúc mình ngày mới năng lượng.";
+    else if (hour >= 12 && hour < 18) greeting = "Chào buổi chiều anh/chị!";
+    else greeting = "Chào buổi tối anh/chị!";
 
-    if (!API_KEY) {
-      return res.status(500).json({ error: 'Chưa cấu hình GROK_API_KEY trên Vercel' });
+    let reply = "";
+
+    // NHẬN DIỆN SỐ ĐIỆN THOẠI
+    const phoneRegex = /(0[3|5|7|8|9][0-9]{8}|0[2][0-9]{9})\b/g;
+    const cleanMsg = rawMsg.replace(/[\.\-\s]/g, '');
+    const foundPhones = cleanMsg.match(phoneRegex);
+
+    if (foundPhones) {
+      reply = `✅ **Xác nhận đã nhận SĐT:** Em đã ghi nhận số **${foundPhones[0]}**. Chuyên viên tư đồng sẽ gọi lại ngay để báo giá ưu đãi ạ!`;
+    }
+    // NHÓM KHẨN CẤP
+    else if (/(gấp|gap|ngay|cháy|nổ|ngập|nghet|tắc|cúp điện|hỏng)/i.test(msg)) {
+      reply = `🚨 **ƯU TIÊN KHẨN CẤP:** Anh/chị gọi ngay Hotline **1900 6247**. Thợ sẽ có mặt sau 30-60 phút để xử lý ạ!`;
+    }
+    // NHÓM GIÁ CẢ
+    else if (/(giá|bao nhiêu|nhiêu|tiền|phí|99k|199k|giảm giá)/i.test(msg)) {
+      reply = `💰 **Bảng giá ViệcNhà247:**\n- Dọn dẹp: 199k/ca\n- Sửa điện/nước: từ 199k\n- Đi chợ: 99k\n🎁 Nhập mã **MOI100** giảm 100k đơn đầu!`;
+    }
+    // NHÓM CHÀO HỎI & MẶC ĐỊNH
+    else if (/(chào|hi|hello|alo|ơi)/i.test(msg)) {
+      reply = `${greeting} Em có thể giúp gì cho anh/chị về Bảng giá hay Đặt lịch không ạ?`;
+    }
+    else {
+      reply = "Dạ em chưa rõ ý này, anh/chị vui lòng để lại **SĐT** hoặc gọi **1900 6247** để em hỗ trợ nhanh nhất ạ!";
     }
 
-    const response = await fetch('https://api.x.ai/v1/chat/completions', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Authorization': `Bearer ${API_KEY}`
-      },
-      body: JSON.stringify({
-        model: "grok-beta",
-        messages: [
-          { role: "system", content: SYSTEM_PROMPT },
-          ...messages.map(m => ({
-            role: m.role === 'assistant' ? 'assistant' : 'user',
-            content: m.content
-          }))
-        ],
-        temperature: 0.7
-      })
-    });
-
-    const data = await response.json();
-
-    if (!response.ok) {
-      console.error('Grok Error:', data);
-      return res.status(500).json({ 
-        reply: 'Hệ thống đang bảo trì một chút, anh/chị nhắn Zalo giúp em nhé!' 
-      });
-    }
-
-    const reply = data.choices[0].message.content;
-    return res.status(200).json({ reply });
-
-  } catch (err) {
-    console.error('Fetch Error:', err);
-    return res.status(500).json({ reply: 'Lỗi kết nối. Vui lòng thử lại sau.' });
+    return res.status(200).json({ reply: reply });
+  } catch (error) {
+    return res.status(500).json({ reply: "Hệ thống bận, gọi 1900 6247 nhé!" });
   }
-}
+}}
