@@ -12,57 +12,72 @@ export default async function handler(req, res) {
     const msg = rawMsg.toLowerCase();
     let reply = "";
 
-    // 1. NHẬN DIỆN SỐ ĐIỆN THOẠI (Ưu tiên số 1)
+    // 1. PHÁT HIỆN SỐ ĐIỆN THOẠI (ƯU TIÊN TUYỆT ĐỐI)
     const cleanMsg = rawMsg.replace(/[\.\-\s]/g, '');
     const phoneRegex = /(0[3|5|7|8|9][0-9]{8}|0[2][0-9]{9})/g;
     const foundPhones = cleanMsg.match(phoneRegex);
 
     if (foundPhones) {
-      reply = `✅ **Xác nhận:** ViệcNhà247 đã nhận SĐT **${foundPhones[0]}**. Chuyên viên sẽ gọi lại tư vấn và báo giá ưu đãi cho mình sau 5-10 phút ạ! ✨`;
+      reply = `✅ **Hệ thống đã ghi nhận:** Cảm ơn anh/chị, số điện thoại **${foundPhones[0]}** đã được chuyển đến bộ phận điều phối. Em sẽ gọi lại tư vấn chi tiết cho mình ngay đây ạ!`;
     }
 
-    // 2. DỊCH VỤ DỌN DẸP (Dọn nhà, vệ sinh, quét dọn...)
-    else if (/(dọn|vệ sinh|quét|lau|nhà mới|sau xây dựng|hút bụi|định kỳ|theo giờ)/i.test(msg)) {
-      reply = `🧹 **Dịch vụ Dọn dẹp:**\n- Gói theo giờ: 99k/giờ (tối thiểu 2h)\n- Tổng vệ sinh: từ 799k\n- Sau xây dựng: từ 1.499k\nNhà mình cần dọn diện tích khoảng bao nhiêu m2 để em báo giá chính xác ạ?`;
+    // 2. NHÓM KHẨN CẤP & SỰ CỐ NẶNG (Gấp, cháy nổ, ngập lụt...)
+    else if (/(gấp|ngay|lập tức|khẩn cấp|cháy|nổ|ngập|bể ống|tràn|cúp điện|chập|hỏa hoạn|mùi khét|rò rỉ gas|nghẹt bồn cầu|tắc cống)/i.test(msg)) {
+      reply = `🚨 **TÌNH TRẠNG KHẨN CẤP:** Dạ anh/chị bình tĩnh nhé! Để xử lý ngay lập tức, mình vui lòng gọi Hotline **1900 6247**. Đội ngũ kỹ thuật trực chiến sẽ có mặt tại nhà mình sau 15-30 phút ạ!`;
     }
 
-    // 3. ĐIỆN - NƯỚC - ĐA NĂNG (Hỏng hóc, sửa chữa...)
-    else if (/(điện|nước|vòi|tắc|nghẹt|bóng đèn|chập|ổ cắm|máy lạnh|máy giặt|tủ lạnh|sửa)/i.test(msg)) {
-      reply = `⚡💧 **Sửa chữa Điện Nước:**\n✨ Đặc biệt: **KHẢO SÁT TẬN NƠI MIỄN PHÍ** nếu anh/chị đồng ý làm tiếp.\n- Phí sửa: chỉ từ 199k.\nAnh/chị đang gặp sự cố gì, mình để lại SĐT để kỹ thuật viên gọi tư vấn ngay nhé!`;
+    // 3. NHÓM DỌN DẸP & VỆ SINH SÂU (Mở rộng từ khóa)
+    else if (/(dọn|vệ sinh|quét|lau|nhà mới|xây dựng|hút bụi|định kỳ|theo giờ|giặt ghế|sofa|nệm|rèm|thảm|kính|máy hút mùi|nhà bếp|toilet|wc|sạch|ngăn nắp)/i.test(msg)) {
+      reply = `🧹 **Dịch vụ Vệ sinh Tận tâm:**\n- Dọn lẻ theo giờ: 99k/h.\n- Giặt Sofa/Nệm/Rèm: từ 299k.\n- Tổng vệ sinh (Deep Clean): từ 799k.\nAnh/chị muốn dọn dẹp định kỳ hay dọn một lần cho nhà mới ạ?`;
     }
 
-    // 4. CHUYỂN NHÀ (Dọn đồ, vận chuyển, xe tải...)
-    else if (/(chuyển nhà|dọn đồ|xe tải|vận chuyển|sang nhà mới|thuê xe)/i.test(msg)) {
-      reply = `🚛 **Chuyển nhà trọn gói:**\n- Gói vận chuyển: từ 799k\n- Gói trọn gói A-Z: từ 2.999k\n🎁 Bảo hiểm hàng hóa lên đến 50 triệu đồng. Mình dọn từ quận nào sang quận nào ạ?`;
+    // 4. ĐIỆN - NƯỚC - ĐIỆN LẠNH (Sửa chữa chuyên sâu)
+    else if (/(điện|nước|vòi|bóng đèn|ổ cắm|máy lạnh|máy giặt|tủ lạnh|điều hòa|bình nóng lạnh|bom nước|thay dây|lắp quạt|vệ sinh máy lạnh|bơm gas|không lạnh|kêu to)/i.test(msg)) {
+      reply = `❄️⚡ **Kỹ thuật Điện Lạnh - Điện Nước:**\n- Vệ sinh máy lạnh: 150k - 250k.\n- Sửa chữa hư hỏng: Khảo sát tận nơi miễn phí (nếu sửa).\nAnh/chị cho em biết tình trạng máy đang bị sao để em báo thợ mang đồ nghề phù hợp nhé!`;
     }
 
-    // 5. NẤU ĂN - ĐI CHỢ (Cơm gia đình, tiệc, thực phẩm...)
-    else if (/(nấu ăn|đầu bếp|đi chợ|mua đồ|thực phẩm|cơm tháng|tiệc)/i.test(msg)) {
-      reply = `🍳🛒 **Nấu ăn & Đi chợ:**\n- Bữa cơm gia đình: từ 249k\n- Đi chợ hộ: phí từ 79k\n- Cơm tháng (30 bữa): 5.999k\nĐầu bếp bên em đều có chứng chỉ ATTP nên mình yên tâm tuyệt đối ạ!`;
+    // 5. CHUYỂN NHÀ & XE TẢI (Mở rộng địa giới)
+    else if (/(chuyển nhà|dọn đồ|xe tải|vận chuyển|xe cẩu|bốc xếp|đóng gói|thùng carton|liên tỉnh|vũng tàu|bình dương|tphcm|trọn gói|kho bãi)/i.test(msg)) {
+      reply = `🚛 **Vận chuyển ViệcNhà247:**\n- Xe tải chuyển đồ: từ 799k.\n- Trọn gói bốc xếp: báo giá sau khảo sát.\n✨ Em đang có ưu đãi miễn phí 5km đầu tiên cho mình đó ạ. Mình định dọn vào ngày nào ạ?`;
     }
 
-    // 6. CHĂM SÓC NGƯỜI GIÀ (Người cao tuổi, điều dưỡng...)
-    else if (/(chăm sóc|người già|người cao tuổi|ông bà|bệnh viện|nuôi bệnh|điều dưỡng)/i.test(msg)) {
-      reply = `👴 **Chăm sóc người cao tuổi:**\n- Theo giờ: 74k/giờ\n- 24/7 (tại gia hoặc BV): từ 799k/ngày\nNhân viên bên em có chuyên môn điều dưỡng, tận tâm như người nhà ạ.`;
+    // 6. NẤU ĂN - ĐI CHỢ - CƠM TRƯA (Cho người bận rộn)
+    else if (/(nấu ăn|đầu bếp|đi chợ|siêu thị|bách hóa xanh|thực phẩm|cơm tháng|tiệc|giỗ|liên hoan|thực đơn|healthy|eat clean|ăn kiêng)/i.test(msg)) {
+      reply = `🍳 **Bếp gia đình ViệcNhà247:**\n- Phí đi chợ: 79k - 99k.\n- Nấu ăn tại gia: từ 249k/bữa.\n- Cơm tháng đảm bảo dinh dưỡng.\nBên em có thể nấu theo khẩu vị riêng của nhà mình (Bắc - Trung - Nam) luôn ạ!`;
     }
 
-    // 7. KHUYẾN MÃI - QUY TRÌNH - CHÍNH SÁCH
-    else if (/(khuyến mãi|giảm giá|voucher|mã|bảo hành|uy tín|hợp đồng)/i.test(msg)) {
-      reply = `🎁 **Ưu đãi ViệcNhà247:**\n- Tặng ngay **100k** cho đơn hàng đầu tiên (Mã: MOI100).\n- Giảm 15% cho hợp đồng định kỳ tháng.\n- Bảo hành dịch vụ sửa chữa lên đến 6 tháng ạ!`;
+    // 7. CHĂM SÓC NGƯỜI THÂN (Chuyên sâu y tế)
+    else if (/(chăm sóc|người già|người bệnh|ông bà|bệnh viện|nuôi bệnh|điều dưỡng|vật lý trị liệu|tiêm tại nhà|thay băng|rửa vết thương|mẹ bé|sau sinh)/i.test(msg)) {
+      reply = `👴 **Dịch vụ Chăm sóc Sức khỏe:**\n- Nhân viên có bằng điều dưỡng/y sĩ.\n- Trực bệnh viện/Tại gia: từ 799k/ngày.\nAnh/chị cần người chăm sóc nam hay nữ, và có yêu cầu chuyên môn đặc biệt nào không ạ?`;
     }
 
-    // 8. CHÀO HỎI & HỖ TRỢ CHUNG
-    else if (/(chào|hi|hello|alo|ơi|tư vấn|giúp)/i.test(msg)) {
-      reply = `Dạ ViệcNhà247 xin chào! Em có thể giúp mình đặt lịch: Dọn dẹp, Sửa điện nước, Chuyển nhà hay Chăm sóc người già ạ? 😊`;
+    // 8. ĐA NĂNG - TIỆN ÍCH KHÁC (IKEA, khoan tường, lắp rèm...)
+    else if (/(khoan|treo|tranh|rèm|cửa|khóa|ikea|lắp ráp|đồ gỗ|sơn|chống thấm|thông tắc|hút hầm cầu|diệt côn trùng|mối|gián)/i.test(msg)) {
+      reply = `🔨 **Dịch vụ Đa năng:**\n- Lắp ráp/Treo đồ: từ 199k.\n- Chống thấm/Sơn sửa: báo giá theo hiện trạng.\nViệc gì khó, cứ để ViệcNhà247 lo ạ! Anh/chị gửi ảnh qua Zalo để em báo giá nhanh nhé.`;
     }
 
-    // 9. MẶC ĐỊNH (Khi không hiểu)
+    // 9. GIÁ CẢ - CHIẾT KHẤU - HỢP ĐỒNG (Logic tài chính)
+    else if (/(giá|bao nhiêu|nhiêu|tiền|phí|đắt|rẻ|giảm giá|khuyến mãi|voucher|mã|hợp đồng|vat|hóa đơn|uy tín|lừa đảo|tốt không)/i.test(msg)) {
+      reply = `💎 **Chính sách Minh bạch:**\n- Giá niêm yết, không phát sinh vô lý.\n- Nhập mã **MOI100** giảm 100k.\n- Có hóa đơn VAT cho công ty.\nBên em cam kết hoàn tiền 100% nếu anh/chị không hài lòng về chất lượng ạ!`;
+    }
+
+    // 10. CHÀO HỎI & CẢM XÚC (Thân thiện)
+    else if (/(chào|hi|hello|alo|ơi|cảm ơn|thanks|tạm biệt|bye|giỏi|thông minh)/i.test(msg)) {
+      reply = `${greeting} Dạ em cảm ơn anh/chị! Em luôn sẵn sàng hỗ trợ mình đặt lịch dọn dẹp, sửa chữa hoặc vận chuyển. Mình cần em tư vấn gì thêm không ạ?`;
+    }
+
+    // 11. CÂU HỎI VỀ KHU VỰC (Địa giới mới)
+    else if (/(địa chỉ|ở đâu|quận|huyện|thủ đức|bình chánh|hóc môn|củ chi|nhà bè|vũng tàu|bình dương|tphcm)/i.test(msg)) {
+      reply = `📍 **Khu vực phục vụ:** ViệcNhà247 phục vụ toàn bộ TPHCM và các khu vực lân cận (Bình Dương, Vũng Tàu). Chỉ cần anh/chị đặt lịch, thợ gần nhất sẽ có mặt sau 30 phút ạ!`;
+    }
+
+    // 12. MẶC ĐỊNH (KHI KHÔNG KHỚP)
     else {
-      reply = `Dạ hiện tại em đang tiếp nhận thông tin cho 8 dịch vụ chính: Dọn dẹp, Điện nước, Chuyển nhà, Nấu ăn, Chăm sóc người già... Anh/chị cần tư vấn mảng nào hoặc để lại **SĐT** em gọi lại ngay ạ!`;
+      reply = `Dạ em xin lỗi vì chưa hiểu rõ ý mình. Anh/chị có thể nói rõ hơn về nhu cầu (VD: dọn nhà, sửa nước, chuyển đồ...) hoặc để lại **SĐT** để em gọi hỗ trợ trực tiếp không ạ? 😊`;
     }
 
     return res.status(200).json({ reply: reply });
   } catch (error) {
-    return res.status(500).json({ reply: "Dạ hệ thống đang bận một chút, anh/chị gọi trực tiếp Hotline 1900 6247 nhé!" });
+    return res.status(500).json({ reply: "Hệ thống đang bảo trì nhẹ, anh/chị vui lòng gọi Hotline 1900 6247 để được phục vụ ngay ạ!" });
   }
 }
