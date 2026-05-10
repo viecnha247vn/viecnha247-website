@@ -1,7 +1,0 @@
-{
-  "functions": {
-    "api/gemini-backend.js": {
-      "maxDuration": 30
-    }
-  }
-}
