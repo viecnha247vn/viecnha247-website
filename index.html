@@ -2054,6 +2054,14 @@ textarea.form-input { resize: vertical; min-height: 80px; }
         <div class="service-desc">Lắp ráp, treo tranh, sửa cửa, vệ sinh máy lạnh</div>
         <div class="service-price"><span class="from">Từ</span> 199.000đ</div>
       </a>
+
+      <a href="#dat-lich" class="service-card" data-service="trong-tre">
+        <div class="service-icon-wrap"><span class="emoji">🧒</span></div>
+        <div class="service-name">Trông trẻ em</div>
+        <div class="service-desc">Trông tại nhà, đưa đón đi học, dẫn đi chơi (3-12 tuổi)</div>
+        <div class="service-price"><span class="from">Từ</span> 99.000đ/giờ</div>
+        <div style="font-size:0.7rem; color:#16A34A; font-weight:700; margin-top:4px;">✨ CTV có chứng chỉ sư phạm</div>
+      </a>
     </div>
   </div>
 </section>
@@ -2121,6 +2129,11 @@ textarea.form-input { resize: vertical; min-height: 80px; }
             <div class="svc-icon">🔨</div>
             <div class="svc-name">Sửa đa năng</div>
             <div class="svc-price">Từ 199k</div>
+          </button>
+          <button type="button" class="service-card-wizard" data-service="trong-tre">
+            <div class="svc-icon">🧒</div>
+            <div class="svc-name">Trông trẻ</div>
+            <div class="svc-price">Từ 99k/giờ</div>
           </button>
         </div>
       </div>
@@ -2511,7 +2524,8 @@ const SERVICE_NAMES = {
   'nau-an':     '🍳 Nấu ăn tại gia',
   'cham-soc':   '👴 Chăm sóc người cao tuổi',
   'di-cho':     '🛒 Đi chợ hộ',
-  'da-nang':    '🔨 Sửa chữa đa năng'
+  'da-nang':    '🔨 Sửa chữa đa năng',
+  'trong-tre':  '🧒 Trông trẻ em'
 };
 
 // ============================================================
@@ -2826,6 +2840,72 @@ const WIZARD_CONFIG = {
       }
     ],
     extras: ['pet', 'high-floor', 'weekend']
+  },
+
+  // ==================== TRÔNG TRẺ EM ====================
+  'trong-tre': {
+    title: 'Chi tiết trông trẻ em',
+    desc: '🧒 Dịch vụ trông trẻ 3-12 tuổi. CTV có chứng chỉ sư phạm, lý lịch tư pháp sạch, sức khỏe đảm bảo. Bảo hiểm tai nạn trẻ em 100 triệu/đơn.',
+    timeMode: 'range',
+    fields: [
+      {
+        id: 'packageType',
+        label: 'Chọn gói dịch vụ',
+        type: 'radio',
+        cols: 1,
+        options: [
+          { value: 'tai-nha', name: '🏠 Trông tại nhà', desc: '99k/giờ — CTV đến nhà trông bé' },
+          { value: 'dan-di-choi', name: '🎡 Dẫn đi chơi', desc: '149k/giờ — CV, sở thú, công viên nước' },
+          { value: 'dua-don-di-hoc', name: '🚸 Đưa đón đi học', desc: '79k/lượt — sáng đón đi, chiều đón về' }
+        ],
+        required: true
+      },
+      {
+        id: 'childAge',
+        label: 'Độ tuổi của bé (3-12 tuổi)',
+        type: 'radio',
+        cols: 3,
+        options: [
+          { value: '3-5', name: '3-5 tuổi', desc: 'Mầm non' },
+          { value: '6-9', name: '6-9 tuổi', desc: 'Tiểu học' },
+          { value: '10-12', name: '10-12 tuổi', desc: 'Lớn hơn' }
+        ],
+        required: true
+      },
+      {
+        id: 'numChildren',
+        label: 'Số lượng bé',
+        type: 'radio',
+        cols: 4,
+        options: [
+          { value: '1', name: '1 bé', desc: 'Giá cơ bản' },
+          { value: '2', name: '2 bé', desc: '+30% giá' },
+          { value: '3', name: '3 bé', desc: '+60% giá' },
+          { value: '4+', name: '4+ bé', desc: '+100% giá' }
+        ],
+        required: true
+      },
+      {
+        id: 'gender',
+        label: 'Yêu cầu giới tính CTV',
+        type: 'radio',
+        cols: 3,
+        options: [
+          { value: 'nu', name: 'CTV Nữ', desc: 'Ưu tiên (mặc định)' },
+          { value: 'nam', name: 'CTV Nam', desc: 'Cho bé trai lớn' },
+          { value: 'khong', name: 'Không quan trọng', desc: 'CTV phù hợp' }
+        ],
+        required: true
+      },
+      {
+        id: 'specialNotes',
+        label: 'Ghi chú đặc biệt về bé',
+        type: 'textarea',
+        placeholder: 'VD: Bé dị ứng đậu phộng, đang điều trị thuốc, cần đón đúng 16h tại Trường Tiểu học ABC...',
+        required: true
+      }
+    ],
+    extras: ['weekend', 'urgent']
   }
 };
 
@@ -3429,6 +3509,51 @@ function calculateAndRenderPrice() {
       basePrice = shopOpt.price;
       breakdown.push({ label: 'Phí dịch vụ ' + shopOpt.name, amount: formatPrice(basePrice) + 'đ' });
       breakdown.push({ label: '+ % giá trị hàng (tính sau)', amount: 'Theo hóa đơn' });
+    }
+  }
+  else if (wizardState.service === 'trong-tre') {
+    // Giá theo gói:
+    // - Trông tại nhà: 99k/giờ
+    // - Dẫn đi chơi: 149k/giờ  
+    // - Đưa đón đi học: 79k/lượt (đón + về = 2 lượt)
+    // Số lượng bé: 1 bé ×1, 2 bé ×1.3, 3 bé ×1.6, 4+ bé ×2.0
+    const pkg = wizardState.fields.packageType;
+    const numChildren = wizardState.fields.numChildren || '1';
+    
+    const packagePrices = {
+      'tai-nha':         { price: 99000,  unit: 'giờ', name: '🏠 Trông tại nhà',     min: 2 },
+      'dan-di-choi':     { price: 149000, unit: 'giờ', name: '🎡 Dẫn đi chơi',       min: 3 },
+      'dua-don-di-hoc':  { price: 79000,  unit: 'lượt', name: '🚸 Đưa đón đi học',  min: 1 }
+    };
+    
+    const numChildrenMultipliers = {
+      '1': 1.0,
+      '2': 1.3,
+      '3': 1.6,
+      '4+': 2.0
+    };
+    
+    const pkgInfo = packagePrices[pkg];
+    const numMult = numChildrenMultipliers[numChildren] || 1.0;
+    
+    if (pkgInfo) {
+      if (pkgInfo.unit === 'giờ') {
+        const hours = wizardState.duration || pkgInfo.min;
+        basePrice = Math.round(pkgInfo.price * hours * numMult);
+        breakdown.push({ label: `${pkgInfo.name} × ${hours} giờ × ${formatPrice(pkgInfo.price)}đ`, amount: formatPrice(pkgInfo.price * hours) + 'đ' });
+      } else {
+        // Đưa đón đi học: tính 2 lượt/ngày (đón đi + đón về)
+        basePrice = Math.round(pkgInfo.price * 2 * numMult);
+        breakdown.push({ label: `${pkgInfo.name} (đón đi + đón về)`, amount: formatPrice(pkgInfo.price * 2) + 'đ' });
+      }
+      
+      if (numMult > 1.0) {
+        const extra = Math.round(basePrice - (basePrice / numMult));
+        breakdown.push({ label: `Phụ phí số lượng bé (${numChildren} bé)`, amount: '+' + formatPrice(extra) + 'đ' });
+      }
+      
+      breakdown.push({ label: '🛡️ Bảo hiểm tai nạn trẻ em', amount: 'Đã bao gồm (100tr/đơn)', highlight: true });
+      breakdown.push({ label: '✅ CTV có chứng chỉ sư phạm + lý lịch tư pháp', amount: '', note: true });
     }
   }
   
