@@ -82,8 +82,16 @@ body {
   color: white; font-weight: 900; font-size: 1.125rem; box-shadow: var(--shadow-gold);
 }
 .nav-logo .mark svg { width: 22px; height: 22px; }
-.nav-logo .brand-name { font-weight: 800; }
-.nav-logo .brand-name b { color: var(--gold-dark); font-weight: 800; }
+.nav-logo .brand-name { 
+  font-weight: 800; 
+  letter-spacing: -0.025em;
+  font-size: 1.125rem;
+}
+.nav-logo .brand-name b { 
+  color: var(--gold-dark); 
+  font-weight: 800; 
+  margin-left: -1px;
+}
 .nav-menu { display: flex; gap: 0.25rem; }
 .nav-menu a {
   color: var(--charcoal); text-decoration: none; font-weight: 600; font-size: 0.875rem;
@@ -127,7 +135,7 @@ body {
   width: 36px; height: 36px; background: var(--cream); border: none;
   border-radius: 50%; font-size: 1.125rem; cursor: pointer;
 }
-.sidebar-logo { font-size: 1.25rem; font-weight: 800; margin-bottom: 2rem; color: var(--gold-dark); }
+.sidebar-logo { font-size: 1.25rem; font-weight: 800; margin-bottom: 2rem; color: var(--gold-dark); letter-spacing: -0.025em; }
 .sidebar-menu { list-style: none; }
 .sidebar-menu li { margin-bottom: 0.25rem; }
 .sidebar-menu a {
@@ -368,7 +376,7 @@ textarea.form-input { resize: vertical; min-height: 80px; }
 }
 @media (max-width: 880px) { .footer-grid { grid-template-columns: 1fr 1fr; } }
 @media (max-width: 480px) { .footer-grid { grid-template-columns: 1fr; } }
-.footer-brand h3 { font-size: 1.5rem; font-weight: 800; margin-bottom: 0.75rem; }
+.footer-brand h3 { font-size: 1.5rem; font-weight: 800; margin-bottom: 0.75rem; letter-spacing: -0.025em; }
 .footer-brand p { font-size: 0.875rem; opacity: 0.9; line-height: 1.6; margin-bottom: 1rem; }
 .footer-col h4 {
   font-size: 0.875rem; font-weight: 800; margin-bottom: 1rem;
