@@ -1,0 +1,14 @@
+# robots.txt for viecnha247.vn
+# Cho phép tất cả search engine crawl toàn bộ website
+
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /api/
+Disallow: /*.json$
+
+# Đường dẫn sitemap
+Sitemap: https://viecnha247.vn/sitemap.xml
+
+# Crawl-delay (giây) - giảm tải server
+Crawl-delay: 1
