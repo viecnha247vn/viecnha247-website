@@ -113,17 +113,14 @@
 }
 </script>
 
-<!-- Google Analytics 4 - THAY G-XXXXXXXXXX BẰNG MEASUREMENT ID CỦA BẠN -->
-<!-- Hướng dẫn lấy: https://analytics.google.com -->
-<!--
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<!-- Google Analytics 4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-5MESLDPW51"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-  gtag('config', 'G-XXXXXXXXXX');
+  gtag('config', 'G-5MESLDPW51');
 </script>
--->
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -4060,6 +4057,16 @@ async function handleWizardSubmit(e) {
   const serviceName = SERVICE_NAMES[wizardState.service];
   const config = WIZARD_CONFIG[wizardState.service];
   
+  // GA4 Event Tracking - Form submit
+  if (typeof gtag !== 'undefined') {
+    gtag('event', 'generate_lead', {
+      event_category: 'booking',
+      event_label: wizardState.service,
+      service_type: serviceName,
+      order_id: orderId
+    });
+  }
+  
   // Time string
   let timeStr = wizardState.timeStart;
   if (config && config.timeMode === 'range' && wizardState.timeEnd) {
@@ -4271,6 +4278,81 @@ document.querySelectorAll('.service-card, .why-card, .testimonial-card, .how-ste
   el.style.opacity = '0';
   statsObserver.observe(el);
 });
+
+// ============================================================
+// === GA4 EVENT TRACKING - Theo dõi tương tác khách =========
+// ============================================================
+document.addEventListener('click', function(e) {
+  if (typeof gtag === 'undefined') return;
+  
+  const target = e.target.closest('a, button');
+  if (!target) return;
+  
+  const href = target.getAttribute('href') || '';
+  
+  // Track click hotline
+  if (href.startsWith('tel:')) {
+    gtag('event', 'click_phone', {
+      event_category: 'contact',
+      event_label: 'hotline_0849999247',
+      phone_number: '0849999247'
+    });
+  }
+  // Track click Zalo
+  else if (href.includes('zalo.me')) {
+    gtag('event', 'click_zalo', {
+      event_category: 'contact',
+      event_label: 'zalo_oa'
+    });
+  }
+  // Track click Facebook
+  else if (href.includes('facebook.com/viecnha247')) {
+    gtag('event', 'click_facebook', {
+      event_category: 'social',
+      event_label: 'facebook_page'
+    });
+  }
+  // Track click Messenger
+  else if (href.includes('m.me/viecnha247')) {
+    gtag('event', 'click_messenger', {
+      event_category: 'contact',
+      event_label: 'messenger'
+    });
+  }
+  // Track click email
+  else if (href.startsWith('mailto:')) {
+    const email = href.replace('mailto:', '');
+    gtag('event', 'click_email', {
+      event_category: 'contact',
+      event_label: email
+    });
+  }
+  // Track click service card
+  else if (target.classList.contains('service-card') || target.closest('.service-card')) {
+    const service = target.dataset.service || target.closest('.service-card')?.dataset.service || 'unknown';
+    gtag('event', 'select_service', {
+      event_category: 'engagement',
+      event_label: service
+    });
+  }
+}, true);
+
+// Track scroll depth (25%, 50%, 75%, 100%)
+let scrollDepths = { 25: false, 50: false, 75: false, 100: false };
+window.addEventListener('scroll', function() {
+  if (typeof gtag === 'undefined') return;
+  const scrollPercent = (window.scrollY + window.innerHeight) / document.documentElement.scrollHeight * 100;
+  Object.keys(scrollDepths).forEach(depth => {
+    if (!scrollDepths[depth] && scrollPercent >= depth) {
+      scrollDepths[depth] = true;
+      gtag('event', 'scroll_depth', {
+        event_category: 'engagement',
+        event_label: depth + '%',
+        value: parseInt(depth)
+      });
+    }
+  });
+}, { passive: true });
 </script>
 
 <!-- AI Chat Widget -->
